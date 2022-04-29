@@ -9,6 +9,30 @@
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="https://unpkg.com/jwt-decode/build/jwt-decode.js"></script>
+  <script>
+        function handleCredentialResponse(response) {
+          const data = jwt_decode(response.credential);
+          console.log(data);
+
+          if(data.email_verified)
+          {
+            window.location.href = '/simulado';
+          }
+        }
+        window.onload = function () {
+          google.accounts.id.initialize({
+            client_id: "767633973756-8c4q5qp5dhrftollm5r9f3u7p3rgdqvb.apps.googleusercontent.com",
+            callback: handleCredentialResponse
+          });
+          google.accounts.id.renderButton(
+            document.getElementById("buttonDiv"),
+            { theme: "outline", size: "large" }  // customization attributes
+          );
+          google.accounts.id.prompt(); // also display the One Tap dialog
+        }
+    </script>
 </head>
 <body class="mat-typography">
   <app-root></app-root>
