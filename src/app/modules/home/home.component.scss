@@ -1,0 +1,40 @@
+@use 'src/styles.scss' as styles;
+
+.navbar
+{
+  &__viewport
+  {
+    &--user{
+      border-radius: 50%;
+    }
+  }
+}
+
+mat-toolbar
+{
+  display: flex;
+  justify-content: space-between;
+}
+
+mat-drawer-container
+{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+mat-drawer
+{
+  width: 100px;
+}
+
+mat-drawer-content
+{
+  background-color: styles.$background-dark;
+  color: black;
+}
+
+mat-icon
+{
+  cursor: pointer;
+}

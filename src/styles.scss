@@ -1,5 +1,11 @@
 /* You can add global styles to this file, and also import other style files */
-$background-dark: #fafafa;
+$background-dark: #F2F3F5;
+
+.d-flex
+{
+  display: flex;
+  align-items: center;
+}
 
 html, body { height: 100%; }
 body { background-color: $background-dark; margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
