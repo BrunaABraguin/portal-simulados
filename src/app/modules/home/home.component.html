@@ -1,9 +1,9 @@
 <mat-toolbar color="primary">
-  <div class="d-flex navbar__viewport--login" [routerLink]="'/'">
-    <img width="58" height="48" src="../../../assets/images/logoWhite.svg">
+  <div class="d-flex" [routerLink]="'/'">
+    <img class="navbar__viewport--login" src="../../../assets/images/logoWhite.svg">
   </div>
   <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu de opções para usuário">
-    <mat-icon *ngIf="!user">person</mat-icon>
+    <mat-icon *ngIf="!user"><i class="ph-user-focus"></i></mat-icon>
     <img *ngIf="user" src="{{ user.photoUrl }}" width="32" height="32" class="navbar__viewport--user">
   </button>
   <mat-menu #menu="matMenu">
@@ -17,21 +17,16 @@
         </svg></mat-icon>
       <span>Sair</span>
     </button>
-    <button mat-menu-item (click)="loginWithGoogle()" *ngIf="!user">
-      <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-google"
-          viewBox="0 0 16 16">
-          <path
-            d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z" />
-        </svg></mat-icon>
-      <span>Entre com o Google</span>
+    <button mat-menu-item (click)="loginWithGoogle()" *ngIf="!user" class="d-flex">
+      <mat-icon><i class="ph-google-logo"></i></mat-icon>
+      <span> Entre com o Google</span>
     </button>
   </mat-menu>
 </mat-toolbar>
 <mat-drawer-container>
   <mat-drawer mode="side" opened>
     <button mat-menu-item [routerLink]="'/'" [routerLinkActive]="'/'">
-      <mat-icon>home</mat-icon>
-      <span>Início</span>
+      <i class="ph-house ph-3x"></i>
     </button>
   </mat-drawer>
   <mat-drawer-content>
@@ -51,7 +46,9 @@
         <mat-card>
           <mat-card-header>
             <mat-card-title>
-              {{ exam.nome }}
+              <span class="exams__search--details-title">
+                {{ exam.nome }}
+              </span>
             </mat-card-title>
           </mat-card-header>
           <mat-card-content>
@@ -60,12 +57,12 @@
             </p>
             <mat-divider></mat-divider>
             <div class="d-flex exams__search--details">
+              <mat-icon><i class="ph-calendar-blank"></i></mat-icon>
               <span class="d-flex">
-                <mat-icon>event_note</mat-icon>
                 {{ exam.data_fim }}
               </span>
+              <mat-icon><i class="ph-clock"></i></mat-icon>
               <span class="d-flex">
-                <mat-icon>timer</mat-icon>
                 {{ exam.duracao }} minutos
               </span>
             </div>

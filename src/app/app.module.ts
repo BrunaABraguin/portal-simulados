@@ -18,6 +18,7 @@ import { SimuladoComponent } from './modules/simulado/simulado.component';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 import { HomeComponent } from './modules/home/home.component';
 import { GoogleLoginProvider, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { WidgetComponent } from './shared/widget/widget.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { GoogleLoginProvider, SocialLoginModule } from '@abacritt/angularx-socia
     PageNotFoundComponent,
     PageNotFoundComponent,
     HomeComponent,
+    WidgetComponent,
   ],
   imports: [
     BrowserModule,

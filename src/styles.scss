@@ -1,11 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
 $background-dark: #F2F3F5;
 
+.mat-card-header-text {
+  margin: 0 !important;
+}
+
 .d-flex
 {
   display: flex;
   align-items: center;
 }
 
-html, body { height: 100%; }
+html, body { height: 100%; overflow-y: hidden; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
