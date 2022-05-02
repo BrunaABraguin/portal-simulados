@@ -10,6 +10,6 @@ export interface Simulado {
   data_atualizacao: string;
   ativo: boolean;
   simulado_questoes: Questao[];
-  tempo_limite: number;
+  duracao: number;
   simulado_questoes_count: number;
 }

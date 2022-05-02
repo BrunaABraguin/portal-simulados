@@ -1,5 +1,5 @@
 <mat-toolbar color="primary">
-  <div class="d-flex">
+  <div class="d-flex navbar__viewport--login" [routerLink]="'/'">
     <img width="58" height="48" src="../../../assets/images/logoWhite.svg">
   </div>
   <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu de opções para usuário">
@@ -27,8 +27,57 @@
     </button>
   </mat-menu>
 </mat-toolbar>
-<mat-drawer-container color="primary">
+<mat-drawer-container>
   <mat-drawer mode="side" opened>
+    <button mat-menu-item [routerLink]="'/'" [routerLinkActive]="'/'">
+      <mat-icon>home</mat-icon>
+      <span>Início</span>
+    </button>
   </mat-drawer>
-  <mat-drawer-content>Main content</mat-drawer-content>
+  <mat-drawer-content>
+    <h2>
+      Simulados disponíveis
+    </h2>
+    <mat-form-field appearance="fill" class="exams__search">
+      <mat-label>Buscar</mat-label>
+      <input matInput type="search" class="exams__search--input">
+      <button matSuffix mat-icon-button aria-label="Buscar">
+        <mat-icon>search</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <mat-grid-list cols="4" [rowHeight]="'190px'">
+      <mat-grid-tile *ngFor="let exam of data">
+        <mat-card>
+          <mat-card-header>
+            <mat-card-title>
+              {{ exam.nome }}
+            </mat-card-title>
+          </mat-card-header>
+          <mat-card-content>
+            <p>
+              {{ exam.descricao }}
+            </p>
+            <mat-divider></mat-divider>
+            <div class="d-flex exams__search--details">
+              <span class="d-flex">
+                <mat-icon>event_note</mat-icon>
+                {{ exam.data_fim }}
+              </span>
+              <span class="d-flex">
+                <mat-icon>timer</mat-icon>
+                {{ exam.duracao }} minutos
+              </span>
+            </div>
+          </mat-card-content>
+          <mat-divider></mat-divider>
+          <mat-card-actions align="end">
+            <button mat-button [routerLink]="'/exam/' + exam.id">
+              <span>Iniciar</span>
+            </button>
+          </mat-card-actions>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </mat-drawer-content>
 </mat-drawer-container>
