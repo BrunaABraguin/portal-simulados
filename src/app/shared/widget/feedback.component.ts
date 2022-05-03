@@ -1,16 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-widget',
-  templateUrl: './widget.component.html',
-  styleUrls: ['./widget.component.scss'],
+  selector: 'app-feedback',
+  templateUrl: './feedback.component.html',
+  styleUrls: ['./feedback.component.scss'],
 })
-export class WidgetComponent implements OnInit {
+export class FeedbackComponent implements OnInit {
   ideaShow: boolean = false;
   issueShow: boolean = false;
   suggestionShow: boolean = false;
   title!: string;
-
   constructor() {}
 
   ngOnInit(): void {}
