@@ -20,6 +20,7 @@ import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.c
 import { HomeComponent } from './modules/home/home.component';
 import { GoogleLoginProvider, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { FeedbackComponent } from './shared/widget/feedback.component';
+import { NavbarComponent } from './shared/navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { FeedbackComponent } from './shared/widget/feedback.component';
     PageNotFoundComponent,
     HomeComponent,
     FeedbackComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

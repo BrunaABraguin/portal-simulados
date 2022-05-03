@@ -12,7 +12,6 @@ export class HomeComponent implements OnInit {
 
   user!: any;
   loggedIn!: boolean;
-  showFiller = false;
   data: Simulado[] = [
     {
       id: 1,

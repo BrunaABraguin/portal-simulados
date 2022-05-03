@@ -1,74 +1,45 @@
-<mat-toolbar color="primary">
-  <div class="d-flex" [routerLink]="'/'">
-    <img class="navbar__viewport--login" src="../../../assets/images/logoWhite.svg">
-  </div>
-  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu de opções para usuário">
-    <mat-icon *ngIf="!user"><i class="ph-user-focus"></i></mat-icon>
-    <img *ngIf="user" src="{{ user.photoUrl }}" width="32" height="32" class="navbar__viewport--user">
+<h2>
+  Simulados disponíveis
+</h2>
+<mat-form-field appearance="outline" class="exams__search">
+  <mat-label>Buscar simulado</mat-label>
+  <input matInput type="search" class="exams__search--input">
+  <button matSuffix mat-icon-button aria-label="Buscar">
+    <mat-icon><i class="ph-magnifying-glass"></i></mat-icon>
   </button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="logout()" *ngIf="user">
-      <mat-icon><i class="ph-sign-out"></i></mat-icon>
-      <span>Sair</span>
-    </button>
-    <button mat-menu-item (click)="loginWithGoogle()" *ngIf="!user" class="d-flex">
-      <mat-icon><i class="ph-google-logo"></i></mat-icon>
-      <span> Entre com o Google</span>
-    </button>
-  </mat-menu>
-</mat-toolbar>
-<mat-drawer-container>
-  <mat-drawer mode="side" opened>
-    <button mat-menu-item [routerLink]="'/'" [routerLinkActive]="'/'" matTooltip="Início" [matTooltipPosition]="'right'">
-      <i class="ph-house ph-3x"></i>
-    </button>
-  </mat-drawer>
-  <mat-drawer-content>
-    <h2>
-      Simulados disponíveis
-    </h2>
-    <mat-form-field appearance="outline" class="exams__search">
-      <mat-label>Buscar simulado</mat-label>
-      <input matInput type="search" class="exams__search--input">
-      <button matSuffix mat-icon-button aria-label="Buscar">
-        <mat-icon><i class="ph-magnifying-glass"></i></mat-icon>
-      </button>
-    </mat-form-field>
-
-    <mat-grid-list cols="4" [rowHeight]="'190px'">
-      <mat-grid-tile *ngFor="let exam of data">
-        <mat-card>
-          <mat-card-header>
-            <mat-card-title>
-              <span class="exams__search--details-title">
-                {{ exam.nome }}
-              </span>
-            </mat-card-title>
-          </mat-card-header>
-          <mat-card-content>
-            <p>
-              {{ exam.descricao }}
-            </p>
-            <mat-divider></mat-divider>
-            <div class="d-flex exams__search--details">
-              <mat-icon><i class="ph-calendar-blank"></i></mat-icon>
-              <span class="d-flex">
-                {{ exam.data_fim }}
-              </span>
-              <mat-icon><i class="ph-clock"></i></mat-icon>
-              <span class="d-flex">
-                {{ exam.duracao }} minutos
-              </span>
-            </div>
-          </mat-card-content>
-          <mat-divider></mat-divider>
-          <mat-card-actions align="end">
-            <button mat-button [routerLink]="'/exam/' + exam.id">
-              <span>Iniciar</span>
-            </button>
-          </mat-card-actions>
-        </mat-card>
-      </mat-grid-tile>
-    </mat-grid-list>
-  </mat-drawer-content>
-</mat-drawer-container>
+</mat-form-field>
+<mat-grid-list cols="4" [rowHeight]="'190px'">
+  <mat-grid-tile *ngFor="let exam of data">
+    <mat-card>
+      <mat-card-header>
+        <mat-card-title>
+          <span class="exams__search--details-title">
+            {{ exam.nome }}
+          </span>
+        </mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          {{ exam.descricao }}
+        </p>
+        <mat-divider></mat-divider>
+        <div class="d-flex exams__search--details">
+          <mat-icon><i class="ph-calendar-blank"></i></mat-icon>
+          <span class="d-flex">
+            {{ exam.data_fim }}
+          </span>
+          <mat-icon><i class="ph-clock"></i></mat-icon>
+          <span class="d-flex">
+            {{ exam.duracao }} minutos
+          </span>
+        </div>
+      </mat-card-content>
+      <mat-divider></mat-divider>
+      <mat-card-actions align="end">
+        <button mat-button [routerLink]="'/simulado/' + exam.id">
+          <span>Iniciar</span>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-grid-tile>
+</mat-grid-list>

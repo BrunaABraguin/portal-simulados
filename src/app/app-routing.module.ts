@@ -6,7 +6,7 @@ import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.c
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'simulado', component: SimuladoComponent },
+  { path: 'simulado/:id', component: SimuladoComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

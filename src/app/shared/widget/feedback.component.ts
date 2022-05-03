@@ -9,6 +9,7 @@ export class FeedbackComponent implements OnInit {
   ideaShow: boolean = false;
   issueShow: boolean = false;
   suggestionShow: boolean = false;
+  sendShow: boolean = false;
   title!: string;
   constructor() {}
 
@@ -33,5 +34,13 @@ export class FeedbackComponent implements OnInit {
     this.ideaShow = false;
     this.issueShow = false;
     this.suggestionShow = false;
+    this.sendShow = false;
+  }
+
+  sendFeedback() {
+    this.ideaShow = false;
+    this.issueShow = false;
+    this.suggestionShow = false;
+    this.sendShow = true;
   }
 }

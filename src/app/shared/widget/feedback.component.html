@@ -1,6 +1,6 @@
 <div class="widget__feedback">
   <button mat-fab color="primary" matTooltip="Feedback" [matMenuTriggerFor]="menu"
-    *ngIf="!issueShow && !ideaShow && !suggestionShow">
+    *ngIf="!issueShow && !ideaShow && !suggestionShow && !sendShow">
     <mat-icon><i class="ph-chat-teardrop-dots"></i></mat-icon>
   </button>
   <mat-menu #menu="matMenu" yPosition="above">
@@ -36,8 +36,22 @@
           <textarea matInput placeholder="Queremos te ouvir. O que você gostaria de nos dizer? "
             formControlName="comment"></textarea>
         </mat-form-field>
-        <button mat-raised-button color="primary" class="widget__feedback--submit">Enviar Feedback</button>
+        <button mat-raised-button color="primary" class="widget__feedback--submit" (click)="sendFeedback()">Enviar Feedback</button>
       </form>
+    </mat-card-content>
+  </mat-card>
+  <mat-card *ngIf="sendShow" class="widget__feedback--form">
+    <mat-card-header>
+      <mat-card-title class="widget__feedback--form-title">
+        <span></span>
+        <button mat-icon-button (click)="closeForms()">
+          <mat-icon><i class="ph-x"></i></mat-icon>
+        </button>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="widget__feedback--send">
+      <h1>✅</h1>
+      <h2>Agradecemos o feedback!</h2>
     </mat-card-content>
   </mat-card>
 </div>

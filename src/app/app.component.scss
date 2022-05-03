@@ -1,0 +1,14 @@
+mat-drawer-container {
+  display: flex;
+  flex-direction: column;
+  height: 90%;
+}
+
+mat-drawer {
+  width: fit-content;
+  padding: 20px;
+}
+
+mat-icon {
+  cursor: pointer;
+}

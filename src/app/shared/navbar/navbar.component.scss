@@ -1,0 +1,19 @@
+.navbar {
+  &__viewport {
+    &--user {
+      border-radius: 50%;
+    }
+
+    &--login {
+      cursor: pointer;
+      width: 58px;
+      height: 48px;
+      margin: 0 20px;
+    }
+  }
+}
+
+mat-toolbar {
+  display: flex;
+  justify-content: space-between;
+}

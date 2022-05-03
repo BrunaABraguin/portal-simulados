@@ -32,5 +32,11 @@
     &--submit {
       width: 100%;
     }
+
+    &--send {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
   }
 }

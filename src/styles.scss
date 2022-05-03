@@ -11,5 +11,10 @@ $background-dark: #F2F3F5;
   align-items: center;
 }
 
+mat-drawer-content {
+  padding: 35px;
+  margin-left: 130px !important;
+}
+
 html, body { height: 100%; overflow-y: hidden; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
