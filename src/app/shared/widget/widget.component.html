@@ -1,3 +1,43 @@
-<button mat-fab color="primary">
-  <mat-icon><i class="ph-chat-teardrop-dots"></i></mat-icon>
-</button>
+<div class="widget__feedback">
+  <button mat-fab color="primary" matTooltip="Feedback" [matMenuTriggerFor]="menu"
+    *ngIf="!issueShow && !ideaShow && !suggestionShow">
+    <mat-icon><i class="ph-chat-teardrop-dots"></i></mat-icon>
+  </button>
+  <mat-menu #menu="matMenu" yPosition="above">
+    <button mat-menu-item (click)="issueForms()" matTooltip="Reportar um problema" [matTooltipPosition]="'left'">🐛
+      Problema</button>
+    <button mat-menu-item (click)="ideaForms()" matTooltip="Deixar uma ideia" [matTooltipPosition]="'left'">💡
+      Ideia</button>
+    <button mat-menu-item (click)="suggestionForms()" matTooltip="Sugerir melhorias" [matTooltipPosition]="'left'">📝
+      Sugestão</button>
+  </mat-menu>
+
+  <mat-card *ngIf="issueShow || ideaShow || suggestionShow" class="widget__feedback--form">
+    <mat-card-header>
+      <mat-card-title class="widget__feedback--form-title">
+          <span>{{ title }}</span>
+          <button mat-icon-button (click)="closeForms()">
+            <mat-icon><i class="ph-x"></i></mat-icon>
+          </button>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <form>
+        <mat-form-field *ngIf="issueShow" appearance="outline" class="widget__feedback--form-input">
+          <textarea matInput
+            placeholder="Algo não está funcionando bem? Queremos corrigir. Conte com detalhes o que está acontecendo..."
+            formControlName="description"></textarea>
+        </mat-form-field>
+        <mat-form-field *ngIf="ideaShow " appearance="outline" class="widget__feedback--form-input">
+          <textarea matInput placeholder="Teve uma ideia de melhoria ou de nova funcionalidade? Conta pra gente!"
+            formControlName="solution"></textarea>
+        </mat-form-field>
+        <mat-form-field *ngIf="suggestionShow" appearance="outline" class="widget__feedback--form-input">
+          <textarea matInput placeholder="Queremos te ouvir. O que você gostaria de nos dizer? "
+            formControlName="comment"></textarea>
+        </mat-form-field>
+        <button mat-raised-button color="primary" class="widget__feedback--submit">Enviar Feedback</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -14,6 +14,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatTooltipModule } from '@angular/material/tooltip';
 import { SimuladoComponent } from './modules/simulado/simulado.component';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 import { HomeComponent } from './modules/home/home.component';
@@ -43,7 +44,8 @@ import { WidgetComponent } from './shared/widget/widget.component';
     MatMenuModule,
     MatInputModule,
     MatGridListModule,
-    MatDividerModule
+    MatDividerModule,
+    MatTooltipModule
   ],
   providers: [
     {
