@@ -1,1 +1,7 @@
-<p>simulado works!</p>
+<div class="d-flex">
+  <mat-card class="progress__countdown" matTooltip="Tempo restante">
+    <countdown class="progress__countdown--timer" [config]="{ leftTime: tempoRestante, format: 'mm:ss' }"></countdown>
+  </mat-card>
+  <mat-progress-bar mode="determinate" value="10" color="accent" matTooltip="{{ quantidadeQuestoes }}"></mat-progress-bar>
+  <button mat-flat-button color="accent">{{ quantidadeQuestoes }}</button>
+</div>

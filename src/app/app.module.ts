@@ -15,12 +15,14 @@ import { MatInputModule } from '@angular/material/input';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { SimuladoComponent } from './modules/simulado/simulado.component';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 import { HomeComponent } from './modules/home/home.component';
 import { GoogleLoginProvider, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { FeedbackComponent } from './shared/widget/feedback.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
+import { CountdownModule } from 'ngx-countdown';
 
 @NgModule({
   declarations: [
@@ -47,7 +49,9 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
     MatInputModule,
     MatGridListModule,
     MatDividerModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatProgressBarModule,
+    CountdownModule
   ],
   providers: [
     {

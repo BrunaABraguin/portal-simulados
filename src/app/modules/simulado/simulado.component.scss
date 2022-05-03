@@ -1,0 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Rajdhani:wght@700&display=swap");
+
+.progress {
+  &__countdown {
+    width: fit-content;
+    min-width: 110px;
+    &--timer {
+      display: flex;
+      align-items: center;
+      font-family: "Rajdhani", sans-serif;
+      font-size: 3rem;
+    }
+  }
+}
