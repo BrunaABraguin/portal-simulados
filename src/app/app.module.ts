@@ -16,6 +16,7 @@ import { MatGridListModule } from '@angular/material/grid-list';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { MatRadioModule } from '@angular/material/radio';
 import { SimuladoComponent } from './modules/simulado/simulado.component';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 import { HomeComponent } from './modules/home/home.component';
@@ -51,6 +52,7 @@ import { CountdownModule } from 'ngx-countdown';
     MatDividerModule,
     MatTooltipModule,
     MatProgressBarModule,
+    MatRadioModule,
     CountdownModule
   ],
   providers: [

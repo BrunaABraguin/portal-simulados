@@ -17,7 +17,7 @@ export class SimuladoService {
         exam.perguntas = questions;
       });
     });
-    
+
     return new Observable((observer) => {
       observer.next(examsMock);
       observer.complete();

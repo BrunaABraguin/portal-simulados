@@ -1,7 +1,37 @@
 <div class="d-flex">
   <mat-card class="progress__countdown" matTooltip="Tempo restante">
-    <countdown class="progress__countdown--timer" [config]="{ leftTime: tempoRestante, format: 'mm:ss' }"></countdown>
+    <countdown *ngIf="showHour" class="progress__countdown--timer"
+      [config]="{ leftTime: tempoRestante, format: 'hh:mm:ss' }"></countdown>
+    <countdown *ngIf="!showHour" class="progress__countdown--timer"
+      [config]="{ leftTime: tempoRestante, format: 'mm:ss' }"></countdown>
   </mat-card>
-  <mat-progress-bar mode="determinate" value="10" color="accent" matTooltip="{{ quantidadeQuestoes }}"></mat-progress-bar>
+  <mat-progress-bar mode="determinate" value="{{ progresso }}" color="accent" matTooltip="{{ progresso }}%">
+  </mat-progress-bar>
   <button mat-flat-button color="accent">{{ quantidadeQuestoes }}</button>
+</div>
+<div class="questions">
+  <mat-card *ngFor="let question of questions; index as i;" class="questions__list">
+    <mat-chip-list aria-label="Disciplina e tema da questão" class="questions__tags d-flex">
+      <mat-chip color="primary" selected>{{ question.materia }}</mat-chip>
+      <mat-chip color="primary" selected>{{ question.assunto}}</mat-chip>
+    </mat-chip-list>
+    <mat-card-title class="questions__list--title">
+      <span>{{ i + 1 }}</span>
+      {{ question.enunciado }}
+    </mat-card-title>
+    <mat-card-content class="questions__list--content">
+        <mat-radio-group aria-labelledby="example-radio-group-label" class="questions__list--options">
+          <div *ngFor="let alt of question.alternativas; index as index;">
+              <label for="alt-{{i}}-{{index}}">
+                <input type="radio" [value]="alt" id="alt-{{i}}-{{index}}" name="alt-{{i}}" [checked]="alt.checked" (change)="saveExam()">
+                <span class="item">{{ options[index] }}</span>
+                <span>{{alt.enunciado}}</span>
+              </label>
+          </div>
+        </mat-radio-group>
+    </mat-card-content>
+  </mat-card>
+  <div>
+
+  </div>
 </div>

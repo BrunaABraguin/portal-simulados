@@ -1,3 +1,4 @@
+import { Questao } from './../../shared/interfaces/questao';
 import { Simulado } from '../../shared/interfaces/simulado';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
@@ -9,12 +10,17 @@ import { SimuladoService } from './service/simulado.service';
   styleUrls: ['./simulado.component.scss'],
 })
 export class SimuladoComponent implements OnInit {
+  options: string[] = ['A', 'B', 'C', 'D', 'E'];
   simulado!: Simulado;
   demo: any;
   inicio: any;
   fim: any;
   tempoRestante: any;
   quantidadeQuestoes!: number;
+  progresso!: number;
+  feitas!: number;
+  showHour: boolean = false;
+  questions!: Questao[];
 
   constructor(
     private route: ActivatedRoute,
@@ -27,6 +33,8 @@ export class SimuladoComponent implements OnInit {
     this.cronometro();
 
     this.quantidadeQuestoes = this.simulado.perguntas.length;
+
+    this.progresso = 0;
   }
 
   ngOnDestroy(): void {
@@ -38,6 +46,8 @@ export class SimuladoComponent implements OnInit {
     const id = String(this.route.snapshot.paramMap.get('id'));
     this.simuladoService.getSimuladoById(id).subscribe((simulado) => {
       this.simulado = simulado;
+      this.questions = simulado.perguntas;
+      console.log(this.questions);
     });
   }
 
@@ -66,6 +76,15 @@ export class SimuladoComponent implements OnInit {
 
     const miliseconds = this.fim.getTime() - new Date().getTime();
     const seconds = miliseconds / 1000;
+
     this.tempoRestante = seconds;
+
+    if (this.tempoRestante > 3600) {
+      this.showHour = true;
+    }
   }
+
+  saveExam(): void {
+
+  };
 }

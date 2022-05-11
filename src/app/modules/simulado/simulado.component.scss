@@ -3,12 +3,79 @@
 .progress {
   &__countdown {
     width: fit-content;
-    min-width: 110px;
+
     &--timer {
       display: flex;
       align-items: center;
       font-family: "Rajdhani", sans-serif;
       font-size: 3rem;
+    }
+  }
+}
+
+.questions {
+  margin: 3rem 0;
+
+  &__tags {
+    width: 100%;
+    justify-content: end;
+    margin-bottom: 2rem;
+
+    mat-chip {
+      min-width: 155px;
+      justify-content: center;
+    }
+  }
+
+  &__list {
+    margin-bottom: 2rem;
+
+    &--title {
+      display: flex;
+
+      span {
+        margin: 0 3rem;
+      }
+    }
+
+    &--content {
+      padding: 2rem 0 2rem 5rem;
+    }
+
+    &--options {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 16px;
+      line-height: 40px;
+
+      label {
+        cursor: pointer;
+      }
+
+      input {
+        display: none;
+
+        &:checked+.item {
+          background-color: #69F0AE;
+          color: white;
+        }
+      }
+
+      .item {
+        color: #69F0AE;
+        font-weight: bold;
+        height: 25px;
+        line-height: 23px;
+        min-width: 25px;
+        width: 25px;
+        border: 2px solid #69F0AE;
+        border-radius: 50%;
+        margin-right: 15px;
+        display: inline-block;
+        text-align: center;
+        text-transform: uppercase;
+      }
     }
   }
 }

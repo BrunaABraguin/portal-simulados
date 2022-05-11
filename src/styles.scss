@@ -21,6 +21,14 @@ $background-dark: #F2F3F5;
   align-items: center;
 }
 
+.d-none {
+  display: none;
+}
+
+.d-block {
+  display: block;
+}
+
 mat-drawer-content {
   padding: 35px;
   margin-left: 130px !important;

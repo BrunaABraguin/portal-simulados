@@ -5,14 +5,33 @@
     "assunto": "Álgebra",
     "enunciado": "I am a student at the University of Washington",
     "alternativas": [
-      "I am a student at the University of Washington",
-      "I am not a student at the University of Washington",
-      "I am a postdoc at the University of Washington",
-      "I am not a postdoc at the University of Washington",
-      "I am a professor at the University of Washington"
+      {
+        "enunciado": "I am a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am not a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am not a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am not a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      }
     ],
-    "correta": "I am a student at the University of Washington",
-    "comentarios": ["I am a student at the University of Washington"]
+    "correta": "I am a student at the University of Washington"
   },
   {
     "id": "2",
@@ -20,14 +39,33 @@
     "assunto": "Álgebra",
     "enunciado": "I am a student at the University of Washington",
     "alternativas": [
-      "I am a student at the University of Washington",
-      "I am not a student at the University of Washington",
-      "I am a postdoc at the University of Washington",
-      "I am not a postdoc at the University of Washington",
-      "I am a professor at the University of Washington"
+      {
+        "enunciado": "I am a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am not a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am not a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am not a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      }
     ],
-    "correta": "I am a student at the University of Washington",
-    "comentarios": ["I am a student at the University of Washington"]
+    "correta": "I am a student at the University of Washington"
   },
   {
     "id": "3",
@@ -35,14 +73,33 @@
     "assunto": "Álgebra",
     "enunciado": "I am a student at the University of Washington",
     "alternativas": [
-      "I am a student at the University of Washington",
-      "I am not a student at the University of Washington",
-      "I am a postdoc at the University of Washington",
-      "I am not a postdoc at the University of Washington",
-      "I am a professor at the University of Washington"
+      {
+        "enunciado": "I am a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am not a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am not a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am not a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      }
     ],
-    "correta": "I am a student at the University of Washington",
-    "comentarios": ["I am a student at the University of Washington"]
+    "correta": "I am a student at the University of Washington"
   },
   {
     "id": "4",
@@ -50,29 +107,67 @@
     "assunto": "Álgebra",
     "enunciado": "I am a student at the University of Washington",
     "alternativas": [
-      "I am a student at the University of Washington",
-      "I am not a student at the University of Washington",
-      "I am a postdoc at the University of Washington",
-      "I am not a postdoc at the University of Washington",
-      "I am a professor at the University of Washington"
+      {
+        "enunciado": "I am a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am not a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am not a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am not a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      }
     ],
-    "correta": "I am a student at the University of Washington",
-    "comentarios": ["I am a student at the University of Washington"]
+    "correta": "I am a student at the University of Washington"
   },
   {
     "id": "5",
     "materia": "Matemática",
     "assunto": "Álgebra",
-    "enunciado": "I am a student at the University of Washington",
+    "enunciado": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae purus faucibus ornare suspendisse sed nisi lacus sed. Et egestas quis ipsum suspendisse ultrices gravida dictum.",
     "alternativas": [
-      "I am a student at the University of Washington",
-      "I am not a student at the University of Washington",
-      "I am a postdoc at the University of Washington",
-      "I am not a postdoc at the University of Washington",
-      "I am a professor at the University of Washington"
+      {
+        "enunciado": "I am a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am not a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am not a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am not a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      }
     ],
-    "correta": "I am a student at the University of Washington",
-    "comentarios": ["I am a student at the University of Washington"]
+    "correta": "I am a student at the University of Washington"
   },
   {
     "id": "6",
@@ -80,11 +175,32 @@
     "assunto": "Álgebra",
     "enunciado": "I am a student at the University of Washington",
     "alternativas": [
-      "I am a student at the University of Washington",
-      "I am not a student at the University of Washington",
-      "I am a postdoc at the University of Washington",
-      "I am not a postdoc at the University of Washington",
-      "I am a professor at the University of Washington"
-    ]
+      {
+        "enunciado": "I am a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am not a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am not a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      },
+      {
+        "enunciado": "I am not a student at the University of Washington",
+        "checked": false,
+        "comentario": "I am a student at the University of Washington"
+      }
+    ],
+    "correta": "I am a student at the University of Washington"
   }
 ]
