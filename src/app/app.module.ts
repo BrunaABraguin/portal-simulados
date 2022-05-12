@@ -26,6 +26,7 @@ import { GoogleLoginProvider, SocialLoginModule } from '@abacritt/angularx-socia
 import { FeedbackComponent } from './shared/widget/feedback.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CountdownModule } from 'ngx-countdown';
+import { ResultadosComponent } from './modules/resultados/resultados.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { CountdownModule } from 'ngx-countdown';
     HomeComponent,
     FeedbackComponent,
     NavbarComponent,
+    ResultadosComponent,
   ],
   imports: [
     BrowserModule,

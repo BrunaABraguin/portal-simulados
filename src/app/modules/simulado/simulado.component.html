@@ -39,5 +39,5 @@
 </div>
 <div class="send d-flex">
   <h3>Faltam {{ simulado.perguntas.length - progresso  }} para responder </h3>
-  <button mat-raised-button color="accent">Finalizar simulado</button>
+  <button mat-raised-button color="accent" routerLink="/resultados/{{simulado.id}}">Finalizar simulado</button>
 </div>
