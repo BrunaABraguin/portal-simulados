@@ -5,12 +5,16 @@
     <countdown *ngIf="!showHour" class="progress__countdown--timer"
       [config]="{ leftTime: tempoRestante, format: 'mm:ss' }"></countdown>
   </mat-card>
-  <mat-progress-bar mode="determinate" value="{{ progresso }}" color="accent" matTooltip="{{ progresso }}%">
+  <mat-progress-bar mode="determinate" value="{{progresso / simulado.perguntas.length * 100 }}" color="accent"
+    matTooltip="{{ progresso / simulado.perguntas.length * 100}}%">
   </mat-progress-bar>
-  <button mat-flat-button color="accent">{{ quantidadeQuestoes }}</button>
+  <button mat-flat-button color="accent">{{progresso}} / {{ simulado.perguntas.length }}</button>
+  <div class="loading" [class.d-none]="!isLoading" role="status">
+    <mat-spinner></mat-spinner>
+  </div>
 </div>
 <div class="questions">
-  <mat-card *ngFor="let question of questions; index as i;" class="questions__list">
+  <mat-card *ngFor="let question of questions; let i = index;" class="questions__list">
     <mat-chip-list aria-label="Disciplina e tema da questão" class="questions__tags d-flex">
       <mat-chip color="primary" selected>{{ question.materia }}</mat-chip>
       <mat-chip color="primary" selected>{{ question.assunto}}</mat-chip>
@@ -20,18 +24,20 @@
       {{ question.enunciado }}
     </mat-card-title>
     <mat-card-content class="questions__list--content">
-        <mat-radio-group aria-labelledby="example-radio-group-label" class="questions__list--options">
-          <div *ngFor="let alt of question.alternativas; index as index;">
-              <label for="alt-{{i}}-{{index}}">
-                <input type="radio" [value]="alt" id="alt-{{i}}-{{index}}" name="alt-{{i}}" [checked]="alt.checked" (change)="saveExam()">
-                <span class="item">{{ options[index] }}</span>
-                <span>{{alt.enunciado}}</span>
-              </label>
-          </div>
-        </mat-radio-group>
+      <mat-radio-group aria-labelledby="example-radio-group-label" class="questions__list--options">
+        <div *ngFor="let alt of question.alternativas; let index = index;">
+          <label for="alt-{{i}}-{{index}}">
+            <input type="radio" [value]="alt" id="alt-{{i}}-{{index}}" name="alt-{{i}}" [checked]="alt.checked"
+              (change)="saveExam(alt, question)">
+            <span class="item">{{ options[index] }}</span>
+            <span>{{alt.enunciado}}</span>
+          </label>
+        </div>
+      </mat-radio-group>
     </mat-card-content>
   </mat-card>
-  <div>
-
-  </div>
+</div>
+<div class="send d-flex">
+  <h3>Faltam {{ simulado.perguntas.length - progresso  }} para responder </h3>
+  <button mat-raised-button color="accent">Finalizar simulado</button>
 </div>

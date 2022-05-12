@@ -1,3 +1,4 @@
+import { Alternativa } from './../../shared/interfaces/alternativa';
 import { Questao } from './../../shared/interfaces/questao';
 import { Simulado } from '../../shared/interfaces/simulado';
 import { ActivatedRoute } from '@angular/router';
@@ -12,13 +13,11 @@ import { SimuladoService } from './service/simulado.service';
 export class SimuladoComponent implements OnInit {
   options: string[] = ['A', 'B', 'C', 'D', 'E'];
   simulado!: Simulado;
-  demo: any;
   inicio: any;
   fim: any;
+  isLoading: boolean = true;
   tempoRestante: any;
-  quantidadeQuestoes!: number;
-  progresso!: number;
-  feitas!: number;
+  progresso: number = 0;
   showHour: boolean = false;
   questions!: Questao[];
 
@@ -27,47 +26,50 @@ export class SimuladoComponent implements OnInit {
     private simuladoService: SimuladoService
   ) {}
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.getSimuladoById();
     this.fimSimulado();
     this.cronometro();
-
-    this.quantidadeQuestoes = this.simulado.perguntas.length;
-
-    this.progresso = 0;
   }
 
   ngOnDestroy(): void {
-    localStorage.removeItem('inicio');
-    localStorage.removeItem('fim');
+    localStorage.removeItem(`fim-${this.simulado.id}`);
+    localStorage.removeItem(`inicio-${this.simulado.id}`);
   }
 
   getSimuladoById(): void {
     const id = String(this.route.snapshot.paramMap.get('id'));
+    const questoesSalvas = localStorage.getItem(`exam-${id}`);
+
     this.simuladoService.getSimuladoById(id).subscribe((simulado) => {
       this.simulado = simulado;
-      this.questions = simulado.perguntas;
-      console.log(this.questions);
+
+      if (questoesSalvas === null) {
+        this.questions = simulado.perguntas;
+      } else {
+        this.questions = JSON.parse(questoesSalvas);
+        this.progresso = Number(localStorage.getItem('progresso'));
+      }
+      this.isLoading = false;
     });
   }
 
   inicioSimulado(): void {
-    this.inicio = localStorage.getItem('inicio');
+    this.inicio = localStorage.getItem(`inicio-${this.simulado.id}`);
     if (this.inicio === null) {
       this.inicio = new Date();
-      localStorage.setItem('inicio', new Date().toString());
+      localStorage.setItem(`inicio-${this.simulado.id}`, new Date().toString());
     }
   }
 
   fimSimulado(): void {
     this.inicioSimulado();
-
-    this.fim = localStorage.getItem('fim');
+    this.fim = localStorage.getItem(`fim-${this.simulado.id}`);
 
     if (this.fim === null) {
       this.fim = new Date(this.inicio);
       this.fim.setTime(this.fim.getTime() + this.simulado.duracao * 60 * 1000);
-      localStorage.setItem('fim', this.fim.toString());
+      localStorage.setItem(`fim-${this.simulado.id}`, this.fim.toString());
     }
   }
 
@@ -84,7 +86,27 @@ export class SimuladoComponent implements OnInit {
     }
   }
 
-  saveExam(): void {
-
-  };
+  saveExam(
+    alternativaSelecionada: Alternativa,
+    questaoSelectionada: Questao
+  ): void {
+    this.questions.find((question) => {
+      if (question.id === questaoSelectionada.id) {
+        question.alternativas.find((alternativa) => {
+          if (alternativaSelecionada.id === alternativa.id) {
+            alternativa.checked = true;
+            if (question.respondida === false) {
+              question.respondida = true;
+              this.progresso++;
+            }
+          }
+        });
+        localStorage.setItem(
+          `exam-${this.simulado.id}`,
+          JSON.stringify(this.questions)
+        );
+        localStorage.setItem('progresso', this.progresso.toString());
+      }
+    });
+  }
 }

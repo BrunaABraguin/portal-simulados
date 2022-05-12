@@ -13,6 +13,12 @@
   }
 }
 
+.send {
+  justify-content: space-between;
+  align-items: center;
+  width: 52%;
+}
+
 .questions {
   margin: 3rem 0;
 
@@ -34,7 +40,7 @@
       display: flex;
 
       span {
-        margin: 0 3rem;
+        margin: 0 33px;
       }
     }
 

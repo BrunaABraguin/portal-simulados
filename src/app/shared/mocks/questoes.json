@@ -6,32 +6,42 @@
     "enunciado": "I am a student at the University of Washington",
     "alternativas": [
       {
+        "id": "1",
         "enunciado": "I am a student at the University of Washington",
         "checked": false,
+        "isCorrect": true,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "2",
         "enunciado": "I am not a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "3",
         "enunciado": "I am a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "4",
         "enunciado": "I am not a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "5",
         "enunciado": "I am not a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       }
     ],
-    "correta": "I am a student at the University of Washington"
+    "respondida": false
   },
   {
     "id": "2",
@@ -40,32 +50,42 @@
     "enunciado": "I am a student at the University of Washington",
     "alternativas": [
       {
+        "id": "1",
         "enunciado": "I am a student at the University of Washington",
         "checked": false,
+        "isCorrect": true,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "2",
         "enunciado": "I am not a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "3",
         "enunciado": "I am a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "4",
         "enunciado": "I am not a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "5",
         "enunciado": "I am not a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       }
     ],
-    "correta": "I am a student at the University of Washington"
+    "respondida": false
   },
   {
     "id": "3",
@@ -74,32 +94,42 @@
     "enunciado": "I am a student at the University of Washington",
     "alternativas": [
       {
+        "id": "1",
         "enunciado": "I am a student at the University of Washington",
         "checked": false,
+        "isCorrect": true,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "2",
         "enunciado": "I am not a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "3",
         "enunciado": "I am a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "4",
         "enunciado": "I am not a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "5",
         "enunciado": "I am not a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       }
     ],
-    "correta": "I am a student at the University of Washington"
+    "respondida": false
   },
   {
     "id": "4",
@@ -108,32 +138,42 @@
     "enunciado": "I am a student at the University of Washington",
     "alternativas": [
       {
+        "id": "1",
         "enunciado": "I am a student at the University of Washington",
         "checked": false,
+        "isCorrect": true,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "2",
         "enunciado": "I am not a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "3",
         "enunciado": "I am a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "4",
         "enunciado": "I am not a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "5",
         "enunciado": "I am not a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       }
     ],
-    "correta": "I am a student at the University of Washington"
+    "respondida": false
   },
   {
     "id": "5",
@@ -142,32 +182,42 @@
     "enunciado": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae purus faucibus ornare suspendisse sed nisi lacus sed. Et egestas quis ipsum suspendisse ultrices gravida dictum.",
     "alternativas": [
       {
+        "id": "1",
         "enunciado": "I am a student at the University of Washington",
         "checked": false,
+        "isCorrect": true,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "2",
         "enunciado": "I am not a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "3",
         "enunciado": "I am a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "4",
         "enunciado": "I am not a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "5",
         "enunciado": "I am not a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       }
     ],
-    "correta": "I am a student at the University of Washington"
+    "respondida": false
   },
   {
     "id": "6",
@@ -176,31 +226,41 @@
     "enunciado": "I am a student at the University of Washington",
     "alternativas": [
       {
+        "id": "1",
         "enunciado": "I am a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "2",
         "enunciado": "I am not a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "3",
         "enunciado": "I am a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "4",
         "enunciado": "I am not a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       },
       {
+        "id": "5",
         "enunciado": "I am not a student at the University of Washington",
         "checked": false,
+        "isCorrect": false,
         "comentario": "I am a student at the University of Washington"
       }
     ],
-    "correta": "I am a student at the University of Washington"
+    "respondida": false
   }
 ]
