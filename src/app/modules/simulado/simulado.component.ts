@@ -1,3 +1,4 @@
+import { Selecionadas } from './../../shared/interfaces/alternativaQuestaoSelecionadas';
 import { Alternativa } from './../../shared/interfaces/alternativa';
 import { Questao } from './../../shared/interfaces/questao';
 import { Simulado } from '../../shared/interfaces/simulado';
@@ -86,19 +87,18 @@ export class SimuladoComponent implements OnInit {
     }
   }
 
-  saveExam(
-    alternativaSelecionada: Alternativa,
-    questaoSelectionada: Questao
-  ): void {
+  saveExam(selecionada: Selecionadas): void {
     this.questions.find((question) => {
-      if (question.id === questaoSelectionada.id) {
+      if (question.id === selecionada.questao.id) {
         question.alternativas.find((alternativa) => {
-          if (alternativaSelecionada.id === alternativa.id) {
+          if (selecionada.alternativa.id === alternativa.id) {
             alternativa.checked = true;
             if (question.respondida === false) {
               question.respondida = true;
               this.progresso++;
             }
+          } else {
+            alternativa.checked = false;
           }
         });
         localStorage.setItem(

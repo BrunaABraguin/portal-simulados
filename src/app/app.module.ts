@@ -27,6 +27,7 @@ import { FeedbackComponent } from './shared/widget/feedback.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CountdownModule } from 'ngx-countdown';
 import { ResultadosComponent } from './modules/resultados/resultados.component';
+import { QuestionCardComponent } from './shared/question-card/question-card.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ResultadosComponent } from './modules/resultados/resultados.component';
     FeedbackComponent,
     NavbarComponent,
     ResultadosComponent,
+    QuestionCardComponent,
   ],
   imports: [
     BrowserModule,

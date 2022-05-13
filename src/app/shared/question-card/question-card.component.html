@@ -1,0 +1,22 @@
+<mat-card class="questions__list">
+  <mat-chip-list aria-label="Disciplina e tema da questão" class="questions__tags d-flex">
+    <mat-chip color="primary" selected>{{ question.materia }}</mat-chip>
+    <mat-chip color="primary" selected>{{ question.assunto}}</mat-chip>
+  </mat-chip-list>
+  <mat-card-title class="questions__list--title">
+    <span>{{ i + 1 }}</span>
+    {{ question.enunciado }}
+  </mat-card-title>
+  <mat-card-content class="questions__list--content">
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="questions__list--options">
+      <div *ngFor="let alt of question.alternativas; let index = index;">
+        <label for="alt-{{i}}-{{index}}">
+          <input type="radio" [value]="alt" id="alt-{{i}}-{{index}}" name="alt-{{i}}" [checked]="alt.checked"
+            (change)="saveExam(alt, question)">
+          <span class="item">{{ options[index] }}</span>
+          <span>{{alt.enunciado}}</span>
+        </label>
+      </div>
+    </mat-radio-group>
+  </mat-card-content>
+</mat-card>
