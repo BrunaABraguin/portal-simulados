@@ -1,7 +1,7 @@
 import { Questao } from './../interfaces/questao';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Alternativa } from '../interfaces/alternativa';
-import { Selecionadas } from '../interfaces/alternativaQuestaoSelecionadas';
+import { Selecionadas } from '../interfaces/selecionadas';
 
 @Component({
   selector: 'app-question-card',

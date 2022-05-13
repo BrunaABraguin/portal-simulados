@@ -1,5 +1,4 @@
-import { Selecionadas } from './../../shared/interfaces/alternativaQuestaoSelecionadas';
-import { Alternativa } from './../../shared/interfaces/alternativa';
+import { Selecionadas } from '../../shared/interfaces/selecionadas';
 import { Questao } from './../../shared/interfaces/questao';
 import { Simulado } from '../../shared/interfaces/simulado';
 import { ActivatedRoute } from '@angular/router';
@@ -21,6 +20,7 @@ export class SimuladoComponent implements OnInit {
   progresso: number = 0;
   showHour: boolean = false;
   questions!: Questao[];
+  restantes!: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -50,6 +50,7 @@ export class SimuladoComponent implements OnInit {
       } else {
         this.questions = JSON.parse(questoesSalvas);
         this.progresso = Number(localStorage.getItem('progresso'));
+        this.verificarRestantes();
       }
       this.isLoading = false;
     });
@@ -106,7 +107,12 @@ export class SimuladoComponent implements OnInit {
           JSON.stringify(this.questions)
         );
         localStorage.setItem('progresso', this.progresso.toString());
+        this.verificarRestantes();
       }
     });
+  }
+
+  verificarRestantes():  void {
+    this.restantes = this.questions.length - this.progresso;
   }
 }

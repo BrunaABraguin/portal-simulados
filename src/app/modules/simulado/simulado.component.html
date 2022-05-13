@@ -1,22 +1,21 @@
-<div class="d-flex">
+<section class="d-flex">
   <mat-card class="progress__countdown" matTooltip="Tempo restante">
     <countdown *ngIf="showHour" class="progress__countdown--timer"
       [config]="{ leftTime: tempoRestante, format: 'hh:mm:ss' }"></countdown>
     <countdown *ngIf="!showHour" class="progress__countdown--timer"
       [config]="{ leftTime: tempoRestante, format: 'mm:ss' }"></countdown>
   </mat-card>
-  <mat-progress-bar mode="determinate" value="{{progresso / simulado.perguntas.length * 100 }}" color="accent"
-    matTooltip="{{ progresso / simulado.perguntas.length * 100}}%">
+  <mat-progress-bar mode="determinate" value="{{progresso / simulado.perguntas.length * 100 }}" color="accent" matTooltip="{{ progresso / simulado.perguntas.length * 100}}%">
   </mat-progress-bar>
   <button mat-flat-button color="accent">{{progresso}} / {{ simulado.perguntas.length }}</button>
   <div class="loading" [class.d-none]="!isLoading" role="status">
     <mat-spinner></mat-spinner>
   </div>
-</div>
+</section>
 <div class="questions" *ngFor="let question of questions; let i = index;">
   <app-question-card class="questions__list" [question]="question" [i]="i" (alternativaQuestaoSelecionadas)="saveExam($event)"></app-question-card>
 </div>
 <div class="send d-flex">
-  <h3>Faltam {{ simulado.perguntas.length - progresso  }} para responder </h3>
+  <h3>Faltam {{ restantes }} para responder </h3>
   <button mat-raised-button color="accent" routerLink="/resultados/{{simulado.id}}">Finalizar simulado</button>
 </div>
