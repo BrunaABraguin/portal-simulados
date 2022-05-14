@@ -28,6 +28,7 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { CountdownModule } from 'ngx-countdown';
 import { ResultadosComponent } from './modules/resultados/resultados.component';
 import { QuestionCardComponent } from './shared/question-card/question-card.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { QuestionCardComponent } from './shared/question-card/question-card.comp
     MatRadioModule,
     MatProgressSpinnerModule,
     MatDialogModule,
-    CountdownModule
+    CountdownModule,
+    NgChartsModule
   ],
   providers: [
     {

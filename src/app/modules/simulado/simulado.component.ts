@@ -11,16 +11,16 @@ import { SimuladoService } from './service/simulado.service';
   styleUrls: ['./simulado.component.scss'],
 })
 export class SimuladoComponent implements OnInit {
-  options: string[] = ['A', 'B', 'C', 'D', 'E'];
-  simulado!: Simulado;
-  inicio: any;
-  fim: any;
-  isLoading: boolean = true;
-  tempoRestante: any;
-  progresso: number = 0;
-  showHour: boolean = false;
-  questions!: Questao[];
-  restantes!: number;
+  public options: string[] = ['A', 'B', 'C', 'D', 'E'];
+  public simulado!: Simulado;
+  public inicio: any;
+  public fim: any;
+  public isLoading: boolean = true;
+  public tempoRestante: any;
+  public progresso: number = 0;
+  public showHour: boolean = false;
+  public questions!: Questao[];
+  public restantes!: number;
 
   constructor(
     private route: ActivatedRoute,
@@ -112,7 +112,7 @@ export class SimuladoComponent implements OnInit {
     });
   }
 
-  verificarRestantes():  void {
+  verificarRestantes(): void {
     this.restantes = this.questions.length - this.progresso;
   }
 }

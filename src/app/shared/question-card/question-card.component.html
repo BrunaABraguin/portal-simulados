@@ -1,4 +1,4 @@
-<section>
+<section *ngIf="!mostrarResposta">
   <mat-card class="questions__list">
     <mat-chip-list aria-label="Disciplina e tema da questão" class="questions__tags d-flex">
       <mat-chip color="primary" selected>{{ question.materia }}</mat-chip>

@@ -8,8 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  user!: any;
-  loggedIn!: boolean;
+  public user!: any;
+  public loggedIn!: boolean;
 
   constructor(private authService: SocialAuthService, private router: Router) {}
 

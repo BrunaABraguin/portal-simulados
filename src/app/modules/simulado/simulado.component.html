@@ -13,7 +13,7 @@
   </div>
 </section>
 <div class="questions" *ngFor="let question of questions; let i = index;">
-  <app-question-card class="questions__list" [question]="question" [i]="i" (alternativaQuestaoSelecionadas)="saveExam($event)"></app-question-card>
+  <app-question-card class="questions__list" [question]="question" [i]="i" (alternativaQuestaoSelecionadas)="saveExam($event)" [mostrarResposta]="false"></app-question-card>
 </div>
 <div class="send d-flex">
   <h3>Faltam {{ restantes }} para responder </h3>

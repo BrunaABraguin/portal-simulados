@@ -1,2 +1,31 @@
-<div class="bgHeader"></div>
-<img src="../../../assets/images/confetti.gif">
+<div>
+  <img class="header__background" src="../../../assets/images/bgHeaderPurple.svg" alt="Fundo roxo">
+  <img class="header__confetti" src="../../../assets/images/confetti.gif" alt="Confete">
+</div>
+<div class="header__text">
+  <h1>Parabéns!</h1>
+  <h2>Você finalizou o simulado!</h2>
+</div>
+<section>
+  <mat-card>
+    <div class="d-flex">
+      <div class="header__donutchart">
+        <canvas baseChart [data]="doughnutChartData" [type]="doughnutChartType"></canvas>
+      </div>
+      <div>
+        <h1>0:00</h1>
+        <h2>Duração</h2>
+      </div>
+      <div>
+        <h1>70%</h1>
+        <h2>Acertos</h2>
+      </div>
+      <div class="header__barchart">
+        <canvas baseChart [data]="barChartData" [options]="barChartOptions" [type]="barChartType">
+        </canvas>
+      </div>
+    </div>
+
+  </mat-card>
+  <app-question-card [mostrarResposta]="true"></app-question-card>
+</section>

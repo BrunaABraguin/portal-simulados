@@ -10,12 +10,15 @@ import data from '../../shared/mocks/simulados.json';
   styleUrls: ['./home.component.scss'],
 })
 export class HomeComponent implements OnInit {
+  public user!: any;
+  public loggedIn!: boolean;
+  public data!: Simulado[];
 
-  user!: any;
-  loggedIn!: boolean;
-  data!: Simulado[];
-
-  constructor(private authService: SocialAuthService, private router: Router, private simuladoService: SimuladoService) {}
+  constructor(
+    private authService: SocialAuthService,
+    private router: Router,
+    private simuladoService: SimuladoService
+  ) {}
 
   ngOnInit(): void {
     this.getSimulados();
@@ -35,7 +38,7 @@ export class HomeComponent implements OnInit {
       .then(() => this.router.navigate(['']));
   }
 
-  getSimulados(): void{
+  getSimulados(): void {
     this.simuladoService.getSimulados().subscribe((simulados) => {
       this.data = simulados;
     });
