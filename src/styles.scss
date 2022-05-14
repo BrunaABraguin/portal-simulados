@@ -3,10 +3,10 @@
 
 @include mat-core();
 
-  $primary: mat-palette($mat-purple, 700, 500, 800);
-  $accent: mat-palette($mat-green, A200, A100, A400);
+$primary: mat-palette($mat-purple, 700, 500, 800);
+$accent: mat-palette($mat-green, A200, A100, A400);
 
-  $theme: mat-light-theme($primary, $accent);
+$theme: mat-light-theme($primary, $accent);
 
 @include angular-material-theme($theme);
 
@@ -17,8 +17,7 @@ $background-dark: #F2F3F5;
   margin: 0 !important;
 }
 
-.d-flex
-{
+.d-flex {
   display: flex;
   align-items: center;
 }
@@ -31,18 +30,39 @@ $background-dark: #F2F3F5;
   display: block;
 }
 
-.f-64
-{
+.f-64 {
   font-size: 4rem;
 }
 
-.f-32
-{
+.f-32 {
   font-size: 2rem;
 }
 
-.loading
-{
+.w-100 {
+  width: 100%;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.w-60 {
+  width: 60%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-33 {
+  width: 33%;
+}
+
+.w-25 {
+  width: 25%;
+}
+
+.loading {
   display: flex;
   justify-content: center;
 }
@@ -52,5 +72,13 @@ section {
   margin-left: 45px;
 }
 
-html, body { height: 100%; overflow-y: hidden; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+  overflow-y: hidden;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
