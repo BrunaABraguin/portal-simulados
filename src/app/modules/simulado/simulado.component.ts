@@ -1,7 +1,7 @@
 import { Selecionadas } from '../../shared/interfaces/selecionadas';
 import { Questao } from './../../shared/interfaces/questao';
 import { Simulado } from '../../shared/interfaces/simulado';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { SimuladoService } from './service/simulado.service';
 
@@ -23,6 +23,7 @@ export class SimuladoComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private simuladoService: SimuladoService
   ) {}
 
@@ -30,6 +31,7 @@ export class SimuladoComponent implements OnInit {
     this.getSimuladoById();
     this.fimSimulado();
     this.cronometro();
+    this.verificarRestantes();
   }
 
   ngOnDestroy(): void {
@@ -112,5 +114,26 @@ export class SimuladoComponent implements OnInit {
 
   public verificarRestantes(): void {
     this.restantes = this.questions.length - this.progresso;
+  }
+
+  public sendExam(): void {
+    if (this.restantes > 0)
+    {
+      alert('Você ainda não respondeu todas as questões!');
+    } else {
+      this.setTempoSimulado();
+      this.router.navigate([`/resultados/${this.simulado.id}`]);
+    }
+  }
+
+  public setTempoSimulado(): void {
+    let now = new Date().getTime();
+    this.inicio = new Date(this.inicio).getTime();
+    let tempo = this.inicio - now;
+    tempo = tempo / 1000;
+    tempo = tempo / 60;
+    tempo = Math.abs(tempo);
+    tempo = Math.round(tempo);
+    localStorage.setItem(`tempoSimulado-${this.simulado.id}`, (`${tempo} minutos`).toString());
   }
 }

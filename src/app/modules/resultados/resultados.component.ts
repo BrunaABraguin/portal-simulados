@@ -17,6 +17,7 @@ export class ResultadosComponent implements OnInit {
   public acertos: number = 0;
   public erros: number = 0;
   public porcentagemAcertos: number = 0;
+  public tempoSimulado!: string;
 
   public doughnutChartLabels: string[] = ['Acertos', 'Erros'];
   public doughnutChartNumbers: number[] = [];
@@ -77,6 +78,7 @@ export class ResultadosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.getTempoSimulado();
     this.getSimulado();
     this.getQuestions();
     this.initPercentage();
@@ -161,5 +163,15 @@ export class ResultadosComponent implements OnInit {
         this.barChartDataErros[index]++;
       }
     });
+  }
+
+  public getTempoSimulado(): void {
+    const id = String(this.route.snapshot.paramMap.get('id'));
+    let tempo = localStorage.getItem(`tempoSimulado-${id}`);
+    if (tempo) {
+      this.tempoSimulado = tempo;
+    } else {
+      this.tempoSimulado = '0 minutos';
+    }
   }
 }

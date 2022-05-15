@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  API_URL: 'https://pi-simulados.herokuapp.com/',
+  VERSION: 'v1'
 };
