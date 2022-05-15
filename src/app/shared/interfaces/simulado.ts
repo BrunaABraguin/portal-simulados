@@ -9,5 +9,4 @@ export interface Simulado {
   data_criacao: string;
   data_fim: string;
   duracao: number;
-  perguntas_count: number;
 }

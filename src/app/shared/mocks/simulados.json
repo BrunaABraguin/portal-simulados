@@ -7,8 +7,7 @@
     "descricao": "Simulado teste",
     "data_criacao": "2020-05-05",
     "data_fim": "2020-05-05",
-    "duracao": 80,
-    "perguntas_count": 6
+    "duracao": 80
   },
   {
     "id": "2",
@@ -18,8 +17,7 @@
     "descricao": "Simulado teste",
     "data_criacao": "2020-05-05",
     "data_fim": "2020-05-05",
-    "duracao": 60,
-    "perguntas_count": 6
+    "duracao": 60
   },
   {
     "id": "3",
@@ -29,8 +27,7 @@
     "descricao": "Simulado teste",
     "data_criacao": "2020-05-05",
     "data_fim": "2020-05-05",
-    "duracao": 60,
-    "perguntas_count": 6
+    "duracao": 60
   },
   {
     "id": "4",
@@ -40,8 +37,7 @@
     "descricao": "Simulado teste",
     "data_criacao": "2020-05-05",
     "data_fim": "2020-05-05",
-    "duracao": 60,
-    "perguntas_count": 6
+    "duracao": 60
   },
   {
     "id": "5",
@@ -51,7 +47,6 @@
     "descricao": "Simulado teste",
     "data_criacao": "2020-05-05",
     "data_fim": "2020-05-05",
-    "duracao": 60,
-    "perguntas_count": 6
+    "duracao": 60
   }
 ]
