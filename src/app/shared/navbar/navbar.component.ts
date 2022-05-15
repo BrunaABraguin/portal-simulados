@@ -22,6 +22,7 @@ export class NavbarComponent implements OnInit {
 
   public logout(): void {
     this.authService.signOut().then(() => this.router.navigate(['']));
+    localStorage.clear();
   }
 
   public loginWithGoogle(): void {

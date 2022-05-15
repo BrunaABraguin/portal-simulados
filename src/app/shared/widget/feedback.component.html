@@ -22,21 +22,18 @@
       </mat-card-title>
     </mat-card-header>
     <mat-card-content>
-      <form>
+      <form (ngSubmit)="sendFeedback()" #feedbackForm="ngForm">
         <mat-form-field *ngIf="issueShow" appearance="outline" class="widget__feedback--form-input">
-          <textarea matInput
-            placeholder="Algo não está funcionando bem? Queremos corrigir. Conte com detalhes o que está acontecendo..."
-            formControlName="description"></textarea>
+          <textarea matInput name="feedback" [(ngModel)]="feedback"
+            placeholder="Algo não está funcionando bem? Queremos corrigir. Conte com detalhes o que está acontecendo..."></textarea>
         </mat-form-field>
-        <mat-form-field *ngIf="ideaShow " appearance="outline" class="widget__feedback--form-input">
-          <textarea matInput placeholder="Teve uma ideia de melhoria ou de nova funcionalidade? Conta pra gente!"
-            formControlName="solution"></textarea>
+        <mat-form-field *ngIf="ideaShow" appearance="outline" class="widget__feedback--form-input">
+          <textarea matInput name="feedback" [(ngModel)]="feedback" placeholder="Teve uma ideia de melhoria ou de nova funcionalidade? Conta pra gente!"></textarea>
         </mat-form-field>
         <mat-form-field *ngIf="suggestionShow" appearance="outline" class="widget__feedback--form-input">
-          <textarea matInput placeholder="Queremos te ouvir. O que você gostaria de nos dizer? "
-            formControlName="comment"></textarea>
+          <textarea matInput name="feedback" [(ngModel)]="feedback" placeholder="Queremos te ouvir. O que você gostaria de nos dizer? " id="feedback"></textarea>
         </mat-form-field>
-        <button mat-raised-button color="primary" class="widget__feedback--submit" (click)="sendFeedback()">Enviar Feedback</button>
+        <button mat-raised-button type="submit" color="primary" class="widget__feedback--submit">Enviar Feedback</button>
       </form>
     </mat-card-content>
   </mat-card>

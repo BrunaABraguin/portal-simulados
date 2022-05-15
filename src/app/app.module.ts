@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -63,7 +65,9 @@ import { NgChartsModule } from 'ng2-charts';
     MatProgressSpinnerModule,
     MatDialogModule,
     CountdownModule,
-    NgChartsModule
+    NgChartsModule,
+    CommonModule,
+    FormsModule
   ],
   providers: [
     {

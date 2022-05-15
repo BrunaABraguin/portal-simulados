@@ -11,6 +11,7 @@ export class FeedbackComponent implements OnInit {
   suggestionShow: boolean = false;
   sendShow: boolean = false;
   title!: string;
+  feedback!: string;
   constructor() {}
 
   ngOnInit(): void {}
@@ -38,9 +39,16 @@ export class FeedbackComponent implements OnInit {
   }
 
   public sendFeedback() {
-    this.ideaShow = false;
-    this.issueShow = false;
-    this.suggestionShow = false;
-    this.sendShow = true;
+    const feedback = {
+      title: this.title.split(' ')[1],
+      feedback: this.feedback,
+    };
+
+    if (this.feedback) {
+      this.ideaShow = false;
+      this.issueShow = false;
+      this.suggestionShow = false;
+      this.sendShow = true;
+    }
   }
 }

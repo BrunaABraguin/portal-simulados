@@ -1,7 +1,7 @@
 [
   {
     "id": "1",
-    "materia": "Matemática",
+    "disciplina": "Matemática",
     "assunto": "Álgebra",
     "enunciado": "I am a student at the University of Washington",
     "alternativas": [
@@ -41,7 +41,7 @@
   },
   {
     "id": "2",
-    "materia": "Matemática",
+    "disciplina": "Português",
     "assunto": "Álgebra",
     "enunciado": "I am a student at the University of Washington",
     "alternativas": [
@@ -81,7 +81,7 @@
   },
   {
     "id": "3",
-    "materia": "Matemática",
+    "disciplina": "Inglês",
     "assunto": "Álgebra",
     "enunciado": "I am a student at the University of Washington",
     "alternativas": [
@@ -121,7 +121,7 @@
   },
   {
     "id": "4",
-    "materia": "Matemática",
+    "disciplina": "Matemática",
     "assunto": "Álgebra",
     "enunciado": "I am a student at the University of Washington",
     "alternativas": [
@@ -161,7 +161,7 @@
   },
   {
     "id": "5",
-    "materia": "Matemática",
+    "disciplina": "Matemática",
     "assunto": "Álgebra",
     "enunciado": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae purus faucibus ornare suspendisse sed nisi lacus sed. Et egestas quis ipsum suspendisse ultrices gravida dictum.",
     "alternativas": [
@@ -201,7 +201,7 @@
   },
   {
     "id": "6",
-    "materia": "Matemática",
+    "disciplina": "Matemática",
     "assunto": "Álgebra",
     "enunciado": "I am a student at the University of Washington",
     "alternativas": [

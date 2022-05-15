@@ -15,7 +15,6 @@ export class SimuladoComponent implements OnInit {
   public simulado!: Simulado;
   public inicio: any;
   public fim: any;
-  public isLoading: boolean = true;
   public tempoRestante: any;
   public progresso: number = 0;
   public showHour: boolean = false;
@@ -52,7 +51,6 @@ export class SimuladoComponent implements OnInit {
         this.progresso = Number(localStorage.getItem('progresso'));
         this.verificarRestantes();
       }
-      this.isLoading = false;
     });
   }
 

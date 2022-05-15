@@ -8,9 +8,6 @@
   <mat-progress-bar mode="determinate" value="{{progresso / simulado.perguntas.length * 100 }}" color="accent" matTooltip="{{ progresso / simulado.perguntas.length * 100}}%">
   </mat-progress-bar>
   <button mat-flat-button color="accent">{{progresso}} / {{ simulado.perguntas.length }}</button>
-  <div class="loading" [class.d-none]="!isLoading" role="status">
-    <mat-spinner></mat-spinner>
-  </div>
 </section>
 <div class="questions" *ngFor="let question of questions; let i = index;">
   <app-question-card class="questions__list" [question]="question" [i]="i" (alternativaQuestaoSelecionadas)="saveExam($event)" [mostrarResposta]="false"></app-question-card>

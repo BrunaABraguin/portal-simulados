@@ -1,7 +1,7 @@
 <section *ngIf="!mostrarResposta">
   <mat-card class="questions__list">
     <mat-chip-list aria-label="Disciplina e tema da questão" class="questions__tags d-flex">
-      <mat-chip class="questions__tags--exam" color="primary" selected>{{ question.materia }}</mat-chip>
+      <mat-chip class="questions__tags--exam" color="primary" selected>{{ question.disciplina }}</mat-chip>
       <mat-chip class="questions__tags--exam" color="primary" selected>{{ question.assunto}}</mat-chip>
     </mat-chip-list>
     <mat-card-title class="questions__list--title">
@@ -34,15 +34,18 @@
         <div class="questions__list--options" *ngFor="let alt of question.alternativas; let index = index;">
           <label class="disabled">
             <input type="radio" name="alt-{{i}}" [checked]="alt.isCorrect" disabled>
-            <span class="item" [ngClass]="{'right': alt.isCorrect, 'wrong': !alt.isCorrect && alt.checked, 'disabled': !alt.isCorrect && !alt.checked }">{{ options[index] }}</span>
-            <span [ngClass]="{'right': alt.isCorrect, 'wrong': !alt.isCorrect && alt.checked, 'disabled': !alt.isCorrect && !alt.checked }">{{alt.enunciado}}</span>
+            <span class="item"
+              [ngClass]="{'right': alt.isCorrect, 'wrong': !alt.isCorrect && alt.checked, 'disabled': !alt.isCorrect && !alt.checked }">{{
+              options[index] }}</span>
+            <span
+              [ngClass]="{'right': alt.isCorrect, 'wrong': !alt.isCorrect && alt.checked, 'disabled': !alt.isCorrect && !alt.checked }">{{alt.enunciado}}</span>
           </label>
         </div>
       </mat-card-content>
     </mat-card>
     <mat-card class="w-33">
       <mat-chip-list aria-label="Disciplina e tema da questão" class="questions__tags">
-        <mat-chip class="questions__tags--comments" color="primary" selected>{{ question.materia }}</mat-chip>
+        <mat-chip class="questions__tags--comments" color="primary" selected>{{ question.disciplina }}</mat-chip>
         <mat-chip class="questions__tags--comments" color="primary" selected>{{ question.assunto}}</mat-chip>
       </mat-chip-list>
       <mat-card-content>
