@@ -9,7 +9,7 @@
       {{ question.enunciado }}
     </mat-card-title>
     <mat-card-content class="questions__list--content">
-      <mat-radio-group aria-labelledby="example-radio-group-label" class="questions__list--options">
+      <mat-radio-group class="questions__list--options">
         <div *ngFor="let alt of question.alternativas; let index = index;">
           <label for="alt-{{i}}-{{index}}">
             <input type="radio" [value]="alt" id="alt-{{i}}-{{index}}" name="alt-{{i}}" [checked]="alt.checked"
@@ -30,6 +30,15 @@
         <span>{{ i + 1 }}</span>
         {{ question.enunciado }}
       </mat-card-title>
+      <mat-card-content class="questions__list--content">
+        <div class="questions__list--options" *ngFor="let alt of question.alternativas; let index = index;">
+          <label class="disabled">
+            <input type="radio" name="alt-{{i}}" [checked]="alt.isCorrect" disabled>
+            <span class="item" [ngClass]="{'right': alt.isCorrect, 'wrong': !alt.isCorrect && alt.checked, 'disabled': !alt.isCorrect && !alt.checked }">{{ options[index] }}</span>
+            <span [ngClass]="{'right': alt.isCorrect, 'wrong': !alt.isCorrect && alt.checked, 'disabled': !alt.isCorrect && !alt.checked }">{{alt.enunciado}}</span>
+          </label>
+        </div>
+      </mat-card-content>
     </mat-card>
     <mat-card class="w-33">
       <mat-chip-list aria-label="Disciplina e tema da questão" class="questions__tags">

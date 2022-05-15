@@ -10,7 +10,7 @@ import questionsMock from '../../../shared/mocks/questoes.json';
 export class SimuladoService {
   constructor() {}
 
-  getSimulados(): Observable<any> {
+  public getSimulados(): Observable<any> {
     examsMock.forEach((exam) => {
       const questionsIds = exam?.perguntas;
       this.getQuestions(questionsIds).subscribe((questions) => {
@@ -24,7 +24,7 @@ export class SimuladoService {
     });
   }
 
-  getSimuladoById(id: string): Observable<Simulado> {
+  public getSimuladoById(id: string): Observable<Simulado> {
     return new Observable((observer) => {
       const exam = examsMock.find((s: { id: string }) => s.id === id);
       if (exam) {
@@ -43,7 +43,7 @@ export class SimuladoService {
     });
   }
 
-  getQuestions(questionsIds: string[]): Observable<any> {
+  public getQuestions(questionsIds: string[]): Observable<any> {
     return new Observable((observer) => {
       const questions = questionsMock.filter((q: { id: string }) =>
         questionsIds.includes(q.id)

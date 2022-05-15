@@ -20,11 +20,11 @@ export class NavbarComponent implements OnInit {
     });
   }
 
-  logout(): void {
+  public logout(): void {
     this.authService.signOut().then(() => this.router.navigate(['']));
   }
 
-  loginWithGoogle(): void {
+  public loginWithGoogle(): void {
     this.authService
       .signIn(GoogleLoginProvider.PROVIDER_ID)
       .then(() => this.router.navigate(['']));

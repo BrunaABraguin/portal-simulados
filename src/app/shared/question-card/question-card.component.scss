@@ -1,11 +1,10 @@
 .questions {
   margin: 3rem 0;
 
-  &__comments
-  {
+  &__comments {
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    margin-bottom: 2rem;
   }
 
   &__tags {
@@ -18,8 +17,7 @@
       justify-content: center;
     }
 
-    &--comments
-    {
+    &--comments {
       min-width: 100%;
       justify-content: center;
     }
@@ -50,6 +48,10 @@
 
       label {
         cursor: pointer;
+
+        &.disabled {
+          cursor: default;
+        }
       }
 
       input {
@@ -74,12 +76,35 @@
         display: inline-block;
         text-align: center;
         text-transform: uppercase;
+
+        &.wrong
+        {
+          border: 2px solid #FF5252;
+          background-color: #FF5252;
+          color: white;
+        }
+
+        &.disabled {
+          border: 2px solid #D3D3D3;
+          color: #D3D3D3;
+        }
       }
     }
   }
 }
 
-section
-{
+.right {
+  color: #69F0AE;
+}
+
+.wrong {
+  color: #FF5252;
+}
+
+.disabled {
+  color: #D3D3D3;
+}
+
+section {
   padding: 0 35px;
 }

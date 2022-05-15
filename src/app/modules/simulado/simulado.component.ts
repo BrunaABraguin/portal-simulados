@@ -38,7 +38,7 @@ export class SimuladoComponent implements OnInit {
     localStorage.removeItem(`inicio-${this.simulado.id}`);
   }
 
-  getSimuladoById(): void {
+  public getSimuladoById(): void {
     const id = String(this.route.snapshot.paramMap.get('id'));
     const questoesSalvas = localStorage.getItem(`exam-${id}`);
 
@@ -56,7 +56,7 @@ export class SimuladoComponent implements OnInit {
     });
   }
 
-  inicioSimulado(): void {
+  public inicioSimulado(): void {
     this.inicio = localStorage.getItem(`inicio-${this.simulado.id}`);
     if (this.inicio === null) {
       this.inicio = new Date();
@@ -64,7 +64,7 @@ export class SimuladoComponent implements OnInit {
     }
   }
 
-  fimSimulado(): void {
+  public fimSimulado(): void {
     this.inicioSimulado();
     this.fim = localStorage.getItem(`fim-${this.simulado.id}`);
 
@@ -75,7 +75,7 @@ export class SimuladoComponent implements OnInit {
     }
   }
 
-  cronometro(): void {
+  public cronometro(): void {
     this.fim = new Date(this.fim);
 
     const miliseconds = this.fim.getTime() - new Date().getTime();
@@ -88,7 +88,7 @@ export class SimuladoComponent implements OnInit {
     }
   }
 
-  saveExam(selecionada: Selecionadas): void {
+  public saveExam(selecionada: Selecionadas): void {
     this.questions.find((question) => {
       if (question.id === selecionada.questao.id) {
         question.alternativas.find((alternativa) => {
@@ -112,7 +112,7 @@ export class SimuladoComponent implements OnInit {
     });
   }
 
-  verificarRestantes(): void {
+  public verificarRestantes(): void {
     this.restantes = this.questions.length - this.progresso;
   }
 }

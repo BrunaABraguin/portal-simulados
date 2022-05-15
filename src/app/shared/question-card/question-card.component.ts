@@ -30,10 +30,7 @@ export class QuestionCardComponent implements OnInit {
     }
   }
 
-  saveExam(
-    alternativaSelecionada: Alternativa,
-    questaoSelectionada: Questao
-  ): void {
+  public saveExam(alternativaSelecionada: Alternativa, questaoSelectionada: Questao): void {
     this.selecionadas = {
       alternativa: alternativaSelecionada,
       questao: questaoSelectionada,

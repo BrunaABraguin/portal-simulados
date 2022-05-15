@@ -15,29 +15,29 @@ export class FeedbackComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  ideaForms() {
+  public ideaForms() {
     this.title = '💡 Ideia';
     this.ideaShow = !this.ideaShow;
   }
 
-  issueForms() {
+  public issueForms() {
     this.title = '🐛 Problema';
     this.issueShow = !this.issueShow;
   }
 
-  suggestionForms() {
+  public suggestionForms() {
     this.title = '📝 Sugestão';
     this.suggestionShow = !this.suggestionShow;
   }
 
-  closeForms() {
+  public closeForms() {
     this.ideaShow = false;
     this.issueShow = false;
     this.suggestionShow = false;
     this.sendShow = false;
   }
 
-  sendFeedback() {
+  public sendFeedback() {
     this.ideaShow = false;
     this.issueShow = false;
     this.suggestionShow = false;
