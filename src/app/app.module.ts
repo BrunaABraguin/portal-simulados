@@ -31,6 +31,7 @@ import { CountdownModule } from 'ngx-countdown';
 import { ResultadosComponent } from './modules/resultados/resultados.component';
 import { QuestionCardComponent } from './shared/question-card/question-card.component';
 import { NgChartsModule } from 'ng2-charts';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -67,7 +68,8 @@ import { NgChartsModule } from 'ng2-charts';
     CountdownModule,
     NgChartsModule,
     CommonModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [
     {

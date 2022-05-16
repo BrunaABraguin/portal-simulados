@@ -1,3 +1,5 @@
+import { Feedback } from './../interfaces/feedback';
+import { FeedbackService } from './feedback.service';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,7 +14,8 @@ export class FeedbackComponent implements OnInit {
   sendShow: boolean = false;
   title!: string;
   feedback!: string;
-  constructor() {}
+
+  constructor(private feedbackService: FeedbackService) {}
 
   ngOnInit(): void {}
 
@@ -39,16 +42,18 @@ export class FeedbackComponent implements OnInit {
   }
 
   public sendFeedback() {
-    const feedback = {
-      title: this.title.split(' ')[1],
-      feedback: this.feedback,
-    };
-
     if (this.feedback) {
       this.ideaShow = false;
       this.issueShow = false;
       this.suggestionShow = false;
       this.sendShow = true;
+
+      const feedback: Feedback = {
+        tipo: this.title.split(' ')[1],
+        mensagem: this.feedback,
+      };
+
+      this.feedbackService.feedback(feedback);
     }
   }
 }

@@ -3,14 +3,20 @@ import { Injectable } from '@angular/core';
 import { Simulado } from 'src/app/shared/interfaces/simulado';
 import examsMock from '../../../shared/mocks/simulados.json';
 import questionsMock from '../../../shared/mocks/questoes.json';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SimuladoService {
-  constructor() {}
+  constructor(protected http: HttpClient) {}
 
   public getSimulados(): Observable<any> {
+    this.http.get(`${environment.API_URL}/simulados`).subscribe((response) => {
+      console.log(response);
+    });
+    
     examsMock.forEach((exam) => {
       const questionsIds = exam?.perguntas;
       this.getQuestions(questionsIds).subscribe((questions) => {
