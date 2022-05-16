@@ -5,8 +5,8 @@
     <countdown *ngIf="!showHour" class="progress__countdown--timer"
       [config]="{ leftTime: tempoRestante, format: 'mm:ss' }"></countdown>
   </mat-card>
-  <mat-progress-bar mode="determinate" value="{{progresso / simulado.questoes.length * 100 }}" color="accent"
-    matTooltip="{{ progresso / simulado.questoes.length * 100}}%">
+  <mat-progress-bar mode="determinate" value="{{ percentualProgresso }}" color="accent"
+    matTooltip="{{ percentualProgresso }}%">
   </mat-progress-bar>
   <button mat-flat-button color="accent">{{progresso}} / {{ simulado.questoes.length }}</button>
 </section>

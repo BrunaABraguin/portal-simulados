@@ -171,7 +171,7 @@ export class ResultadosComponent implements OnInit {
     if (tempo) {
       this.tempoSimulado = tempo;
     } else {
-      this.tempoSimulado = '0 minutos';
+      this.tempoSimulado = '0 minuto(s)';
     }
   }
 }

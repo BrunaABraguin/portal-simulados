@@ -20,6 +20,7 @@ export class SimuladoComponent implements OnInit {
   public showHour: boolean = false;
   public questions!: Questao[];
   public restantes!: number;
+  public percentualProgresso: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -32,11 +33,18 @@ export class SimuladoComponent implements OnInit {
     this.fimSimulado();
     this.cronometro();
     this.verificarRestantes();
+    this.percentual();
   }
 
   ngOnDestroy(): void {
     localStorage.removeItem(`fim-${this.simulado.id}`);
     localStorage.removeItem(`inicio-${this.simulado.id}`);
+  }
+
+  public percentual(): void {
+    this.percentualProgresso = Number(
+      ((this.progresso / this.questions.length) * 100).toFixed(2)
+    );
   }
 
   public getSimuladoById(): void {
@@ -46,12 +54,12 @@ export class SimuladoComponent implements OnInit {
     this.simuladoService.getSimuladoById(id).subscribe((simulado) => {
       this.simulado = simulado;
 
-      if (questoesSalvas === null) {
-        this.questions = simulado.questoes;
-      } else {
+      if (questoesSalvas != null) {
         this.questions = JSON.parse(questoesSalvas);
         this.progresso = Number(localStorage.getItem(`progresso-${id}`));
         this.verificarRestantes();
+      } else {
+        this.questions = simulado.questoes;
       }
     });
   }
@@ -138,7 +146,7 @@ export class SimuladoComponent implements OnInit {
     tempo = Math.round(tempo);
     localStorage.setItem(
       `tempoSimulado-${this.simulado.id}`,
-      `${tempo} minutos`.toString()
+      `${tempo} minuto(s)`.toString()
     );
   }
 }
