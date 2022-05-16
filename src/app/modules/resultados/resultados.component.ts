@@ -125,7 +125,7 @@ export class ResultadosComponent implements OnInit {
       this.simulado = simulado;
 
       if (questoesSalvas === null) {
-        this.questions = simulado.perguntas;
+        this.questions = simulado.questoes;
         localStorage.setItem(`exam-${id}`, JSON.stringify(this.questions));
       } else {
         this.questions = JSON.parse(questoesSalvas);

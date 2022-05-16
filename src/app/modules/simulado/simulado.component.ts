@@ -47,10 +47,10 @@ export class SimuladoComponent implements OnInit {
       this.simulado = simulado;
 
       if (questoesSalvas === null) {
-        this.questions = simulado.perguntas;
+        this.questions = simulado.questoes;
       } else {
         this.questions = JSON.parse(questoesSalvas);
-        this.progresso = Number(localStorage.getItem('progresso'));
+        this.progresso = Number(localStorage.getItem(`progresso-${id}`));
         this.verificarRestantes();
       }
     });
@@ -106,7 +106,10 @@ export class SimuladoComponent implements OnInit {
           `exam-${this.simulado.id}`,
           JSON.stringify(this.questions)
         );
-        localStorage.setItem('progresso', this.progresso.toString());
+        localStorage.setItem(
+          `progresso-${this.simulado.id}`,
+          this.progresso.toString()
+        );
         this.verificarRestantes();
       }
     });
@@ -117,8 +120,7 @@ export class SimuladoComponent implements OnInit {
   }
 
   public sendExam(): void {
-    if (this.restantes > 0)
-    {
+    if (this.restantes > 0) {
       alert('Você ainda não respondeu todas as questões!');
     } else {
       this.setTempoSimulado();
@@ -134,6 +136,9 @@ export class SimuladoComponent implements OnInit {
     tempo = tempo / 60;
     tempo = Math.abs(tempo);
     tempo = Math.round(tempo);
-    localStorage.setItem(`tempoSimulado-${this.simulado.id}`, (`${tempo} minutos`).toString());
+    localStorage.setItem(
+      `tempoSimulado-${this.simulado.id}`,
+      `${tempo} minutos`.toString()
+    );
   }
 }

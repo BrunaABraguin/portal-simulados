@@ -1,8 +1,8 @@
-import { Questao } from "./questao";
+import { Questao } from './questao';
 
 export interface Simulado {
   id: string;
-  perguntas: Questao[];
+  questoes: Questao[];
   professor: string;
   nome: string;
   descricao: string;

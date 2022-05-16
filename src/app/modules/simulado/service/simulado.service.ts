@@ -16,11 +16,11 @@ export class SimuladoService {
     this.http.get(`${environment.API_URL}/simulados`).subscribe((response) => {
       console.log(response);
     });
-    
+
     examsMock.forEach((exam) => {
-      const questionsIds = exam?.perguntas;
+      const questionsIds = exam?.questoes;
       this.getQuestions(questionsIds).subscribe((questions) => {
-        exam.perguntas = questions;
+        exam.questoes = questions;
       });
     });
 
@@ -34,11 +34,11 @@ export class SimuladoService {
     return new Observable((observer) => {
       const exam = examsMock.find((s: { id: string }) => s.id === id);
       if (exam) {
-        const questionsIds = exam?.perguntas;
+        const questionsIds = exam?.questoes;
         this.getQuestions(questionsIds).subscribe((questions) => {
           const simulado: Simulado = {
             ...exam,
-            perguntas: questions,
+            questoes: questions,
           };
           observer.next(simulado);
           observer.complete();

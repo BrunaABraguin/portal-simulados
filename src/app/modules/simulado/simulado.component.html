@@ -5,12 +5,14 @@
     <countdown *ngIf="!showHour" class="progress__countdown--timer"
       [config]="{ leftTime: tempoRestante, format: 'mm:ss' }"></countdown>
   </mat-card>
-  <mat-progress-bar mode="determinate" value="{{progresso / simulado.perguntas.length * 100 }}" color="accent" matTooltip="{{ progresso / simulado.perguntas.length * 100}}%">
+  <mat-progress-bar mode="determinate" value="{{progresso / simulado.questoes.length * 100 }}" color="accent"
+    matTooltip="{{ progresso / simulado.questoes.length * 100}}%">
   </mat-progress-bar>
-  <button mat-flat-button color="accent">{{progresso}} / {{ simulado.perguntas.length }}</button>
+  <button mat-flat-button color="accent">{{progresso}} / {{ simulado.questoes.length }}</button>
 </section>
 <div class="questions" *ngFor="let question of questions; let i = index;">
-  <app-question-card class="questions__list" [question]="question" [i]="i" (alternativaQuestaoSelecionadas)="saveExam($event)" [mostrarResposta]="false"></app-question-card>
+  <app-question-card class="questions__list" [question]="question" [i]="i"
+    (alternativaQuestaoSelecionadas)="saveExam($event)" [mostrarResposta]="false"></app-question-card>
 </div>
 <div class="send d-flex">
   <h3>Faltam {{ restantes }} para responder </h3>
