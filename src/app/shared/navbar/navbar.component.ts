@@ -8,7 +8,6 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-
 export class NavbarComponent implements OnInit {
   public user!: any;
 
@@ -31,6 +30,12 @@ export class NavbarComponent implements OnInit {
 
   public registerUser(): void {
     this.dialog.open(RegisterDialog, {
+      width: '420px',
+    });
+  }
+
+  public loginUser(): void {
+    this.dialog.open(LoginDialog, {
       width: '420px'
     });
   }
@@ -51,6 +56,29 @@ export class RegisterDialog implements OnInit {
 
   ngOnInit(): void {
   }
+
+  public loginWithGoogle(): void {
+    this.authService
+      .signIn(GoogleLoginProvider.PROVIDER_ID)
+      .then(() => this.router.navigate(['']));
+
+    this.dialog.closeAll();
+  }
+}
+
+@Component({
+  selector: 'login-dialog',
+  templateUrl: 'login-dialog.html',
+  styleUrls: ['./navbar.component.scss'],
+})
+export class LoginDialog implements OnInit {
+  constructor(
+    private authService: SocialAuthService,
+    private router: Router,
+    public dialog: MatDialog
+  ) {}
+
+  ngOnInit(): void {}
 
   public loginWithGoogle(): void {
     this.authService

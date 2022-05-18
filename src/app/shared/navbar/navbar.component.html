@@ -15,9 +15,9 @@
       <mat-icon><i class="ph-user-plus-bold"></i></mat-icon>
       <span>Cadastre-se</span>
     </button>
-    <button mat-menu-item *ngIf="!user" class="d-flex">
+    <button mat-menu-item *ngIf="!user" class="d-flex" (click)="loginUser()">
       <mat-icon><i class="ph-user-circle-bold"></i></mat-icon>
-      <span>Login com e-mail</span>
+      <span>Entrar</span>
     </button>
   </mat-menu>
 </mat-toolbar>

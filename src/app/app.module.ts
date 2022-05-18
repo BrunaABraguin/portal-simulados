@@ -28,7 +28,8 @@ import { GoogleLoginProvider, SocialLoginModule } from '@abacritt/angularx-socia
 import { FeedbackComponent } from './shared/widget/feedback.component';
 import {
   NavbarComponent,
-  RegisterDialog
+  RegisterDialog,
+  LoginDialog
 } from './shared/navbar/navbar.component';
 import { CountdownModule } from 'ngx-countdown';
 import { ResultadosComponent } from './modules/resultados/resultados.component';
@@ -46,6 +47,7 @@ import { HttpClientModule } from '@angular/common/http';
     FeedbackComponent,
     NavbarComponent,
     RegisterDialog,
+    LoginDialog,
     ResultadosComponent,
     QuestionCardComponent,
   ],
