@@ -14,7 +14,6 @@ export class SimuladoService {
 
   public getSimulados(): Observable<any> {
     this.http.get(`${environment.API_URL}/simulados`).subscribe((response) => {
-      console.log(response);
     });
 
     examsMock.forEach((exam) => {

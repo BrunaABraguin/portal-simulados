@@ -1,5 +1,6 @@
 import { GoogleLoginProvider, SocialAuthService } from '@abacritt/angularx-social-login';
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 
 @Component({
@@ -7,16 +8,19 @@ import { Router } from '@angular/router';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
+
 export class NavbarComponent implements OnInit {
   public user!: any;
-  public loggedIn!: boolean;
 
-  constructor(private authService: SocialAuthService, private router: Router) {}
+  constructor(
+    private authService: SocialAuthService,
+    private router: Router,
+    public dialog: MatDialog
+  ) {}
 
   ngOnInit(): void {
     this.authService.authState.subscribe((user) => {
       this.user = user;
-      this.loggedIn = user != null;
     });
   }
 
@@ -25,9 +29,34 @@ export class NavbarComponent implements OnInit {
     localStorage.clear();
   }
 
+  public registerUser(): void {
+    this.dialog.open(RegisterDialog, {
+      width: '420px'
+    });
+  }
+}
+
+@Component({
+  selector: 'register-dialog',
+  templateUrl: 'register-dialog.html',
+  styleUrls: ['./navbar.component.scss'],
+})
+export class RegisterDialog implements OnInit {
+
+  constructor(
+    private authService: SocialAuthService,
+    private router: Router,
+    public dialog: MatDialog
+  ) {}
+
+  ngOnInit(): void {
+  }
+
   public loginWithGoogle(): void {
     this.authService
       .signIn(GoogleLoginProvider.PROVIDER_ID)
       .then(() => this.router.navigate(['']));
+
+    this.dialog.closeAll();
   }
 }

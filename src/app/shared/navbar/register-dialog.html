@@ -1,0 +1,35 @@
+<div mat-dialog-content>
+  <button mat-stroked-button color="primary" (click)="loginWithGoogle()" class="d-flex w-100">
+    <mat-icon><i class="ph-google-logo-bold"></i></mat-icon>
+    <span> Continue com o Google</span>
+  </button>
+  <br>
+  <br>
+  <div class="container">
+    <div class="line">
+      <mat-divider></mat-divider>
+    </div>
+    <div class="text mat-typography">OU</div>
+    <div class="line">
+      <mat-divider></mat-divider>
+    </div>
+  </div>
+  <br>
+  <div class="d-flex flex-column">
+    <mat-form-field appearance="outline" color="accent" class="w-100">
+      <mat-label>Nome</mat-label>
+      <input matInput [type]="'text'" placeholder="Nome" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline" color="accent" class="w-100">
+      <mat-label>Email</mat-label>
+      <input matInput [type]="'email'" placeholder="Email" required>
+    </mat-form-field>
+    <mat-form-field appearance="outline" color="accent" class="w-100">
+      <mat-label>Senha</mat-label>
+      <input matInput [type]="'password'" placeholder="Senha" required>
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-flat-button color="accent" class="w-100">Criar conta</button>
+</div>

@@ -31,6 +31,15 @@ $background-dark: #F2F3F5;
   align-items: center;
 }
 
+.flex-column {
+  flex-direction: column;
+}
+
+.outline-3
+{
+  outline: 3px solid;
+}
+
 .d-none {
   display: none !important;
 }

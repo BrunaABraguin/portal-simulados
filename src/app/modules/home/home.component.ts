@@ -8,7 +8,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   public user!: any;
-  public loggedIn!: boolean;
   public data!: Simulado[];
 
   constructor(private simuladoService: SimuladoService) {}

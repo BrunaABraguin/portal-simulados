@@ -26,7 +26,10 @@ import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.c
 import { HomeComponent } from './modules/home/home.component';
 import { GoogleLoginProvider, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { FeedbackComponent } from './shared/widget/feedback.component';
-import { NavbarComponent } from './shared/navbar/navbar.component';
+import {
+  NavbarComponent,
+  RegisterDialog
+} from './shared/navbar/navbar.component';
 import { CountdownModule } from 'ngx-countdown';
 import { ResultadosComponent } from './modules/resultados/resultados.component';
 import { QuestionCardComponent } from './shared/question-card/question-card.component';
@@ -42,6 +45,7 @@ import { HttpClientModule } from '@angular/common/http';
     HomeComponent,
     FeedbackComponent,
     NavbarComponent,
+    RegisterDialog,
     ResultadosComponent,
     QuestionCardComponent,
   ],
@@ -69,7 +73,7 @@ import { HttpClientModule } from '@angular/common/http';
     NgChartsModule,
     CommonModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [
     {
