@@ -1,6 +1,6 @@
 import { Questao } from './../../shared/interfaces/questao';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ChartConfiguration, ChartData, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { SimuladoService } from '../simulado/service/simulado.service';
@@ -13,6 +13,7 @@ import { Simulado } from 'src/app/shared/interfaces/simulado';
 })
 export class ResultadosComponent implements OnInit {
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
+  public finishExam: boolean = false;
   public questions!: Questao[];
   public acertos: number = 0;
   public erros: number = 0;
@@ -74,6 +75,7 @@ export class ResultadosComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    private router: Router,
     private simuladoService: SimuladoService
   ) {}
 
@@ -84,6 +86,7 @@ export class ResultadosComponent implements OnInit {
     this.initPercentage();
     this.buildBarChartLabels();
     this.buildBarChartData();
+    this.checkFinishExam();
   }
 
   public getQuestions(): void {
@@ -172,6 +175,19 @@ export class ResultadosComponent implements OnInit {
       this.tempoSimulado = tempo;
     } else {
       this.tempoSimulado = '0 minuto(s)';
+    }
+  }
+
+  public checkFinishExam(): void {
+    const id = String(this.route.snapshot.paramMap.get('id'));
+    let progresso = localStorage.getItem(`progresso-${id}`);
+
+    if (progresso) {
+      if (this.questions.length === Number(progresso)) {
+        this.finishExam = true;
+      }
+    } else {
+      this.router.navigate([`/simulado/${id}`]);
     }
   }
 }
