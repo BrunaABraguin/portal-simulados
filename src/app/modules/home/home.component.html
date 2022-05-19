@@ -1,14 +1,7 @@
-<section>
+<section class="d-lg-none">
   <h2>
     Simulados disponíveis
   </h2>
-  <!-- <mat-form-field appearance="outline" class="exams__search">
-    <mat-label>Buscar simulado</mat-label>
-    <input matInput type="search" class="exams__search--input">
-    <button matSuffix mat-icon-button aria-label="Buscar">
-      <mat-icon><i class="ph-magnifying-glass"></i></mat-icon>
-    </button>
-  </mat-form-field> -->
   <mat-grid-list cols="4" [rowHeight]="'190px'">
     <mat-grid-tile *ngFor="let exam of data">
       <mat-card>

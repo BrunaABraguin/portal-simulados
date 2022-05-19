@@ -14,6 +14,7 @@ $theme: mat-light-theme($primary, $accent);
 $background-dark: #F2F3F5;
 
 .mat-card-header-text {
+  width: 100% !important;
   margin: 0 !important;
 }
 
@@ -78,6 +79,34 @@ $background-dark: #F2F3F5;
 
 .w-25 {
   width: 25%;
+}
+
+.d-sm-none {
+  display: none !important;
+  @media (max-width: 480px) {
+    display: block !important;
+  }
+}
+
+.d-sm-none {
+  display: none !important;
+  @media (max-width: 768px) {
+    display: block !important;
+  }
+}
+
+.d-md-none {
+  display: none !important;
+  @media (max-width: 1279px) {
+    display: block !important;
+  }
+}
+
+.d-lg-none {
+  display: none !important;
+  @media (min-width: 1280px) {
+    display: block !important;
+  }
 }
 
 .loading {

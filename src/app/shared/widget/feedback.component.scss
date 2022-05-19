@@ -6,12 +6,18 @@
     z-index: 10;
 
     &--form {
-      width: 336px;
+      @media (max-width: 480px) {
+        width: 100%;
+      }
+
+      @media (min-width: 481px) {
+        width: 336px;
+      }
+
       height: 264px;
 
       &-title {
         display: flex;
-        width: 215%;
         justify-content: space-between;
         align-items: center;
 
