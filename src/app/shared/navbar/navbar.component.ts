@@ -26,6 +26,11 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
     this.authService.authState.subscribe((user) => {
       this.user = user;
+      if (user) {
+        this.router.navigate(['/']);
+        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('token', user.authToken);
+      }
     });
   }
 
@@ -88,7 +93,21 @@ export class RegisterDialog implements OnInit {
           duration: 2000,
         });
       } else {
-        this.userService.register(user);
+        this.userService.register(user).subscribe(
+          (response) => {
+            this._snackBar.open('Usuário cadastrado com sucesso', 'Fechar', {
+              duration: 2000,
+            });
+            localStorage.setItem('token', response.token);
+            this.dialog.closeAll();
+            this.router.navigate(['']);
+          },
+          (error) => {
+            this._snackBar.open(error.error.message, 'Fechar', {
+              duration: 2000,
+            });
+          }
+        );
       }
     }
   }
@@ -133,7 +152,21 @@ export class LoginDialog implements OnInit {
           duration: 2000,
         });
       } else {
-        this.userService.login(user);
+        this.userService.login(user).subscribe(
+          (response) => {
+            this._snackBar.open('Usuário logado com sucesso', 'Fechar', {
+              duration: 2000,
+            });
+            localStorage.setItem('token', response.token);
+            this.dialog.closeAll();
+            this.router.navigate(['']);
+          },
+          (error) => {
+            this._snackBar.open(error.error.message, 'Fechar', {
+              duration: 2000,
+            });
+          }
+        );
       }
     }
   }
