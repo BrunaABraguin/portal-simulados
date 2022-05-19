@@ -11,7 +11,6 @@ export class FeedbackService {
   constructor(protected http: HttpClient) { }
 
   public feedback(feedback: Feedback): void {
-    console.log(feedback);
     this.http
       .post(`${environment.API_URL}/feedbacks`, feedback)
       .subscribe(

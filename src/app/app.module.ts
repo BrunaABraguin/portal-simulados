@@ -21,6 +21,7 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { SimuladoComponent } from './modules/simulado/simulado.component';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 import { HomeComponent } from './modules/home/home.component';
@@ -71,6 +72,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatRadioModule,
     MatProgressSpinnerModule,
     MatDialogModule,
+    MatSnackBarModule,
     CountdownModule,
     NgChartsModule,
     CommonModule,

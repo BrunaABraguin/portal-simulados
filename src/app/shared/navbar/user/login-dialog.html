@@ -17,19 +17,15 @@
   <br>
   <div class="d-flex flex-column">
     <mat-form-field appearance="outline" color="accent" class="w-100">
-      <mat-label>Nome</mat-label>
-      <input matInput [type]="'text'" placeholder="Nome" required>
-    </mat-form-field>
-    <mat-form-field appearance="outline" color="accent" class="w-100">
       <mat-label>Email</mat-label>
-      <input matInput [type]="'email'" placeholder="Email" required>
+      <input matInput [type]="'email'" placeholder="Email" required [(ngModel)]="email">
     </mat-form-field>
     <mat-form-field appearance="outline" color="accent" class="w-100">
       <mat-label>Senha</mat-label>
-      <input matInput [type]="'password'" placeholder="Senha" required>
+      <input matInput [type]="'password'" placeholder="Senha" required [(ngModel)]="senha">
     </mat-form-field>
   </div>
 </div>
 <div mat-dialog-actions>
-  <button mat-flat-button color="accent" class="w-100">Criar conta</button>
+  <button mat-flat-button color="accent" class="w-100" (click)="loginUser()">Entrar</button>
 </div>

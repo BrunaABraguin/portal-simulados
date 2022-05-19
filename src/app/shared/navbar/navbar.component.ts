@@ -1,7 +1,13 @@
-import { GoogleLoginProvider, SocialAuthService } from '@abacritt/angularx-social-login';
+import {
+  GoogleLoginProvider,
+  SocialAuthService,
+} from '@abacritt/angularx-social-login';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { Usuario } from '../interfaces/usuario';
+import { UserService } from './user/service/user.service';
 
 @Component({
   selector: 'app-navbar',
@@ -36,46 +42,27 @@ export class NavbarComponent implements OnInit {
 
   public loginUser(): void {
     this.dialog.open(LoginDialog, {
-      width: '420px'
+      width: '420px',
     });
   }
 }
 
 @Component({
   selector: 'register-dialog',
-  templateUrl: 'register-dialog.html',
+  templateUrl: './user/register-dialog.html',
   styleUrls: ['./navbar.component.scss'],
 })
 export class RegisterDialog implements OnInit {
+  nome!: string;
+  email!: string;
+  senha!: string;
 
   constructor(
     private authService: SocialAuthService,
     private router: Router,
-    public dialog: MatDialog
-  ) {}
-
-  ngOnInit(): void {
-  }
-
-  public loginWithGoogle(): void {
-    this.authService
-      .signIn(GoogleLoginProvider.PROVIDER_ID)
-      .then(() => this.router.navigate(['']));
-
-    this.dialog.closeAll();
-  }
-}
-
-@Component({
-  selector: 'login-dialog',
-  templateUrl: 'login-dialog.html',
-  styleUrls: ['./navbar.component.scss'],
-})
-export class LoginDialog implements OnInit {
-  constructor(
-    private authService: SocialAuthService,
-    private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private userService: UserService,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {}
@@ -86,5 +73,68 @@ export class LoginDialog implements OnInit {
       .then(() => this.router.navigate(['']));
 
     this.dialog.closeAll();
+  }
+
+  public registerUser(): void {
+    const user: Usuario = {
+      name: this.nome,
+      email: this.email,
+      password: this.senha,
+    };
+
+    if (user.name && user.email && user.password) {
+      if (user.password.length < 6) {
+        this._snackBar.open('Senha deve ter mínimo de 6 caracteres', 'Fechar', {
+          duration: 2000,
+        });
+      } else {
+        this.userService.register(user);
+      }
+    }
+  }
+}
+
+@Component({
+  selector: 'login-dialog',
+  templateUrl: './user/login-dialog.html',
+  styleUrls: ['./navbar.component.scss'],
+})
+export class LoginDialog implements OnInit {
+  email!: string;
+  senha!: string;
+
+  constructor(
+    private authService: SocialAuthService,
+    private router: Router,
+    public dialog: MatDialog,
+    private userService: UserService,
+    private _snackBar: MatSnackBar
+  ) {}
+
+  ngOnInit(): void {}
+
+  public loginWithGoogle(): void {
+    this.authService
+      .signIn(GoogleLoginProvider.PROVIDER_ID)
+      .then(() => this.router.navigate(['']));
+
+    this.dialog.closeAll();
+  }
+
+  public loginUser(): void {
+    const user: Usuario = {
+      email: this.email,
+      password: this.senha,
+    };
+
+    if (user.email && user.password) {
+      if (user.password.length < 6) {
+        this._snackBar.open('Senha deve ter mínimo de 6 caracteres', 'Fechar', {
+          duration: 2000,
+        });
+      } else {
+        this.userService.login(user);
+      }
+    }
   }
 }
