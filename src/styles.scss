@@ -12,14 +12,19 @@ $theme: mat-light-theme($primary, $accent);
 
 /* You can add global styles to this file, and also import other style files */
 $background-dark: #F2F3F5;
+$xs-max: 480px;
+$sm-min: 481px;
+$sm-max: 768px;
+$md-min: 769px;
+$md-max: 1279px;
+$lg-min: 1280px;
 
 .mat-card-header-text {
   width: 100% !important;
   margin: 0 !important;
 }
 
-.text-center
-{
+.text-center {
   text-align: center;
 }
 
@@ -36,8 +41,7 @@ $background-dark: #F2F3F5;
   flex-direction: column;
 }
 
-.outline-3
-{
+.outline-3 {
   outline: 3px solid;
 }
 
@@ -81,30 +85,34 @@ $background-dark: #F2F3F5;
   width: 25%;
 }
 
-.d-sm-none {
+.d-xs-none {
   display: none !important;
-  @media (max-width: 480px) {
+
+  @media (max-width: $xs-max) {
     display: block !important;
   }
 }
 
 .d-sm-none {
   display: none !important;
-  @media (max-width: 768px) {
+
+  @media (min-width: $sm-min) and (max-width: $sm-max) {
     display: block !important;
   }
 }
 
 .d-md-none {
   display: none !important;
-  @media (max-width: 1279px) {
+
+  @media (min-width: $md-min) and (max-width: $md-max) {
     display: block !important;
   }
 }
 
 .d-lg-none {
   display: none !important;
-  @media (min-width: 1280px) {
+
+  @media (min-width: $lg-min) {
     display: block !important;
   }
 }
@@ -115,8 +123,12 @@ $background-dark: #F2F3F5;
 }
 
 section {
-  padding: 35px;
-  margin-left: 45px;
+  margin: 2rem;
+
+  @media (min-width: $lg-min) {
+    padding: 35px;
+    margin-left: 45px;
+  }
 }
 
 html,

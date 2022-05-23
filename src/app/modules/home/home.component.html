@@ -2,39 +2,29 @@
   <h2>
     Simulados disponíveis
   </h2>
-  <mat-grid-list cols="4" [rowHeight]="'190px'">
+  <mat-grid-list cols="4" [rowHeight]="'200px'">
     <mat-grid-tile *ngFor="let exam of data">
-      <mat-card>
-        <mat-card-header>
-          <mat-card-title>
-            <span class="exams__search--details-title">
-              {{ exam.nome }}
-            </span>
-          </mat-card-title>
-        </mat-card-header>
-        <mat-card-content>
-          <p>
-            {{ exam.descricao }}
-          </p>
-          <mat-divider></mat-divider>
-          <div class="d-flex exams__search--details">
-            <mat-icon><i class="ph-calendar-blank"></i></mat-icon>
-            <span class="d-flex">
-              {{ exam.data_fim | date: 'dd/MM/yyyy' }}
-            </span>
-            <mat-icon><i class="ph-clock"></i></mat-icon>
-            <span class="d-flex">
-              {{ exam.duracao }} minuto(s)
-            </span>
-          </div>
-        </mat-card-content>
-        <mat-divider></mat-divider>
-        <mat-card-actions align="end">
-          <button mat-raised-button routerLink="/simulado/{{exam.id}}" color="accent">
-            <span matTooltip="Iniciar"><i class="ph-play-bold"></i></span>
-          </button>
-        </mat-card-actions>
-      </mat-card>
+      <exam-card [exam]="exam"></exam-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+</section>
+<section>
+  <h2 class="d-md-none">
+    Simulados disponíveis
+  </h2>
+  <mat-grid-list class="d-md-none" cols="3" [rowHeight]="'220px'">
+    <mat-grid-tile *ngFor="let exam of data">
+      <exam-card [exam]="exam"></exam-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list class="d-sm-none" cols="2" [rowHeight]="'220px'">
+    <mat-grid-tile *ngFor="let exam of data">
+      <exam-card [exam]="exam"></exam-card>
+    </mat-grid-tile>
+  </mat-grid-list>
+  <mat-grid-list class="d-xs-none" cols="1" [rowHeight]="'220px'">
+    <mat-grid-tile *ngFor="let exam of data">
+      <exam-card [exam]="exam"></exam-card>
     </mat-grid-tile>
   </mat-grid-list>
 </section>

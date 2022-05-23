@@ -1,0 +1,35 @@
+@import '../../../../styles.scss';
+
+.exams {
+  &__search {
+    width: 50%;
+
+    &--details {
+      justify-content: space-between;
+      padding: 10px 0px;
+      width: 235px;
+
+      @media (max-width: $xs-max) {
+        width: 215px;
+      }
+
+      @media (min-width: $sm-min) and (max-width: $sm-max) {
+        width: 295px;
+      }
+
+      @media (min-width: $md-min) and (max-width: $md-max) {
+        width: 260px;
+      }
+    }
+
+    &--details-title {
+      font-size: 14px;
+      font-weight: bold;
+      color: #828282;
+    }
+  }
+}
+
+mat-card-content {
+  margin: 0;
+}

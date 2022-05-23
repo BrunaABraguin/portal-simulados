@@ -1,0 +1,31 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <span class="exams__search--details-title">
+        {{ exam.nome }}
+      </span>
+    </mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <p>
+      {{ exam.descricao }}
+    </p>
+    <mat-divider></mat-divider>
+    <div class="d-flex exams__search--details">
+      <mat-icon><i class="ph-calendar-blank"></i></mat-icon>
+      <span class="d-flex">
+        {{ exam.data_fim | date: 'dd/MM/yyyy' }}
+      </span>
+      <mat-icon><i class="ph-clock"></i></mat-icon>
+      <span class="d-flex">
+        {{ exam.duracao }} minuto(s)
+      </span>
+    </div>
+  </mat-card-content>
+  <mat-divider></mat-divider>
+  <mat-card-actions align="end">
+    <button mat-raised-button routerLink="/simulado/{{exam.id}}" color="accent">
+      <span matTooltip="Iniciar"><i class="ph-play-bold"></i></span>
+    </button>
+  </mat-card-actions>
+</mat-card>

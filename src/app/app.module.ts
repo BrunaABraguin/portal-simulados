@@ -37,6 +37,7 @@ import { ResultadosComponent } from './modules/resultados/resultados.component';
 import { QuestionCardComponent } from './shared/question-card/question-card.component';
 import { NgChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
+import { ExamCardComponent } from './modules/home/exam-card/exam-card.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginDialog,
     ResultadosComponent,
     QuestionCardComponent,
+    ExamCardComponent,
   ],
   imports: [
     BrowserModule,
