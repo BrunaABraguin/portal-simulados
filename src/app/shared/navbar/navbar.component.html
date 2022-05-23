@@ -1,21 +1,21 @@
 <mat-toolbar color="primary">
   <div class="d-flex" [routerLink]="'/'">
-    <img class="navbar__viewport--login" src="../../../assets/images/logoWhite.svg">
+    <img class="navbar__viewport--login" src="../../../assets/images/logoWhite.svg" alt="Logotipo branco caneta marcando uma questão de prova">
   </div>
-  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Menu de opções para usuário">
+  <button aria-label="Menu de opções para usuário" mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon *ngIf="!user"><i class="ph-user-focus"></i></mat-icon>
-    <img *ngIf="user" src="{{ user.photoUrl }}" width="32" height="32" class="navbar__viewport--user">
+    <img *ngIf="user" src="{{ user.photoUrl }}" width="32" height="32" class="navbar__viewport--user" alt="Foto de perfil do usuário do Google">
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="logout()" *ngIf="user">
+    <button aria-label="Sair do perfil do usuário" mat-menu-item (click)="logout()" *ngIf="user">
       <mat-icon><i class="ph-sign-out"></i></mat-icon>
       <span>Sair</span>
     </button>
-    <button mat-menu-item *ngIf="!user" class="d-flex" (click)="registerUser()">
+    <button aria-label="Cadastrar usuário" mat-menu-item *ngIf="!user" class="d-flex" (click)="registerUser()">
       <mat-icon><i class="ph-user-plus-bold"></i></mat-icon>
       <span>Cadastre-se</span>
     </button>
-    <button mat-menu-item *ngIf="!user" class="d-flex" (click)="loginUser()">
+    <button aria-label="Entrar no perfil do usuário" mat-menu-item *ngIf="!user" class="d-flex" (click)="loginUser()">
       <mat-icon><i class="ph-user-circle-bold"></i></mat-icon>
       <span>Entrar</span>
     </button>
