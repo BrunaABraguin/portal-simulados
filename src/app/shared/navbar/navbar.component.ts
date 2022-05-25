@@ -19,8 +19,8 @@ export class NavbarComponent implements OnInit {
 
   constructor(
     private authService: SocialAuthService,
-    private router: Router,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private _snackBar: MatSnackBar
   ) {}
 
   ngOnInit(): void {
@@ -28,13 +28,17 @@ export class NavbarComponent implements OnInit {
       this.user = user;
       if (user) {
         localStorage.setItem('user', JSON.stringify(user));
-        localStorage.setItem('token', user.authToken);
+        localStorage.setItem('token', user.idToken);
       }
     });
   }
 
   public logout(): void {
-    this.authService.signOut().then(() => this.router.navigate(['']));
+    this.authService.signOut().then(() =>
+      this._snackBar.open('Sua sessão foi encerrada', 'Fechar', {
+        duration: 2000,
+      })
+    );
     localStorage.clear();
   }
 
@@ -57,13 +61,13 @@ export class NavbarComponent implements OnInit {
   styleUrls: ['./navbar.component.scss'],
 })
 export class RegisterDialog implements OnInit {
-  nome!: string;
-  email!: string;
-  senha!: string;
+  public nome!: string;
+  public email!: string;
+  public senha!: string;
+  public user!: any;
 
   constructor(
     private authService: SocialAuthService,
-    private router: Router,
     public dialog: MatDialog,
     private userService: UserService,
     private _snackBar: MatSnackBar
@@ -72,9 +76,15 @@ export class RegisterDialog implements OnInit {
   ngOnInit(): void {}
 
   public loginWithGoogle(): void {
-    this.authService
-      .signIn(GoogleLoginProvider.PROVIDER_ID)
-      .then(() => this.router.navigate(['']));
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(() =>
+      this._snackBar.open(
+        'Entrada de usuário realizada com sucesso',
+        'Fechar',
+        {
+          duration: 2000,
+        }
+      )
+    );
 
     this.dialog.closeAll();
   }
@@ -94,12 +104,12 @@ export class RegisterDialog implements OnInit {
       } else {
         this.userService.register(user).subscribe(
           (response) => {
+            this.user = response.user;
             this._snackBar.open('Usuário cadastrado com sucesso', 'Fechar', {
               duration: 2000,
             });
             localStorage.setItem('token', response.token);
             this.dialog.closeAll();
-            this.router.navigate(['']);
           },
           (error) => {
             this._snackBar.open(error.error.message, 'Fechar', {
@@ -118,8 +128,9 @@ export class RegisterDialog implements OnInit {
   styleUrls: ['./navbar.component.scss'],
 })
 export class LoginDialog implements OnInit {
-  email!: string;
-  senha!: string;
+  public email!: string;
+  public senha!: string;
+  public user!: any;
 
   constructor(
     private authService: SocialAuthService,
@@ -132,9 +143,16 @@ export class LoginDialog implements OnInit {
   ngOnInit(): void {}
 
   public loginWithGoogle(): void {
-    this.authService
-      .signIn(GoogleLoginProvider.PROVIDER_ID)
-      .then(() => this.router.navigate(['']));
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
+      this.user = user;
+      this._snackBar.open(
+        'Entrada de usuário realizada com sucesso',
+        'Fechar',
+        {
+          duration: 2000,
+        }
+      );
+    });
 
     this.dialog.closeAll();
   }
@@ -153,12 +171,16 @@ export class LoginDialog implements OnInit {
       } else {
         this.userService.login(user).subscribe(
           (response) => {
-            this._snackBar.open('Usuário logado com sucesso', 'Fechar', {
-              duration: 2000,
-            });
+            this.user = response.user;
+            this._snackBar.open(
+              'Entrada de usuário realizada com sucesso',
+              'Fechar',
+              {
+                duration: 2000,
+              }
+            );
             localStorage.setItem('token', response.token);
             this.dialog.closeAll();
-            this.router.navigate(['']);
           },
           (error) => {
             this._snackBar.open(error.error.message, 'Fechar', {
