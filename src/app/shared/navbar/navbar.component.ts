@@ -9,7 +9,7 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Usuario } from '../interfaces/usuario';
+import { User } from '../interfaces/user';
 import { UserService } from './user/service/user.service';
 
 export interface DialogData {
@@ -107,7 +107,7 @@ export class RegisterDialog implements OnInit {
   }
 
   public registerUser(): void {
-    const user: Usuario = {
+    const user: User = {
       name: this.nome,
       email: this.email,
       password: this.senha,
@@ -173,7 +173,7 @@ export class LoginDialog implements OnInit {
   }
 
   public loginUser(): void {
-    const user: Usuario = {
+    const user: User = {
       email: this.email,
       password: this.senha,
     };

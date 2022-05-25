@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Usuario } from '../../../interfaces/usuario';
+import { User } from '../../../interfaces/user';
 
 @Injectable({
   providedIn: 'root',
@@ -10,11 +10,11 @@ import { Usuario } from '../../../interfaces/usuario';
 export class UserService {
   constructor(protected http: HttpClient) {}
 
-  public register(usuario: Usuario): Observable<any> {
+  public register(usuario: User): Observable<any> {
     return this.http.post(`${environment.API_URL}/auth/register`, usuario);
   }
 
-  public login(usuario: Usuario): Observable<any> {
+  public login(usuario: User): Observable<any> {
     return this.http.post(`${environment.API_URL}/auth/login`, usuario);
   }
 }
