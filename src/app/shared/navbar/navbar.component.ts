@@ -2,13 +2,19 @@ import {
   GoogleLoginProvider,
   SocialAuthService,
 } from '@abacritt/angularx-social-login';
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { Component, Inject, OnInit } from '@angular/core';
+import {
+  MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+} from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 import { Usuario } from '../interfaces/usuario';
 import { UserService } from './user/service/user.service';
 
+export interface DialogData {
+  user: any;
+}
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -43,50 +49,61 @@ export class NavbarComponent implements OnInit {
   }
 
   public registerUser(): void {
-    this.dialog.open(RegisterDialog, {
+    const dialogRef = this.dialog.open(RegisterDialog, {
       width: '420px',
+      disableClose: true,
+      data: { user: this.user },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.user = result;
     });
   }
 
   public loginUser(): void {
-    this.dialog.open(LoginDialog, {
+    const dialogRef = this.dialog.open(LoginDialog, {
       width: '420px',
+      disableClose: true,
+      data: { user: this.user },
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      this.user = result;
     });
   }
 }
 
 @Component({
   selector: 'register-dialog',
-  templateUrl: './user/register-dialog.html',
+  templateUrl: './user/register-dialog/register-dialog.html',
   styleUrls: ['./navbar.component.scss'],
 })
 export class RegisterDialog implements OnInit {
   public nome!: string;
   public email!: string;
   public senha!: string;
-  public user!: any;
 
   constructor(
     private authService: SocialAuthService,
-    public dialog: MatDialog,
     private userService: UserService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private dialogRef: MatDialogRef<RegisterDialog>,
+    @Inject(MAT_DIALOG_DATA) private data: DialogData
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   public loginWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(() =>
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
       this._snackBar.open(
         'Entrada de usuário realizada com sucesso',
         'Fechar',
         {
           duration: 2000,
         }
-      )
-    );
-
-    this.dialog.closeAll();
+      );
+    });
   }
 
   public registerUser(): void {
@@ -104,12 +121,13 @@ export class RegisterDialog implements OnInit {
       } else {
         this.userService.register(user).subscribe(
           (response) => {
-            this.user = response.user;
+            this.data.user = response.token;
+            console.log(response);
             this._snackBar.open('Usuário cadastrado com sucesso', 'Fechar', {
               duration: 2000,
             });
             localStorage.setItem('token', response.token);
-            this.dialog.closeAll();
+            this.dialogRef.close(this.data.user);
           },
           (error) => {
             this._snackBar.open(error.error.message, 'Fechar', {
@@ -124,27 +142,26 @@ export class RegisterDialog implements OnInit {
 
 @Component({
   selector: 'login-dialog',
-  templateUrl: './user/login-dialog.html',
+  templateUrl: './user/login-dialog/login-dialog.html',
   styleUrls: ['./navbar.component.scss'],
 })
 export class LoginDialog implements OnInit {
   public email!: string;
   public senha!: string;
-  public user!: any;
 
   constructor(
     private authService: SocialAuthService,
-    private router: Router,
-    public dialog: MatDialog,
     private userService: UserService,
-    private _snackBar: MatSnackBar
+    private _snackBar: MatSnackBar,
+    private dialogRef: MatDialogRef<LoginDialog>,
+    @Inject(MAT_DIALOG_DATA) private data: DialogData
   ) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   public loginWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
-      this.user = user;
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(() => {
       this._snackBar.open(
         'Entrada de usuário realizada com sucesso',
         'Fechar',
@@ -153,8 +170,6 @@ export class LoginDialog implements OnInit {
         }
       );
     });
-
-    this.dialog.closeAll();
   }
 
   public loginUser(): void {
@@ -171,7 +186,7 @@ export class LoginDialog implements OnInit {
       } else {
         this.userService.login(user).subscribe(
           (response) => {
-            this.user = response.user;
+            this.data.user = response.user;
             this._snackBar.open(
               'Entrada de usuário realizada com sucesso',
               'Fechar',
@@ -180,7 +195,7 @@ export class LoginDialog implements OnInit {
               }
             );
             localStorage.setItem('token', response.token);
-            this.dialog.closeAll();
+            this.dialogRef.close(this.data.user);
           },
           (error) => {
             this._snackBar.open(error.error.message, 'Fechar', {
