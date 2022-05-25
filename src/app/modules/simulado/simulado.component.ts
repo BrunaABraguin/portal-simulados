@@ -100,7 +100,7 @@ export class SimuladoComponent implements OnInit {
     this.questions.find((question) => {
       if (question.id === selecionada.questao.id) {
         question.alternativas.find((alternativa) => {
-          if (selecionada.alternativa.id === alternativa.id) {
+          if (selecionada.alternativa.enunciado == alternativa.enunciado) {
             alternativa.checked = true;
             if (question.respondida === false) {
               question.respondida = true;

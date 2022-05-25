@@ -27,7 +27,6 @@ export class NavbarComponent implements OnInit {
     this.authService.authState.subscribe((user) => {
       this.user = user;
       if (user) {
-        this.router.navigate(['/']);
         localStorage.setItem('user', JSON.stringify(user));
         localStorage.setItem('token', user.authToken);
       }
