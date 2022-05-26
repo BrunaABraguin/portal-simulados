@@ -1,4 +1,9 @@
 <div mat-dialog-content>
+  <div class="d-flex flex-row-reverse mb-10">
+    <button aria-label="Fechar formulário de cadastro" mat-icon-button (click)="closeDialog()">
+      <mat-icon><i class="ph-x"></i></mat-icon>
+    </button>
+  </div>
   <button aria-label="Entrar como usuário do Google" mat-stroked-button color="primary" (click)="loginWithGoogle()"
     class="d-flex w-100">
     <mat-icon><i class="ph-google-logo-bold"></i></mat-icon>

@@ -18,7 +18,7 @@ export class HomeComponent implements OnInit {
 
   public getSimulados(): void {
     this.simuladoService.getSimulados().subscribe((simulados) => {
-      this.data = simulados;
+      this.data = simulados.data[0];
     });
   }
 }

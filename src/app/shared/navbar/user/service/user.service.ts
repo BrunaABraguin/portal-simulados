@@ -10,11 +10,11 @@ import { User } from '../../../interfaces/user';
 export class UserService {
   constructor(protected http: HttpClient) {}
 
-  public register(usuario: User): Observable<any> {
-    return this.http.post(`${environment.API_URL}/auth/register`, usuario);
+  public register(user: User): Observable<any> {
+    return this.http.post(`${environment.API_URL}/auth/register`, user);
   }
 
-  public login(usuario: User): Observable<any> {
-    return this.http.post(`${environment.API_URL}/auth/login`, usuario);
+  public login(user: User): Observable<any> {
+    return this.http.post(`${environment.API_URL}/auth/login`, user);
   }
 }

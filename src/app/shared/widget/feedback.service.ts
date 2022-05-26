@@ -11,8 +11,15 @@ export class FeedbackService {
   constructor(protected http: HttpClient) { }
 
   public feedback(feedback: Feedback): void {
+    const token = localStorage.getItem('token');
+    const header = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
     this.http
-      .post(`${environment.API_URL}/feedbacks`, feedback)
+      .post(`${environment.API_URL}/feedbacks`, feedback, header)
       .subscribe(
         (response: any) => {
           console.log(response);

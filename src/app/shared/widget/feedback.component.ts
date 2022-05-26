@@ -11,7 +11,7 @@ export class FeedbackComponent implements OnInit {
   ideaShow: boolean = false;
   issueShow: boolean = false;
   suggestionShow: boolean = false;
-  sendShow: boolean = false;
+  sendSuccess: boolean = false;
   title!: string;
   feedback!: string;
 
@@ -38,7 +38,7 @@ export class FeedbackComponent implements OnInit {
     this.ideaShow = false;
     this.issueShow = false;
     this.suggestionShow = false;
-    this.sendShow = false;
+    this.sendSuccess = false;
   }
 
   public sendFeedback() {
@@ -46,7 +46,7 @@ export class FeedbackComponent implements OnInit {
       this.ideaShow = false;
       this.issueShow = false;
       this.suggestionShow = false;
-      this.sendShow = true;
+      this.sendSuccess = true;
 
       const feedback: Feedback = {
         tipo: this.title.split(' ')[1],
@@ -54,6 +54,10 @@ export class FeedbackComponent implements OnInit {
       };
 
       this.feedbackService.feedback(feedback);
+
+      setTimeout(() => {
+        this.closeForms();
+      }, 2000);
     }
   }
 }

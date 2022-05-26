@@ -13,19 +13,13 @@ export class SimuladoService {
   constructor(protected http: HttpClient) {}
 
   public getSimulados(): Observable<any> {
-    this.http.get(`${environment.API_URL}/simulados`).subscribe((response) => {
-    });
-
-    examsMock.forEach((exam) => {
-      const questionsIds = exam?.questoes;
-      this.getQuestions(questionsIds).subscribe((questions) => {
-        exam.questoes = questions;
-      });
-    });
-
     return new Observable((observer) => {
-      observer.next(examsMock);
-      observer.complete();
+      this.http
+        .get(`${environment.API_URL}/simulados`)
+        .subscribe((response) => {
+          observer.next(response);
+          observer.complete();
+        });
     });
   }
 

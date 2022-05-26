@@ -7,7 +7,7 @@
     </mat-card-title>
   </mat-card-header>
   <mat-card-content>
-    <p>
+    <p class="exams__search--description" matTooltip="{{ exam.descricao }}">
       {{ exam.descricao }}
     </p>
     <mat-divider></mat-divider>
@@ -24,7 +24,8 @@
   </mat-card-content>
   <mat-divider></mat-divider>
   <mat-card-actions align="end">
-    <button attr.aria-label="Entrar no simulado {{exam.nome}}" mat-raised-button routerLink="/simulado/{{exam.id}}" color="accent">
+    <button attr.aria-label="Entrar no simulado {{exam.nome}}" mat-raised-button routerLink="/simulado/{{exam.id}}"
+      color="accent">
       <span matTooltip="Iniciar"><i class="ph-play-bold"></i></span>
     </button>
   </mat-card-actions>

@@ -1,6 +1,7 @@
 import {
   GoogleLoginProvider,
   SocialAuthService,
+  SocialUser,
 } from '@abacritt/angularx-social-login';
 import { Component, Inject, OnInit } from '@angular/core';
 import {
@@ -9,6 +10,7 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 import { User } from '../interfaces/user';
 import { UserService } from './user/service/user.service';
 
@@ -21,11 +23,13 @@ export interface DialogData {
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  public user!: any;
+  public user!: SocialUser;
+  public userGoogle: any = localStorage.getItem('user');
 
   constructor(
     private authService: SocialAuthService,
     public dialog: MatDialog,
+    private router: Router,
     private _snackBar: MatSnackBar
   ) {}
 
@@ -40,12 +44,15 @@ export class NavbarComponent implements OnInit {
   }
 
   public logout(): void {
-    this.authService.signOut().then(() =>
-      this._snackBar.open('Sua sessão foi encerrada', 'Fechar', {
-        duration: 2000,
-      })
-    );
+    if (this.userGoogle) {
+      this.authService.signOut();
+    }
+
+    this._snackBar.open('Sua sessão foi encerrada', 'Fechar', {
+      duration: 2000,
+    });
     localStorage.clear();
+    this.reloadCurrentRoute();
   }
 
   public registerUser(): void {
@@ -71,6 +78,13 @@ export class NavbarComponent implements OnInit {
       this.user = result;
     });
   }
+
+  public reloadCurrentRoute() {
+    let currentUrl = this.router.url;
+    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
+      this.router.navigate([currentUrl]);
+    });
+  }
 }
 
 @Component({
@@ -91,8 +105,7 @@ export class RegisterDialog implements OnInit {
     @Inject(MAT_DIALOG_DATA) private data: DialogData
   ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public loginWithGoogle(): void {
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
@@ -103,6 +116,8 @@ export class RegisterDialog implements OnInit {
           duration: 2000,
         }
       );
+
+      this.dialogRef.close(user);
     });
   }
 
@@ -138,6 +153,10 @@ export class RegisterDialog implements OnInit {
       }
     }
   }
+
+  public closeDialog(): void {
+    this.dialogRef.close();
+  }
 }
 
 @Component({
@@ -157,11 +176,10 @@ export class LoginDialog implements OnInit {
     @Inject(MAT_DIALOG_DATA) private data: DialogData
   ) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   public loginWithGoogle(): void {
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then(() => {
+    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
       this._snackBar.open(
         'Entrada de usuário realizada com sucesso',
         'Fechar',
@@ -169,6 +187,8 @@ export class LoginDialog implements OnInit {
           duration: 2000,
         }
       );
+
+      this.dialogRef.close(user);
     });
   }
 
@@ -205,5 +225,9 @@ export class LoginDialog implements OnInit {
         );
       }
     }
+  }
+
+  public closeDialog(): void {
+    this.dialogRef.close();
   }
 }

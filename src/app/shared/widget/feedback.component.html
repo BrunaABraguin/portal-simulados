@@ -1,6 +1,6 @@
 <div class="widget__feedback">
-  <button aria-label="Abrir formulário para escrever um comentário sobre um problema, sugestão ou ideia" mat-fab color="primary" matTooltip="Feedback" [matMenuTriggerFor]="menu"
-    *ngIf="!issueShow && !ideaShow && !suggestionShow && !sendShow">
+  <button aria-label="Abrir formulário para escrever um comentário sobre um problema, sugestão ou ideia" mat-fab color="primary" matTooltip="Comentar" [matMenuTriggerFor]="menu"
+    *ngIf="!issueShow && !ideaShow && !suggestionShow && !sendSuccess">
     <mat-icon><i class="ph-chat-teardrop-dots"></i></mat-icon>
   </button>
   <mat-menu #menu="matMenu" yPosition="above">
@@ -16,7 +16,7 @@
     <mat-card-header>
       <mat-card-title class="widget__feedback--form-title">
         <label for="feedback">{{ title }}</label>
-        <button aria-label="Fechar formulário de comentários" aria-label="Escrever sobre um problema" mat-icon-button (click)="closeForms()">
+        <button aria-label="Fechar formulário de comentários" mat-icon-button (click)="closeForms()">
           <mat-icon><i class="ph-x"></i></mat-icon>
         </button>
       </mat-card-title>
@@ -33,11 +33,11 @@
         <mat-form-field *ngIf="suggestionShow" appearance="outline" class="widget__feedback--form-input">
           <textarea matInput name="feedback" id="feedback" [(ngModel)]="feedback" placeholder="Queremos te ouvir. O que você gostaria de nos dizer? " id="feedback"></textarea>
         </mat-form-field>
-        <button aria-label="Enviar comentário" mat-raised-button type="submit" color="primary" class="widget__feedback--submit">Enviar Feedback</button>
+        <button aria-label="Enviar comentário" mat-raised-button type="submit" color="primary" class="widget__feedback--submit">Enviar comentário</button>
       </form>
     </mat-card-content>
   </mat-card>
-  <mat-card *ngIf="sendShow" class="widget__feedback--form">
+  <mat-card *ngIf="sendSuccess" class="widget__feedback--form">
     <mat-card-header>
       <mat-card-title class="widget__feedback--form-title">
         <span></span>
@@ -49,6 +49,7 @@
     <mat-card-content class="widget__feedback--send">
       <h1>✅</h1>
       <h2>Agradecemos o feedback!</h2>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
     </mat-card-content>
   </mat-card>
 </div>

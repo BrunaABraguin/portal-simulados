@@ -41,6 +41,10 @@ $lg-min: 1280px;
   flex-direction: column;
 }
 
+.flex-row-reverse {
+  flex-direction: row-reverse;
+}
+
 .outline-3 {
   outline: 3px solid;
 }
@@ -83,6 +87,11 @@ $lg-min: 1280px;
 
 .w-25 {
   width: 25%;
+}
+
+.mb-10
+{
+  margin-bottom: 10px;
 }
 
 .d-xs-none {
@@ -135,6 +144,7 @@ html,
 body {
   height: 100%;
   overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 body {
