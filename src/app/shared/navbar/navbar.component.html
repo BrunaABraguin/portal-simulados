@@ -3,19 +3,20 @@
     <img class="navbar__viewport--login" src="../../../assets/images/logoWhite.svg" alt="Logotipo branco caneta marcando uma questão de prova">
   </div>
   <button aria-label="Menu de opções para usuário" mat-icon-button [matMenuTriggerFor]="menu">
-    <mat-icon *ngIf="!user"><i class="ph-user-focus"></i></mat-icon>
-    <img *ngIf="user" src="{{ user.photoUrl }}" width="32" height="32" class="navbar__viewport--user" alt="Foto de perfil do usuário do Google">
+    <mat-icon *ngIf="!userGoogle && (userProfile | json) == '{}'"><i class="ph-user-focus"></i></mat-icon>
+    <ngx-avatar *ngIf="(userProfile | json) != '{}'" name="{{userProfile.id}}" size="40"></ngx-avatar>
+    <img *ngIf="userGoogle" src="{{ userGoogle.photoUrl }}" width="32" height="32" class="navbar__viewport--user" alt="Foto de perfil do usuário do Google">
   </button>
   <mat-menu #menu="matMenu">
-    <button aria-label="Sair do perfil do usuário" mat-menu-item (click)="logout()" *ngIf="user">
+    <button aria-label="Sair do perfil do usuário" mat-menu-item (click)="logout()" *ngIf="userGoogle || (userProfile | json) != '{}'">
       <mat-icon><i class="ph-sign-out"></i></mat-icon>
       <span>Sair</span>
     </button>
-    <button aria-label="Cadastrar usuário" mat-menu-item *ngIf="!user" class="d-flex" (click)="registerUser()">
+    <button aria-label="Cadastrar usuário" mat-menu-item *ngIf="!userGoogle && (userProfile | json) == '{}'" class="d-flex" (click)="registerUser()">
       <mat-icon><i class="ph-user-plus-bold"></i></mat-icon>
       <span>Cadastre-se</span>
     </button>
-    <button aria-label="Entrar no perfil do usuário" mat-menu-item *ngIf="!user" class="d-flex" (click)="loginUser()">
+    <button aria-label="Entrar no perfil do usuário" mat-menu-item *ngIf="!userGoogle && (userProfile | json) == '{}'" class="d-flex" (click)="loginUser()">
       <mat-icon><i class="ph-user-circle-bold"></i></mat-icon>
       <span>Entrar</span>
     </button>

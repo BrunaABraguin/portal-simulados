@@ -11,6 +11,7 @@ import {
 } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { User } from '../interfaces/user';
 import { UserService } from './user/service/user.service';
 
@@ -23,8 +24,9 @@ export interface DialogData {
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
-  public user!: SocialUser;
-  public userGoogle: any = localStorage.getItem('user');
+  public user!: any;
+  public userGoogle!: SocialUser;
+  public userProfile!: any;
 
   constructor(
     private authService: SocialAuthService,
@@ -35,12 +37,14 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
     this.authService.authState.subscribe((user) => {
-      this.user = user;
+      this.userGoogle = user;
       if (user) {
-        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('userGoogle', JSON.stringify(user));
         localStorage.setItem('token', user.idToken);
       }
     });
+
+    this.userProfile = JSON.parse(localStorage.getItem('user') || '{}');
   }
 
   public logout(): void {
@@ -51,6 +55,7 @@ export class NavbarComponent implements OnInit {
     this._snackBar.open('Sua sessão foi encerrada', 'Fechar', {
       duration: 2000,
     });
+
     localStorage.clear();
     this.reloadCurrentRoute();
   }
@@ -64,6 +69,7 @@ export class NavbarComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       this.user = result;
+      this.reloadCurrentRoute();
     });
   }
 
@@ -76,14 +82,12 @@ export class NavbarComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe((result) => {
       this.user = result;
+      this.reloadCurrentRoute();
     });
   }
 
   public reloadCurrentRoute() {
-    let currentUrl = this.router.url;
-    this.router.navigateByUrl('/', { skipLocationChange: true }).then(() => {
-      this.router.navigate([currentUrl]);
-    });
+    window.location.reload();
   }
 }
 
@@ -108,6 +112,7 @@ export class RegisterDialog implements OnInit {
   ngOnInit(): void {}
 
   public loginWithGoogle(): void {
+    localStorage.clear();
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
       this._snackBar.open(
         'Entrada de usuário realizada com sucesso',
@@ -167,6 +172,7 @@ export class RegisterDialog implements OnInit {
 export class LoginDialog implements OnInit {
   public email!: string;
   public senha!: string;
+  public helper: JwtHelperService = new JwtHelperService();
 
   constructor(
     private authService: SocialAuthService,
@@ -179,6 +185,7 @@ export class LoginDialog implements OnInit {
   ngOnInit(): void {}
 
   public loginWithGoogle(): void {
+    localStorage.clear();
     this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
       this._snackBar.open(
         'Entrada de usuário realizada com sucesso',
@@ -214,7 +221,9 @@ export class LoginDialog implements OnInit {
                 duration: 2000,
               }
             );
+            const decodedToken = this.helper.decodeToken(response.token);
             localStorage.setItem('token', response.token);
+            localStorage.setItem('user', JSON.stringify(decodedToken));
             this.dialogRef.close(this.data.user);
           },
           (error) => {

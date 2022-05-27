@@ -1,10 +1,25 @@
+@import '../../../styles.scss';
+
 .questions {
   margin: 3rem 0;
 
   &__comments {
+    @media (max-width: $xs-max) {
+      flex-direction: column;
+    }
+
     display: flex;
     justify-content: space-between;
     margin-bottom: 2rem;
+
+    &--content {
+      width: 90%;
+      margin-top: 0.5rem;
+      @media (min-width: $sm-min) {
+        width: 33%;
+        margin-top: 0;
+      }
+    }
   }
 
   &__tags {
@@ -13,8 +28,18 @@
     margin-bottom: 2rem;
 
     &--exam {
-      min-width: 155px;
+      width: 108px;
       justify-content: center;
+
+      @media (min-width: $lg-min) {
+        width: 155px;
+      }
+
+      span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
     }
 
     &--comments {
@@ -27,24 +52,56 @@
   &__list {
     margin-bottom: 2rem;
 
+    &--background {
+      @media (min-width: $sm-min) {
+        width: 60%;
+      }
+    }
+
     &--title {
       display: flex;
+      white-space: pre-wrap;
+
+      @media (max-width: $sm-max) {
+        font-size: 1.25rem;
+      }
 
       span {
-        margin: 0 33px;
+        @media (max-width: $sm-max) {
+          font-size: 1.25rem;
+          margin: 0 25px;
+        }
+
+        @media (min-width: $sm-min) {
+          margin: 0 33px;
+        }
       }
     }
 
     &--content {
-      padding: 2rem 0 2rem 5rem;
+      @media (max-width: $sm-max) {
+        padding: 2rem 0 2rem 1rem;
+      }
+
+      @media (min-width: $sm-min) {
+        padding: 2rem 0 2rem 5rem;
+      }
     }
 
     &--options {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      font-size: 16px;
-      line-height: 40px;
+
+      @media (max-width: $sm-max) {
+        font-size: 1rem;
+        line-height: 35px;
+      }
+
+      @media (min-width: $sm-min) {
+        font-size: 16px;
+        line-height: 40px;
+      }
 
       label {
         cursor: pointer;
@@ -77,8 +134,7 @@
         text-align: center;
         text-transform: uppercase;
 
-        &.wrong
-        {
+        &.wrong {
           border: 2px solid #FF5252;
           background-color: #FF5252;
           color: white;
@@ -106,5 +162,12 @@
 }
 
 section {
-  padding: 0 35px;
+  @media (min-width: $lg-min) {
+    padding: 0 35px;
+  }
+}
+
+.mat-card-title {
+  font-family: "Rajdhani", sans-serif;
+  font-size: 1.25rem;
 }

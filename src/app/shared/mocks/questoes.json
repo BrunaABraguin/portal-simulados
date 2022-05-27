@@ -3,35 +3,30 @@
     "id": "1",
     "disciplina": "Matemática",
     "assunto": "Álgebra",
-    "enunciado": "I am a student at the University of Washington",
+    "enunciado": "(UFMG-2007) Em uma danceteria, há um aparelho com várias caixas de som iguais. Quando uma dessas caixas é ligada no volume máximo, o nível R de ruído contínuo é de 95 dB. \n \n Sabe-se que - R = 120 + 10.log10 Is , em que Is é a intensidade sonora, dada em watt/m2; e \n \n - a intensidade sonora Is é proporcional ao número de caixas ligadas. \n \n Seja N o maior número dessas caixas de som que podem ser ligadas, simultaneamente, sem que se atinja o nível de 115 dB, que é o máximo suportável pelo ouvido humano. \n \nEntão, é CORRETO afirmar que N é:",
     "alternativas": [
       {
-        "id": "1",
-        "enunciado": "I am a student at the University of Washington",
+        "enunciado": "menor ou igual a 25.",
+        "checked": false,
+        "isCorrect": false
+      },
+      {
+        "enunciado": "maior que 25 e menor ou igual a 50.",
+        "checked": false,
+        "isCorrect": false
+      },
+      {
+        "enunciado": "maior que 50 e menor ou igual a 75.",
+        "checked": false,
+        "isCorrect": false
+      },
+      {
+        "enunciado": "maior que 75 e menor ou igual a 100.",
         "checked": false,
         "isCorrect": true
       },
       {
-        "id": "2",
-        "enunciado": "I am not a student at the University of Washington",
-        "checked": false,
-        "isCorrect": false
-      },
-      {
-        "id": "3",
-        "enunciado": "I am a student at the University of Washington",
-        "checked": false,
-        "isCorrect": false
-      },
-      {
-        "id": "4",
-        "enunciado": "I am not a student at the University of Washington",
-        "checked": false,
-        "isCorrect": false
-      },
-      {
-        "id": "5",
-        "enunciado": "I am not a student at the University of Washington",
+        "enunciado": "nenhuma das alternativas anteriores.",
         "checked": false,
         "isCorrect": false
       }
@@ -41,37 +36,32 @@
   },
   {
     "id": "2",
-    "disciplina": "Português",
+    "disciplina": "Matemática",
     "assunto": "Álgebra",
-    "enunciado": "I am a student at the University of Washington",
+    "enunciado": "(IME-2009) Sejam dois conjuntos, X e Y, e a operação Δ, definida por X Δ Y = (X – Y) U (Y – X). \n \nPode-se afirmar que",
     "alternativas": [
       {
-        "id": "1",
-        "enunciado": "I am a student at the University of Washington",
+        "enunciado": "(X Δ Y) ∩ (X ∩ Y) = Ø",
         "checked": false,
         "isCorrect": true
       },
       {
-        "id": "2",
-        "enunciado": "I am not a student at the University of Washington",
+        "enunciado": "(X Δ Y) ∩ (X ? Y) = Ø",
         "checked": false,
         "isCorrect": false
       },
       {
-        "id": "3",
-        "enunciado": "I am a student at the University of Washington",
+        "enunciado": "(X Δ Y) ∩ (Y ? X) = Ø",
         "checked": false,
         "isCorrect": false
       },
       {
-        "id": "4",
-        "enunciado": "I am not a student at the University of Washington",
+        "enunciado": "(X Δ Y) U (X ? Y) = X",
         "checked": false,
         "isCorrect": false
       },
       {
-        "id": "5",
-        "enunciado": "I am not a student at the University of Washington",
+        "enunciado": "(X Δ Y) U (Y ? X) = X",
         "checked": false,
         "isCorrect": false
       }
@@ -81,37 +71,32 @@
   },
   {
     "id": "3",
-    "disciplina": "Inglês",
+    "disciplina": "Matemática",
     "assunto": "Álgebra",
-    "enunciado": "I am a student at the University of Washington",
+    "enunciado": "(Fuvest-2007) Em uma classe de 9 alunos, todos se dão bem, com exceção de Andréia, que vive brigando com Manoel e Alberto. Nessa classe, será constituída uma comissão de cinco alunos, com a exigência de que cada membro se relacione bem com todos os outros. \n \nQuantas comissões podem ser formadas?",
     "alternativas": [
       {
-        "id": "1",
-        "enunciado": "I am a student at the University of Washington",
+        "enunciado": "71",
         "checked": false,
         "isCorrect": true
       },
       {
-        "id": "2",
-        "enunciado": "I am not a student at the University of Washington",
+        "enunciado": "75",
         "checked": false,
         "isCorrect": false
       },
       {
-        "id": "3",
-        "enunciado": "I am a student at the University of Washington",
+        "enunciado": "80",
         "checked": false,
         "isCorrect": false
       },
       {
-        "id": "4",
-        "enunciado": "I am not a student at the University of Washington",
+        "enunciado": "83",
         "checked": false,
         "isCorrect": false
       },
       {
-        "id": "5",
-        "enunciado": "I am not a student at the University of Washington",
+        "enunciado": "87",
         "checked": false,
         "isCorrect": false
       }
@@ -123,37 +108,32 @@
     "id": "4",
     "disciplina": "Matemática",
     "assunto": "Álgebra",
-    "enunciado": "I am a student at the University of Washington",
+    "enunciado": "(IME-2009) Seja A uma matriz quadrada inversível de ordem 4 tal que o resultado da soma \n \n(A4 + 3 A3) é uma matriz de elementos nulos. O valor do determinante de A é",
     "alternativas": [
       {
-        "id": "1",
-        "enunciado": "I am a student at the University of Washington",
+        "enunciado": "- 81",
+        "checked": false,
+        "isCorrect": false
+      },
+      {
+        "enunciado": "- 27",
+        "checked": false,
+        "isCorrect": false
+      },
+      {
+        "enunciado": "- 3",
+        "checked": false,
+        "isCorrect": false
+      },
+      {
+        "enunciado": "27",
+        "checked": false,
+        "isCorrect": false
+      },
+      {
+        "enunciado": "81",
         "checked": false,
         "isCorrect": true
-      },
-      {
-        "id": "2",
-        "enunciado": "I am not a student at the University of Washington",
-        "checked": false,
-        "isCorrect": false
-      },
-      {
-        "id": "3",
-        "enunciado": "I am a student at the University of Washington",
-        "checked": false,
-        "isCorrect": false
-      },
-      {
-        "id": "4",
-        "enunciado": "I am not a student at the University of Washington",
-        "checked": false,
-        "isCorrect": false
-      },
-      {
-        "id": "5",
-        "enunciado": "I am not a student at the University of Washington",
-        "checked": false,
-        "isCorrect": false
       }
     ],
     "comentario": "I am a student at the University of Washington",
@@ -163,35 +143,30 @@
     "id": "5",
     "disciplina": "Matemática",
     "assunto": "Álgebra",
-    "enunciado": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Vitae purus faucibus ornare suspendisse sed nisi lacus sed. Et egestas quis ipsum suspendisse ultrices gravida dictum.",
+    "enunciado": "(UFMT-2006/2) Em uma cidade operam duas empresas de telefonia fixa. Admita que a empresa A cobra uma taxa fixa de R$ 30,00 mais R$ 0,15 para cada minuto de ligação local ou interurbana, que a empresa B cobra uma taxa fixa de R$ 20,00 mais R$ 0,20 para cada minuto de ligação local ou interurbana. Nessas condições, é mais vantajoso optar pela empresa A, em planos de, no mínimo,",
     "alternativas": [
       {
-        "id": "1",
-        "enunciado": "I am a student at the University of Washington",
+        "enunciado": "200 minutos.",
         "checked": false,
         "isCorrect": true
       },
       {
-        "id": "2",
-        "enunciado": "I am not a student at the University of Washington",
+        "enunciado": "180 minutos.",
         "checked": false,
         "isCorrect": false
       },
       {
-        "id": "3",
-        "enunciado": "I am a student at the University of Washington",
+        "enunciado": "150 minutos.",
         "checked": false,
         "isCorrect": false
       },
       {
-        "id": "4",
-        "enunciado": "I am not a student at the University of Washington",
+        "enunciado": "120 minutos.",
         "checked": false,
         "isCorrect": false
       },
       {
-        "id": "5",
-        "enunciado": "I am not a student at the University of Washington",
+        "enunciado": "100 minutos.",
         "checked": false,
         "isCorrect": false
       }
@@ -203,35 +178,30 @@
     "id": "6",
     "disciplina": "Matemática",
     "assunto": "Álgebra",
-    "enunciado": "I am a student at the University of Washington",
+    "enunciado": "(Fuvest 2011) Seja A uma matriz quadrada inversível de ordem 4 tal que o resultado da soma \n \n(A4 + 3 A3) é uma matriz de elementos nulos. O valor do determinante de A é",
     "alternativas": [
       {
-        "id": "1",
-        "enunciado": "I am a student at the University of Washington",
+        "enunciado": "3/2",
         "checked": false,
         "isCorrect": true
       },
       {
-        "id": "2",
-        "enunciado": "I am not a student at the University of Washington",
+        "enunciado": "5/4",
         "checked": false,
         "isCorrect": false
       },
       {
-        "id": "3",
-        "enunciado": "I am a student at the University of Washington",
+        "enunciado": "1/2",
         "checked": false,
         "isCorrect": false
       },
       {
-        "id": "4",
-        "enunciado": "I am not a student at the University of Washington",
+        "enunciado": "1/4",
         "checked": false,
         "isCorrect": false
       },
       {
-        "id": "5",
-        "enunciado": "I am not a student at the University of Washington",
+        "enunciado": "1/8",
         "checked": false,
         "isCorrect": false
       }

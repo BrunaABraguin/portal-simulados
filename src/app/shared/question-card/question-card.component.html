@@ -1,8 +1,8 @@
 <section *ngIf="!mostrarResposta">
   <mat-card class="questions__list">
     <mat-chip-list aria-label="Disciplina e tema da questão" class="questions__tags d-flex">
-      <mat-chip class="questions__tags--exam" color="primary" selected>{{ question.disciplina }}</mat-chip>
-      <mat-chip class="questions__tags--exam" color="primary" selected>{{ question.assunto}}</mat-chip>
+      <mat-chip class="questions__tags--exam" color="primary" selected><span>{{ question.disciplina }}</span></mat-chip>
+      <mat-chip class="questions__tags--exam" color="primary" selected><span>{{ question.assunto}}</span></mat-chip>
     </mat-chip-list>
     <mat-card-title class="questions__list--title">
       <span>{{ i + 1 }}</span>
@@ -25,7 +25,7 @@
 
 <section *ngIf="mostrarResposta">
   <div *ngFor="let question of questions; let i = index" class="questions__comments">
-    <mat-card class="w-60">
+    <mat-card class="questions__list--background">
       <mat-card-title class="questions__list--title">
         <span>{{ i + 1 }}</span>
         {{ question.enunciado }}
@@ -43,7 +43,7 @@
         </div>
       </mat-card-content>
     </mat-card>
-    <mat-card class="w-33">
+    <mat-card class="questions__comments--content">
       <mat-chip-list aria-label="Disciplina e tema da questão" class="questions__tags">
         <mat-chip class="questions__tags--comments" color="primary" selected>{{ question.disciplina }}</mat-chip>
         <mat-chip class="questions__tags--comments" color="primary" selected>{{ question.assunto}}</mat-chip>

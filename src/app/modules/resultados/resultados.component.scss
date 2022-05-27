@@ -1,9 +1,14 @@
+@import '../../../styles.scss';
+
 .header {
-  &__graphics
-  {
+  &__graphics {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 20px;
+
+    @media (max-width: $xs-max) {
+      flex-direction: column;
+    }
   }
 
   &__background {
@@ -28,23 +33,33 @@
     display: block;
     width: 20%;
     height: 40%;
+
+    @media (max-width: $xs-max) {
+      width: 70%;
+      margin: 20px auto;
+    }
   }
 
   &__barchart {
     display: block;
     width: 40%;
     height: 40%;
+
+    @media (max-width: $xs-max) {
+      width: 100%;
+      margin: 20px auto;
+      height: 100%;
+    }
   }
 
-  &__time
-  {
+  &__time {
     display: flex;
     justify-content: space-evenly;
     flex-direction: column;
     align-items: center;
   }
 
-  &__comments{
+  &__comments {
     text-align: center;
   }
 }

@@ -38,6 +38,7 @@ import { QuestionCardComponent } from './shared/question-card/question-card.comp
 import { NgChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { ExamCardComponent } from './modules/home/exam-card/exam-card.component';
+import { AvatarModule } from 'ngx-avatar';
 
 @NgModule({
   declarations: [
@@ -80,6 +81,7 @@ import { ExamCardComponent } from './modules/home/exam-card/exam-card.component'
     CommonModule,
     FormsModule,
     HttpClientModule,
+    AvatarModule
   ],
   providers: [
     {
