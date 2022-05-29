@@ -4,7 +4,7 @@
   </div>
   <button aria-label="Menu de opções para usuário" mat-icon-button [matMenuTriggerFor]="menu">
     <mat-icon *ngIf="!userGoogle && (userProfile | json) == '{}'"><i class="ph-user-focus"></i></mat-icon>
-    <ngx-avatar *ngIf="(userProfile | json) != '{}'" name="{{userProfile.id}}" size="40"></ngx-avatar>
+    <ngx-avatar *ngIf="(userProfile | json) != '{}'" name="{{userProfile.name}}" size="40"></ngx-avatar>
     <img *ngIf="userGoogle" src="{{ userGoogle.photoUrl }}" width="32" height="32" class="navbar__viewport--user" alt="Foto de perfil do usuário do Google">
   </button>
   <mat-menu #menu="matMenu">
