@@ -30,10 +30,6 @@ export class SimuladoComponent implements OnInit {
 
   ngOnInit() {
     this.getSimuladoById();
-    this.fimSimulado();
-    this.cronometro();
-    this.verificarRestantes();
-    this.percentual();
   }
 
   ngOnDestroy(): void {
@@ -53,6 +49,13 @@ export class SimuladoComponent implements OnInit {
 
     this.simuladoService.getSimuladoById(id).subscribe((simulado) => {
       this.simulado = simulado;
+
+      if (this.simulado) {
+        this.fimSimulado();
+        this.cronometro();
+        this.verificarRestantes();
+        this.percentual();
+      }
 
       if (questoesSalvas != null) {
         this.questions = JSON.parse(questoesSalvas);
