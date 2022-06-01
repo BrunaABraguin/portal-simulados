@@ -5,6 +5,6 @@ export interface Questao {
   assunto: string;
   enunciado: string;
   alternativas: Alternativa[];
-  comentario: string;
+  comentarios: string;
   respondida: boolean;
 }
