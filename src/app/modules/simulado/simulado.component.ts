@@ -37,12 +37,6 @@ export class SimuladoComponent implements OnInit {
     localStorage.removeItem(`inicio-${this.simulado.id}`);
   }
 
-  public percentual(): void {
-    this.percentualProgresso = Number(
-      ((this.progresso / this.questions.length) * 100).toFixed(2)
-    );
-  }
-
   public getSimuladoById(): void {
     const id = String(this.route.snapshot.paramMap.get('id'));
     const questoesSalvas = localStorage.getItem(`exam-${id}`);
@@ -53,16 +47,15 @@ export class SimuladoComponent implements OnInit {
       if (this.simulado) {
         this.fimSimulado();
         this.cronometro();
-        this.verificarRestantes();
-        this.percentual();
-      }
 
-      if (questoesSalvas != null) {
-        this.questions = JSON.parse(questoesSalvas);
-        this.progresso = Number(localStorage.getItem(`progresso-${id}`));
-        this.verificarRestantes();
-      } else {
-        this.questions = simulado.questoes;
+        if (questoesSalvas != null) {
+          this.questions = JSON.parse(questoesSalvas);
+          this.progresso = Number(localStorage.getItem(`progresso-${id}`));
+        } else {
+          this.questions = simulado.questoes;
+        }
+
+        this.restantes = this.remainingQuestions();
       }
     });
   }
@@ -121,13 +114,11 @@ export class SimuladoComponent implements OnInit {
           `progresso-${this.simulado.id}`,
           this.progresso.toString()
         );
-        this.verificarRestantes();
       }
     });
-  }
 
-  public verificarRestantes(): void {
-    this.restantes = this.questions.length - this.progresso;
+    this.restantes = this.remainingQuestions();
+    this.percentualProgresso = this.percentProgress();
   }
 
   public sendExam(): void {
@@ -151,5 +142,13 @@ export class SimuladoComponent implements OnInit {
       `tempoSimulado-${this.simulado.id}`,
       `${tempo} minuto(s)`.toString()
     );
+  }
+
+  public percentProgress(): number {
+    return Number(((this.progresso / this.questions.length) * 100).toFixed(1));
+  }
+
+  public remainingQuestions(): number {
+    return this.questions.length - this.progresso;
   }
 }
