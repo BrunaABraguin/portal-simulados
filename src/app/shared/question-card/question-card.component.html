@@ -12,7 +12,7 @@
       <mat-radio-group class="questions__list--options">
         <div *ngFor="let alt of question.alternativas; let index = index;">
           <label for="alt-{{i}}-{{index}}">
-            <input type="radio" [value]="alt" id="alt-{{i}}-{{index}}" name="alt-{{i}}" [checked]="alt.checked"
+            <input type="radio" [value]="alt" id="alt-{{i}}-{{index}}" name="alt-{{i}}" [checked]="alt.isSelected"
               (change)="saveExam(alt, question)">
             <span class="item">{{ options[index] }}</span>
             <span>{{alt.enunciado}}</span>
@@ -24,6 +24,15 @@
 </section>
 
 <section *ngIf="mostrarResposta">
+  <div class="d-flex mb-10 justify-content-end">
+    <mat-button-toggle-group name="categoryQuestions" aria-label="Categoria de questões" [(ngModel)]="filterQuestions"
+      (ngModelChange)="getFilterQuestions()">
+      <mat-button-toggle value="all">Todas</mat-button-toggle>
+      <mat-button-toggle value="correct">Acertos</mat-button-toggle>
+      <mat-button-toggle value="incorrect">Erros</mat-button-toggle>
+    </mat-button-toggle-group>
+  </div>
+
   <div *ngFor="let question of questions; let i = index" class="questions__comments">
     <mat-card class="questions__list--background">
       <mat-card-title class="questions__list--title">
@@ -35,10 +44,10 @@
           <label class="disabled">
             <input type="radio" name="alt-{{i}}" [checked]="alt.isCorrect" disabled>
             <span class="item"
-              [ngClass]="{'right': alt.isCorrect, 'wrong': !alt.isCorrect && alt.checked, 'disabled': !alt.isCorrect && !alt.checked }">{{
+              [ngClass]="{'right': alt.isCorrect, 'wrong': !alt.isCorrect && alt.isSelected, 'disabled': !alt.isCorrect && !alt.isSelected }">{{
               options[index] }}</span>
             <span
-              [ngClass]="{'right': alt.isCorrect, 'wrong': !alt.isCorrect && alt.checked, 'disabled': !alt.isCorrect && !alt.checked }">{{alt.enunciado}}</span>
+              [ngClass]="{'right': alt.isCorrect, 'wrong': !alt.isCorrect && alt.isSelected, 'disabled': !alt.isCorrect && !alt.isSelected }">{{alt.enunciado}}</span>
           </label>
         </div>
       </mat-card-content>

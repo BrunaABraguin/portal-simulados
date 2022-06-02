@@ -14,6 +14,7 @@ export class QuestionCardComponent implements OnInit {
   public options: string[] = ['A', 'B', 'C', 'D', 'E'];
   public selecionadas!: Selecionadas;
   public questions!: Questao[];
+  public filterQuestions!: string;
   @Input() question!: Questao;
   @Input() i!: number;
   @Input() mostrarResposta!: boolean;
@@ -28,6 +29,26 @@ export class QuestionCardComponent implements OnInit {
     if (this.mostrarResposta && questoesSalvas) {
       this.questions = JSON.parse(questoesSalvas);
     }
+  }
+
+  public getFilterQuestions(): void {
+    const id = String(this.route.snapshot.paramMap.get('id'));
+    const questoesSalvas = localStorage.getItem(`exam-${id}`);
+
+    if (this.mostrarResposta && questoesSalvas) {
+      if (this.filterQuestions == 'all') {
+        this.questions = JSON.parse(questoesSalvas);
+      }
+      else if (this.filterQuestions == 'correct')
+      {
+        this.questions = JSON.parse(questoesSalvas).filter((questao: Questao) => questao.alternativas.some((alternativa: Alternativa) => alternativa.isCorrect && alternativa.isSelected));
+      }
+      else if (this.filterQuestions == 'incorrect')
+      {
+        this.questions = JSON.parse(questoesSalvas).filter((questao: Questao) => questao.alternativas.some((alternativa: Alternativa) => !alternativa.isCorrect && alternativa.isSelected));
+      }
+    }
+
   }
 
   public saveExam(alternativaSelecionada: Alternativa, questaoSelectionada: Questao): void {

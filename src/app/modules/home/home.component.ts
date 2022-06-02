@@ -8,7 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
   public user!: any;
-  public data!: Simulado[];
+  public simulados!: Simulado[];
+  public isLoading: boolean = true;
 
   constructor(private simuladoService: SimuladoService) {}
 
@@ -18,7 +19,10 @@ export class HomeComponent implements OnInit {
 
   public getSimulados(): void {
     this.simuladoService.getSimulados().subscribe((simulados) => {
-      this.data = simulados.data[0];
+      this.simulados = simulados.data[0];
+      if (this.simulados) {
+        this.isLoading = false;
+      }
     });
   }
 }

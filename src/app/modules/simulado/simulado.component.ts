@@ -30,6 +30,10 @@ export class SimuladoComponent implements OnInit {
 
   ngOnInit() {
     this.getSimuladoById();
+
+    if (this.questions == undefined) {
+      window.location.replace('/');
+    }
   }
 
   ngOnDestroy(): void {
@@ -54,7 +58,6 @@ export class SimuladoComponent implements OnInit {
         } else {
           this.questions = simulado.questoes;
         }
-
         this.restantes = this.remainingQuestions();
       }
     });
@@ -97,13 +100,13 @@ export class SimuladoComponent implements OnInit {
       if (question.id === selecionada.questao.id) {
         question.alternativas.find((alternativa) => {
           if (selecionada.alternativa.enunciado == alternativa.enunciado) {
-            alternativa.checked = true;
+            alternativa.isSelected = true;
             if (question.respondida === false) {
               question.respondida = true;
               this.progresso++;
             }
           } else {
-            alternativa.checked = false;
+            alternativa.isSelected = false;
           }
         });
         localStorage.setItem(
@@ -131,17 +134,23 @@ export class SimuladoComponent implements OnInit {
   }
 
   public setTempoSimulado(): void {
-    let now = new Date().getTime();
-    this.inicio = new Date(this.inicio).getTime();
-    let tempo = this.inicio - now;
-    tempo = tempo / 1000;
-    tempo = tempo / 60;
-    tempo = Math.abs(tempo);
-    tempo = Math.round(tempo);
-    localStorage.setItem(
-      `tempoSimulado-${this.simulado.id}`,
-      `${tempo} minuto(s)`.toString()
+    const finalizado = localStorage.getItem(
+      `tempoSimulado-${this.simulado.id}`
     );
+
+    if (finalizado == null) {
+      let now = new Date().getTime();
+      this.inicio = new Date(this.inicio).getTime();
+      let tempo = this.inicio - now;
+      tempo = tempo / 1000;
+      tempo = tempo / 60;
+      tempo = Math.abs(tempo);
+      tempo = Math.round(tempo);
+      localStorage.setItem(
+        `tempoSimulado-${this.simulado.id}`,
+        `${tempo} minuto(s)`.toString()
+      );
+    }
   }
 
   public percentProgress(): number {

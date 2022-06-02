@@ -46,6 +46,9 @@ export class ResultadosComponent implements OnInit {
       x: {},
       y: {
         min: 0,
+        ticks: {
+          stepSize: 1,
+        },
       },
     },
     plugins: {
@@ -99,9 +102,9 @@ export class ResultadosComponent implements OnInit {
       this.questions.forEach((question) => {
         if (question.respondida) {
           question.alternativas.forEach((alternativa) => {
-            if (alternativa.isCorrect && alternativa.checked) {
+            if (alternativa.isCorrect && alternativa.isSelected) {
               this.acertos++;
-            } else if (!alternativa.isCorrect && alternativa.checked) {
+            } else if (!alternativa.isCorrect && alternativa.isSelected) {
               this.erros++;
             }
           });
@@ -154,9 +157,9 @@ export class ResultadosComponent implements OnInit {
       let index = this.barChartLabels.indexOf(question.disciplina);
       if (question.respondida) {
         question.alternativas.forEach((alternativa) => {
-          if (alternativa.isCorrect && alternativa.checked) {
+          if (alternativa.isCorrect && alternativa.isSelected) {
             this.barChartDataAcertos[index]++;
-          } else if (!alternativa.isCorrect && alternativa.checked) {
+          } else if (!alternativa.isCorrect && alternativa.isSelected) {
             this.barChartDataErros[index]++;
           }
         });
@@ -184,7 +187,6 @@ export class ResultadosComponent implements OnInit {
 
     if (progresso) {
       if (this.questions.length === Number(progresso)) {
-        this.finishExam = true;
       }
     } else {
       this.router.navigate([`/simulado/${id}`]);

@@ -7,27 +7,27 @@
     "alternativas": [
       {
         "enunciado": "menor ou igual a 25.",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "maior que 25 e menor ou igual a 50.",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "maior que 50 e menor ou igual a 75.",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "maior que 75 e menor ou igual a 100.",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": true
       },
       {
         "enunciado": "nenhuma das alternativas anteriores.",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       }
     ],
@@ -42,27 +42,27 @@
     "alternativas": [
       {
         "enunciado": "(X Δ Y) ∩ (X ∩ Y) = Ø",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": true
       },
       {
         "enunciado": "(X Δ Y) ∩ (X ? Y) = Ø",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "(X Δ Y) ∩ (Y ? X) = Ø",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "(X Δ Y) U (X ? Y) = X",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "(X Δ Y) U (Y ? X) = X",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       }
     ],
@@ -77,27 +77,27 @@
     "alternativas": [
       {
         "enunciado": "71",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": true
       },
       {
         "enunciado": "75",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "80",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "83",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "87",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       }
     ],
@@ -112,27 +112,27 @@
     "alternativas": [
       {
         "enunciado": "- 81",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "- 27",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "- 3",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "27",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "81",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": true
       }
     ],
@@ -147,27 +147,27 @@
     "alternativas": [
       {
         "enunciado": "200 minutos.",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": true
       },
       {
         "enunciado": "180 minutos.",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "150 minutos.",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "120 minutos.",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "100 minutos.",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       }
     ],
@@ -182,27 +182,27 @@
     "alternativas": [
       {
         "enunciado": "3/2",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": true
       },
       {
         "enunciado": "5/4",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "1/2",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "1/4",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       },
       {
         "enunciado": "1/8",
-        "checked": false,
+        "isSelected": false,
         "isCorrect": false
       }
     ],

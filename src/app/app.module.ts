@@ -22,6 +22,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { SimuladoComponent } from './modules/simulado/simulado.component';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 import { HomeComponent } from './modules/home/home.component';
@@ -71,6 +72,7 @@ import { AvatarModule } from 'ngx-avatar';
     MatGridListModule,
     MatDividerModule,
     MatTooltipModule,
+    MatButtonToggleModule,
     MatProgressBarModule,
     MatRadioModule,
     MatProgressSpinnerModule,

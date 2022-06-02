@@ -1,0 +1,19 @@
+@import '../../../styles.scss';
+
+.title {
+  margin: 2rem 0 0 2rem;
+
+  @media (min-width: $lg-min) {
+    padding: 35px 0 0 35px;
+    margin-left: 45px;
+  }
+}
+
+section {
+  margin: 0 2rem 2rem 2rem;
+
+  @media (min-width: $lg-min) {
+    padding: 0 35px 35px 35px;
+    margin-left: 45px;
+  }
+}

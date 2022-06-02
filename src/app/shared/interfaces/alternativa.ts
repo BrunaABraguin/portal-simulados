@@ -1,6 +1,5 @@
-export interface Alternativa
-{
+export interface Alternativa {
   enunciado: string;
-  checked: boolean;
+  isSelected: boolean;
   isCorrect: boolean;
 }

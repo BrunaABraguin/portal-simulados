@@ -134,6 +134,10 @@ $lg-min: 1280px;
   }
 }
 
+.justify-content-end {
+  justify-content: flex-end;
+}
+
 .loading {
   display: flex;
   justify-content: center;

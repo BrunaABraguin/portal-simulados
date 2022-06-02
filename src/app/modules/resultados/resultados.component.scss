@@ -11,24 +11,6 @@
     }
   }
 
-  &__background {
-    width: 100%;
-    position: relative;
-    z-index: 0;
-  }
-
-  &__confetti {
-    position: absolute;
-    top: 0;
-    right: 500px;
-    height: 40%;
-    z-index: 1;
-  }
-
-  &__text {
-    text-align: center;
-  }
-
   &__donutchart {
     display: block;
     width: 20%;
