@@ -8,10 +8,18 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ExamCardComponent implements OnInit {
   @Input() exam!: Simulado;
+  public prazoExpirado: boolean = false;
 
   constructor() { }
 
   ngOnInit(): void {
+    const dataFinal = new Date(this.exam.data_fim);
+    const dataAtual = new Date();
+
+    if (dataFinal < dataAtual) {
+      this.prazoExpirado = true;
+    }
+
   }
 
 }

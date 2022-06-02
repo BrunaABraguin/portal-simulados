@@ -23,10 +23,11 @@
     </div>
   </mat-card-content>
   <mat-divider></mat-divider>
-  <mat-card-actions align="end">
-    <button attr.aria-label="Entrar no simulado {{exam.nome}}" mat-raised-button routerLink="/simulado/{{exam.id}}"
-      color="accent">
+  <mat-card-actions>
+    <button *ngIf="!prazoExpirado" attr.aria-label="Entrar no simulado {{exam.nome}}" mat-raised-button
+      routerLink="/simulado/{{exam.id}}" color="accent">
       <span matTooltip="Iniciar"><i class="ph-play-bold"></i></span>
     </button>
+    <h4 *ngIf="prazoExpirado">O prazo para realizar este simulado expirou</h4>
   </mat-card-actions>
 </mat-card>
