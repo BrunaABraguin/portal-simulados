@@ -8,7 +8,7 @@
   <mat-progress-bar mode="determinate" value="{{ percentualProgresso }}" color="accent"
     matTooltip="{{ percentualProgresso }}%">
   </mat-progress-bar>
-  <button attr.aria-label="Questões feitas e quantidade de questões do simulado"  mat-flat-button color="accent">{{progresso}} / {{ questions.length }}</button>
+  <button attr.aria-label="Questões feitas e quantidade de questões do simulado"  mat-flat-button color="accent">{{progresso}} / {{ quantidadeQuestoes }}</button>
 </section>
 <div class="questions" *ngFor="let question of questions; let i = index;">
   <app-question-card class="questions__list" [question]="question" [i]="i"

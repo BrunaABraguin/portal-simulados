@@ -23,22 +23,14 @@ export class SimuladoService {
     });
   }
 
-  public getSimuladoById(id: string): Observable<Simulado> {
+  public getSimuladoById(id: string): Observable<any> {
     return new Observable((observer) => {
-      const exam = examsMock.find((s: { id: string }) => s.id === id);
-      if (exam) {
-        const questionsIds = exam?.questoes;
-        this.getQuestions(questionsIds).subscribe((questions) => {
-          const simulado: Simulado = {
-            ...exam,
-            questoes: questions,
-          };
-          observer.next(simulado);
+      this.http
+        .get(`${environment.API_URL}/simulados/${id}`)
+        .subscribe((response: any) => {
+          observer.next(response.data[0].simulado);
           observer.complete();
         });
-      } else {
-        observer.error();
-      }
     });
   }
 

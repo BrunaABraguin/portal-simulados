@@ -1,6 +1,6 @@
 import { Alternativa } from './alternativa';
 export interface Questao {
-  id: string;
+  _id: string;
   disciplina: string;
   assunto: string;
   enunciado: string;

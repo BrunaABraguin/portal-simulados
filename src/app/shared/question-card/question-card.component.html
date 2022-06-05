@@ -44,10 +44,9 @@
           <label class="disabled">
             <input type="radio" name="alt-{{i}}" [checked]="alt.isCorrect" disabled>
             <span class="item"
-              [ngClass]="{'right': alt.isCorrect, 'wrong': !alt.isCorrect && alt.isSelected, 'disabled': !alt.isCorrect && !alt.isSelected }">{{
-              options[index] }}</span>
+              [ngClass]="{'right': alt.isCorrect, 'wrong': !alt.isCorrect && alt.isSelected, 'disabled': !alt.isCorrect && !alt.isSelected }">{{ options[index] }}</span>
             <span
-              [ngClass]="{'right': alt.isCorrect, 'wrong': !alt.isCorrect && alt.isSelected, 'disabled': !alt.isCorrect && !alt.isSelected }">{{alt.enunciado}}</span>
+              [ngClass]="{'right': alt.isCorrect, 'wrong': !alt.isCorrect && alt.isSelected, 'disabled': !alt.isCorrect && !alt.isSelected }">{{ alt.enunciado}}</span>
           </label>
         </div>
       </mat-card-content>
