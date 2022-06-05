@@ -227,7 +227,7 @@ export class LoginDialog implements OnInit {
             this.dialogRef.close(this.data.user);
           },
           (error) => {
-            this._snackBar.open(error.error.message, 'Fechar', {
+            this._snackBar.open('Usuário não autorizado', 'Fechar', {
               duration: 2000,
             });
           }
