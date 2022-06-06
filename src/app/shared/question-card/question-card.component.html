@@ -6,7 +6,7 @@
     </mat-chip-list>
     <mat-card-title class="questions__list--title">
       <span>{{ i + 1 }}</span>
-      {{ question.enunciado }}
+      <div [innerHTML]="question.enunciado"></div>
     </mat-card-title>
     <mat-card-content class="questions__list--content">
       <mat-radio-group class="questions__list--options">
@@ -15,7 +15,7 @@
             <input type="radio" [value]="alt" id="alt-{{i}}-{{index}}" name="alt-{{i}}" [checked]="alt.isSelected"
               (change)="saveExam(alt, question)">
             <span class="item">{{ options[index] }}</span>
-            <span>{{alt.enunciado}}</span>
+            <span [innerHTML]="alt.enunciado"></span>
           </label>
         </div>
       </mat-radio-group>
@@ -37,7 +37,7 @@
     <mat-card class="questions__list--background">
       <mat-card-title class="questions__list--title">
         <span>{{ i + 1 }}</span>
-        {{ question.enunciado }}
+        <div [innerHTML]="question.enunciado"></div>
       </mat-card-title>
       <mat-card-content class="questions__list--content">
         <div class="questions__list--options" *ngFor="let alt of question.alternativas; let index = index;">
@@ -46,7 +46,7 @@
             <span class="item"
               [ngClass]="{'right': alt.isCorrect, 'wrong': !alt.isCorrect && alt.isSelected, 'disabled': !alt.isCorrect && !alt.isSelected }">{{ options[index] }}</span>
             <span
-              [ngClass]="{'right': alt.isCorrect, 'wrong': !alt.isCorrect && alt.isSelected, 'disabled': !alt.isCorrect && !alt.isSelected }">{{ alt.enunciado}}</span>
+              [ngClass]="{'right': alt.isCorrect, 'wrong': !alt.isCorrect && alt.isSelected, 'disabled': !alt.isCorrect && !alt.isSelected }" [innerHTML]="alt.enunciado"></span>
           </label>
         </div>
       </mat-card-content>
