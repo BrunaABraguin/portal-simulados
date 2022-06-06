@@ -31,7 +31,6 @@ export class NavbarComponent implements OnInit {
   constructor(
     private authService: SocialAuthService,
     public dialog: MatDialog,
-    private router: Router,
     private _snackBar: MatSnackBar
   ) {}
 
@@ -142,7 +141,6 @@ export class RegisterDialog implements OnInit {
         this.userService.register(user).subscribe(
           (response) => {
             this.data.user = response.token;
-            console.log(response);
             this._snackBar.open('Usuário cadastrado com sucesso', 'Fechar', {
               duration: 2000,
             });

@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { AppComponent, CreateQuestionDialog, CreateTestDialog } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { MatChipsModule } from '@angular/material/chips';
@@ -23,6 +23,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatSelectModule } from '@angular/material/select';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 import { SimuladoComponent } from './modules/simulado/simulado.component';
 import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.component';
 import { HomeComponent } from './modules/home/home.component';
@@ -40,10 +42,13 @@ import { NgChartsModule } from 'ng2-charts';
 import { HttpClientModule } from '@angular/common/http';
 import { ExamCardComponent } from './modules/home/exam-card/exam-card.component';
 import { AvatarModule } from 'ngx-avatar';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
     AppComponent,
+    CreateTestDialog,
+    CreateQuestionDialog,
     SimuladoComponent,
     PageNotFoundComponent,
     PageNotFoundComponent,
@@ -71,6 +76,7 @@ import { AvatarModule } from 'ngx-avatar';
     MatInputModule,
     MatGridListModule,
     MatDividerModule,
+    MatCheckboxModule,
     MatTooltipModule,
     MatButtonToggleModule,
     MatProgressBarModule,
@@ -78,6 +84,8 @@ import { AvatarModule } from 'ngx-avatar';
     MatProgressSpinnerModule,
     MatDialogModule,
     MatSnackBarModule,
+    MatSelectModule,
+    MatFormFieldModule,
     CountdownModule,
     NgChartsModule,
     CommonModule,

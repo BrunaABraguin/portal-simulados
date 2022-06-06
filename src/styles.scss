@@ -94,6 +94,10 @@ $lg-min: 1280px;
   margin-bottom: 10px;
 }
 
+.ml-10 {
+  margin-left: 10px;
+}
+
 .d-xs-none {
   display: none !important;
 
@@ -136,6 +140,10 @@ $lg-min: 1280px;
 
 .justify-content-end {
   justify-content: flex-end;
+}
+
+.justify-content-center {
+  justify-content: center;
 }
 
 .loading {

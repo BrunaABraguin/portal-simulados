@@ -1,0 +1,43 @@
+<article *ngFor="let disciplina of disciplinas">
+  <mat-form-field appearance="fill">
+    <mat-label>Disciplina</mat-label>
+    <mat-select (selectionChange)="setNewDisciplina($event.value)">
+      <mat-option [value]="disciplina.nome">
+        {{disciplina.nome}}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill" *ngFor="let disciplina of disciplinas">
+    <mat-label>Assunto</mat-label>
+    <mat-select (selectionChange)="setNewAssunto($event.value)">
+      <mat-option *ngFor="let assunto of disciplina.assuntos" [value]="assunto">
+        {{ assunto }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Enunciado</mat-label>
+    <textarea matInput [(ngModel)]="newEnunciado"></textarea>
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Comentários</mat-label>
+    <textarea matInput [(ngModel)]="newComentarios"></textarea>
+  </mat-form-field>
+  <h3>Alternativas</h3>
+  <div class="d-flex" *ngFor="let alternativa of alternativas; let i = index">
+    <mat-form-field appearance="fill">
+      <mat-label>Alternativa {{ alphabetic[i] }}</mat-label>
+      <input matInput type="text" [value]="alternativa.enunciado" #alternativaEnunciado
+        (change)="addAlternativa(i, alternativaEnunciado.value, false, alternativa.isCorrect)">
+    </mat-form-field>
+    <mat-checkbox [checked]="alternativa.isCorrect" class="ml-10"
+      (change)="addAlternativa(i, alternativaEnunciado.value, false, !alternativa.isCorrect)">É correta?</mat-checkbox>
+  </div>
+  <div class="d-flex justify-content-center">
+    <button mat-mini-fab color="accent"
+      (click)="addAlternativa(alternativas.length + 1, 'Nova alternativa', false, false)"><i
+        class="ph-plus-bold"></i></button>
+  </div>
+  <br><br>
+  <button class="w-100" mat-raised-button color="primary" (click)="createQuestion()">Criar questão</button>
+</article>

@@ -1,5 +1,5 @@
 export interface Disciplina {
-  id: string;
+  _id: string;
   nome: string;
   assuntos: Array<string>;
 }

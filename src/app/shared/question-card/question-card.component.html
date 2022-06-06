@@ -1,8 +1,8 @@
 <section *ngIf="!mostrarResposta">
   <mat-card class="questions__list">
     <mat-chip-list aria-label="Disciplina e tema da questão" class="questions__tags d-flex">
-      <mat-chip class="questions__tags--exam" color="primary" selected><span>{{ question.disciplina }}</span></mat-chip>
-      <mat-chip class="questions__tags--exam" color="primary" selected><span>{{ question.assunto}}</span></mat-chip>
+      <mat-chip class="questions__tags--exam" color="primary" selected matTooltip="{{ question.disciplina }}"><span>{{ question.disciplina }}</span></mat-chip>
+      <mat-chip class="questions__tags--exam" color="primary" selected matTooltip="{{ question.assunto }}"><span>{{ question.assunto }}</span></mat-chip>
     </mat-chip-list>
     <mat-card-title class="questions__list--title">
       <span>{{ i + 1 }}</span>

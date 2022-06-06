@@ -30,4 +30,26 @@ export class SimuladoService {
         });
     });
   }
+
+  public createQuestion(newQuestao: any) {
+    const token = localStorage.getItem('token');
+    const header = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    return this.http.post(`${environment.API_URL}/questoes`, newQuestao, header);
+  }
+
+  public getDisciplinas(): Observable<any> {
+    return new Observable((observer) => {
+      this.http
+        .get(`${environment.API_URL}/disciplinas`)
+        .subscribe((response) => {
+          observer.next(response);
+          observer.complete();
+        });
+    });
+  }
 }

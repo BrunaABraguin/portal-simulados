@@ -5,6 +5,16 @@
       [matTooltipPosition]="'right'">
       <i class="ph-house ph-3x"></i>
     </button>
+    <br>
+    <button aria-label="Cadastro de questões" mat-menu-item matTooltip="Cadastrar questões" *ngIf="user.profile == 'professor'"
+      [matTooltipPosition]="'right'" (click)="createQuestion()">
+      <i class="ph-question ph-3x"></i>
+    </button>
+    <br>
+    <button aria-label="Cadastro de simulados" mat-menu-item matTooltip="Cadastrar simulados" *ngIf="user.profile == 'professor'"
+      [matTooltipPosition]="'right'">
+      <i class="ph-exam ph-3x" (click)="createTest()"></i>
+    </button>
   </mat-drawer>
   <mat-drawer-content>
     <router-outlet></router-outlet>
