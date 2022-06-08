@@ -39,7 +39,7 @@ export class SimuladoService {
       },
     };
 
-    let data = JSON.parse(newQuestao);
+    let data = newQuestao;
 
     return this.http.post(`${environment.API_URL}/questoes`, data, header);
   }
