@@ -102,11 +102,13 @@ export class CreateQuestionDialog implements OnInit {
     }
 
     this.simuladoService.createQuestion(newQuestao).subscribe((response: any) => {
-      if (response.success)
+      if (response.success == true) {
       {
         this._snackBar.open('Questão cadastrada com sucesso', 'OK');
-      } else {
-        this._snackBar.open('Erro ao cadastrar questão', 'OK');
+      }
+
+      if (response.success == false) {
+        this._snackBar.open(response.msg, 'OK');
       }
 
     });
