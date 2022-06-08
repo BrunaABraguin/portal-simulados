@@ -4,8 +4,7 @@
   &__search {
     width: 50%;
 
-    &--description
-    {
+    &--description {
       max-width: 220px;
       overflow: hidden;
       white-space: nowrap;
@@ -34,6 +33,10 @@
       font-size: 14px;
       font-weight: bold;
       color: #828282;
+      max-width: 220px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
     }
   }
 }
