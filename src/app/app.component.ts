@@ -38,8 +38,38 @@ export class AppComponent {
   styleUrls: ['./app.component.scss'],
 })
 export class CreateQuestionDialog implements OnInit {
-  constructor(private simuladoService: SimuladoService, private _snackBar: MatSnackBar) {}
-  public alphabetic: Array<String> = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  constructor(
+    private simuladoService: SimuladoService,
+    private _snackBar: MatSnackBar
+  ) {}
+  public alphabetic: Array<String> = [
+    'A',
+    'B',
+    'C',
+    'D',
+    'E',
+    'F',
+    'G',
+    'H',
+    'I',
+    'J',
+    'K',
+    'L',
+    'M',
+    'N',
+    'O',
+    'P',
+    'Q',
+    'R',
+    'S',
+    'T',
+    'U',
+    'V',
+    'W',
+    'X',
+    'Y',
+    'Z',
+  ];
   public user = JSON.parse(localStorage.getItem('user') || '{}');
   public disciplinas: Array<Disciplina> = [];
   public alternativas: Array<Alternativa> = [];
@@ -99,20 +129,22 @@ export class CreateQuestionDialog implements OnInit {
       comentarios: this.newComentarios,
       alternativas: this.alternativas,
       autor: this.user.id,
-    }
+    };
 
-    this.simuladoService.createQuestion(newQuestao).subscribe((response: any) => {
-      if (response.success == true) {
-      {
-        this._snackBar.open('Questão cadastrada com sucesso', 'OK');
-      }
+    this.simuladoService
+      .createQuestion(newQuestao)
+      .subscribe((response: any) => {
+        if (response.success == true) {
+          {
+            this._snackBar.open('Questão cadastrada com sucesso', 'OK');
+          }
 
-      if (response.success == false) {
-        this._snackBar.open(response.msg, 'OK');
-      }
-
-    });
-  };
+          if (response.success == false) {
+            this._snackBar.open(response.msg, 'OK');
+          }
+        }
+      });
+  }
 }
 
 @Component({
