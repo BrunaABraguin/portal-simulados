@@ -39,7 +39,9 @@ export class SimuladoService {
       },
     };
 
-    return this.http.post(`${environment.API_URL}/questoes`, newQuestao, header);
+    let data = JSON.stringify(newQuestao);
+
+    return this.http.post(`${environment.API_URL}/questoes`, data, header);
   }
 
   public getDisciplinas(): Observable<any> {
