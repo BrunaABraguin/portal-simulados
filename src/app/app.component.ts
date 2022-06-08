@@ -73,11 +73,12 @@ export class CreateQuestionDialog implements OnInit {
   public user = JSON.parse(localStorage.getItem('user') || '{}');
   public disciplinas: Array<Disciplina> = [];
   public alternativas: Array<Alternativa> = [];
-  public updateCorreta: boolean = false;
   public newDisciplina!: string;
   public newAssunto!: string;
   public newEnunciado!: string;
   public newComentarios!: string;
+  public hideAssuntos: boolean = true;
+  public assuntos: Array<string> = [];
 
   public ngOnInit(): void {
     this.getDisciplinas();
@@ -115,6 +116,14 @@ export class CreateQuestionDialog implements OnInit {
 
   public setNewDisciplina(disciplina: string): void {
     this.newDisciplina = disciplina;
+    this.hideAssuntos = false;
+    let assuntos = this.disciplinas.find(
+      (disciplina) => disciplina.nome == this.newDisciplina
+    )?.assuntos;
+    
+    if (assuntos) {
+      this.assuntos = assuntos;
+    }
   }
 
   public setNewAssunto(assunto: string): void {

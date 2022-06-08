@@ -1,16 +1,16 @@
-<article *ngFor="let disciplina of disciplinas">
+<article *ngFor="let disciplina of disciplinas; let i = index">
   <mat-form-field appearance="fill">
     <mat-label>Disciplina</mat-label>
     <mat-select (selectionChange)="setNewDisciplina($event.value)">
-      <mat-option [value]="disciplina.nome" *ngFor="let nome of disciplina.nome">
-        {{ nome }}
+      <mat-option [value]="disciplina.nome" *ngFor="let disciplina of disciplinas">
+        {{ disciplina.nome }}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Assunto</mat-label>
-    <mat-select (selectionChange)="setNewAssunto($event.value)">
-      <mat-option *ngFor="let assunto of disciplina.assuntos" [value]="assunto">
+    <mat-select (selectionChange)="setNewAssunto($event.value)" [disabled]="hideAssuntos">
+      <mat-option *ngFor="let assunto of assuntos" [value]="assunto">
         {{ assunto }}
       </mat-option>
     </mat-select>
