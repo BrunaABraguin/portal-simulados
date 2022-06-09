@@ -83,6 +83,7 @@ export class ResultadosComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    this.initScroll();
     this.getTempoSimulado();
     this.getSimulado();
     this.getQuestions();
@@ -90,6 +91,15 @@ export class ResultadosComponent implements OnInit {
     this.buildBarChartLabels();
     this.buildBarChartData();
     this.checkFinishExam();
+  }
+
+  public initScroll(): void {
+    setTimeout(() => {
+      document.getElementById('startScroll')?.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }, 500);
   }
 
   public getQuestions(): void {
