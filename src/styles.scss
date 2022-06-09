@@ -3,8 +3,8 @@
 
 @include mat-core();
 
-$primary: mat-palette($mat-purple, 700, 500, 800);
-$accent: mat-palette($mat-green, A200, A100, A400);
+$primary: mat-palette($mat-indigo);
+$accent: mat-palette($mat-yellow);
 
 $theme: mat-light-theme($primary, $accent);
 
