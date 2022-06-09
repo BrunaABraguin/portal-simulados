@@ -53,8 +53,12 @@
     </mat-card>
     <mat-card class="questions__comments--content">
       <mat-chip-list aria-label="Disciplina e tema da questão" class="questions__tags">
-        <mat-chip class="questions__tags--comments" color="primary" selected>{{ question.disciplina }}</mat-chip>
-        <mat-chip class="questions__tags--comments" color="primary" selected>{{ question.assunto}}</mat-chip>
+        <mat-chip class="questions__tags--comments" color="primary" selected>
+          <p>{{ question.disciplina }}</p>
+        </mat-chip>
+        <mat-chip class="questions__tags--comments" color="primary" selected>
+          <p>{{ question.assunto }}</p>
+        </mat-chip>
       </mat-chip-list>
       <mat-card-content>
         <br>

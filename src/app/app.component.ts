@@ -140,6 +140,14 @@ export class CreateQuestionDialog implements OnInit {
       autor: this.user.id,
     };
 
+    if (!this.newDisciplina || !this.newAssunto || !this.newEnunciado || !this.newComentarios || !this.alternativas.length) {
+      this._snackBar.open('Verifique se todos os campos foram preenchidos', 'OK', {
+        duration: 2000,
+      });
+      return;
+    }
+
+
     this.simuladoService
       .createQuestion(newQuestao)
       .subscribe((response: any) => {
