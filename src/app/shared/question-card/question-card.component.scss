@@ -79,7 +79,7 @@
       span {
         @media (max-width: $sm-max) {
           font-size: 1rem;
-          margin: 0 25px;
+          margin: 0 5px;
         }
 
         @media (min-width: $sm-min) {
@@ -90,7 +90,7 @@
       div {
         padding-left: 0.5rem;
         width: fit-content;
-        
+
         @media (max-width: $sm-max) {
           max-width: 70%;
         }
