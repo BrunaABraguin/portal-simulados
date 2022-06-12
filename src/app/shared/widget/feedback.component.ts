@@ -11,11 +11,13 @@ export class FeedbackComponent implements OnInit {
   ideaShow: boolean = false;
   issueShow: boolean = false;
   suggestionShow: boolean = false;
+  doubtShow: boolean = false;
+  placeholder!: string;
   sendSuccess: boolean = false;
   title!: string;
   feedback!: string;
   public showWidgetLogged!: boolean;
-  
+
   constructor(private feedbackService: FeedbackService) {}
 
   ngOnInit(): void {
@@ -24,28 +26,34 @@ export class FeedbackComponent implements OnInit {
 
   private showWidget() {
     localStorage.getItem('token')
-      ? this.showWidgetLogged = true
-      : this.showWidgetLogged = false;
+      ? (this.showWidgetLogged = true)
+      : (this.showWidgetLogged = false);
   }
 
   public ideaForms() {
     this.title = '💡 Ideia';
     this.ideaShow = !this.ideaShow;
+    this.placeholder =
+      'Teve uma ideia de melhoria ou de nova funcionalidade? Conta pra gente!';
   }
 
   public issueForms() {
     this.title = '🐛 Problema';
     this.issueShow = !this.issueShow;
+    this.placeholder =
+      'Algo não está funcionando bem? Queremos corrigir. Conte com detalhes o que está acontecendo...';
   }
 
   public suggestionForms() {
     this.title = '📝 Sugestão';
     this.suggestionShow = !this.suggestionShow;
+    this.placeholder = 'Queremos te ouvir. O que você gostaria de nos dizer? ';
   }
 
   public doubtForms() {
-    this.title = '🤔 Duvida';
+    this.title = '🤔 Dúvida';
     this.suggestionShow = !this.suggestionShow;
+    this.placeholder = 'Tem alguma dúvida sobre o conteúdo? Conte pra gente!';
   }
 
   public closeForms() {
@@ -53,6 +61,7 @@ export class FeedbackComponent implements OnInit {
     this.issueShow = false;
     this.suggestionShow = false;
     this.sendSuccess = false;
+    this.doubtShow = false;
   }
 
   public sendFeedback() {
@@ -60,19 +69,20 @@ export class FeedbackComponent implements OnInit {
       this.ideaShow = false;
       this.issueShow = false;
       this.suggestionShow = false;
+      this.doubtShow = false;
 
       const feedback: Feedback = {
         tipo: this.title.split(' ')[1],
         mensagem: this.feedback,
       };
 
+      this.sendSuccess = true;
+      this.feedback = '';
+      
       this.feedbackService.feedback(feedback).subscribe((response) => {
-        this.sendSuccess = true;
-        console.log(response);
         setTimeout(() => {
-          this.feedback = '';
           this.closeForms();
-        }, 1500);
+        }, 2000);
       });
     }
   }
