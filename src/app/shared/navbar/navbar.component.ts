@@ -10,7 +10,6 @@ import {
   MAT_DIALOG_DATA,
 } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { User } from '../interfaces/user';
 import { UserService } from './user/service/user.service';
@@ -39,7 +38,6 @@ export class NavbarComponent implements OnInit {
       this.userGoogle = user;
       if (user) {
         localStorage.setItem('userGoogle', JSON.stringify(user));
-        localStorage.setItem('token', user.idToken);
       }
     });
 
@@ -112,17 +110,23 @@ export class RegisterDialog implements OnInit {
 
   public loginWithGoogle(): void {
     localStorage.clear();
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
-      this._snackBar.open(
-        'Entrada de usuário realizada com sucesso',
-        'Fechar',
-        {
-          duration: 2000,
-        }
-      );
+    this.authService
+      .signIn(GoogleLoginProvider.PROVIDER_ID)
+      .then((user: SocialUser) => {
+        this.userService.google(user.id).subscribe((response) => {
+          this._snackBar.open(
+            'Entrada de usuário realizada com sucesso',
+            'Fechar',
+            {
+              duration: 2000,
+            }
+          );
 
-      this.dialogRef.close(user);
-    });
+          localStorage.setItem('token', response.token);
+
+          this.dialogRef.close(user);
+        });
+      });
   }
 
   public registerUser(): void {
@@ -184,17 +188,24 @@ export class LoginDialog implements OnInit {
 
   public loginWithGoogle(): void {
     localStorage.clear();
-    this.authService.signIn(GoogleLoginProvider.PROVIDER_ID).then((user) => {
-      this._snackBar.open(
-        'Entrada de usuário realizada com sucesso',
-        'Fechar',
-        {
-          duration: 2000,
-        }
-      );
+    this.authService
+      .signIn(GoogleLoginProvider.PROVIDER_ID)
+      .then((user: SocialUser) => {
 
-      this.dialogRef.close(user);
-    });
+        this.userService.google(user.id).subscribe((response) => {
+          this._snackBar.open(
+            'Entrada de usuário realizada com sucesso',
+            'Fechar',
+            {
+              duration: 2000,
+            }
+          );
+
+          localStorage.setItem('token', response.token);
+
+          this.dialogRef.close(user);
+        });
+      });
   }
 
   public loginUser(): void {

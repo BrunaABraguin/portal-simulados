@@ -17,4 +17,8 @@ export class UserService {
   public login(user: User): Observable<any> {
     return this.http.post(`${environment.API_URL}/auth/login`, user);
   }
+
+  public google(googleId: string): Observable<any> {
+    return this.http.post(`${environment.API_URL}/auth/google`, googleId);
+  }
 }
