@@ -38,6 +38,7 @@ export class NavbarComponent implements OnInit {
       this.userGoogle = user;
       if (user) {
         localStorage.setItem('userGoogle', JSON.stringify(user));
+        localStorage.removeItem('user');
       }
     });
 
