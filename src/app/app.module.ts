@@ -91,7 +91,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     CommonModule,
     FormsModule,
     HttpClientModule,
-    AvatarModule
+    AvatarModule,
   ],
   providers: [
     {

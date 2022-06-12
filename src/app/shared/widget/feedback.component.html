@@ -1,4 +1,4 @@
-<div class="widget__feedback">
+<div class="widget__feedback" *ngIf="showWidgetLogged">
   <button aria-label="Abrir formulário para escrever um comentário sobre um problema, sugestão ou ideia" mat-fab color="primary" matTooltip="Comentar" [matMenuTriggerFor]="menu"
     *ngIf="!issueShow && !ideaShow && !suggestionShow && !sendSuccess">
     <mat-icon><i class="ph-chat-teardrop-dots"></i></mat-icon>
@@ -10,6 +10,7 @@
       Ideia</button>
     <button aria-label="Escrever sobre uma sugestão de melhoria" mat-menu-item (click)="suggestionForms()" matTooltip="Sugerir melhorias" [matTooltipPosition]="'left'">📝
       Sugestão</button>
+    <button aria-label="Escrever sobre uma dúvida do simulado" mat-menu-item (click)="doubtForms()"></button>
   </mat-menu>
 
   <mat-card *ngIf="issueShow || ideaShow || suggestionShow" class="widget__feedback--form">

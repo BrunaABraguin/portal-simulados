@@ -1,3 +1,4 @@
+import { Observable } from 'rxjs';
 import { Feedback } from './../interfaces/feedback';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -10,7 +11,7 @@ export class FeedbackService {
 
   constructor(protected http: HttpClient) { }
 
-  public feedback(feedback: Feedback): void {
+  public feedback(feedback: Feedback): Observable<any> {
     const token = localStorage.getItem('token');
     const header = {
       headers: {
@@ -18,15 +19,6 @@ export class FeedbackService {
       },
     };
 
-    this.http
-      .post(`${environment.API_URL}/feedbacks`, feedback, header)
-      .subscribe(
-        (response: any) => {
-          console.log(response);
-        },
-        (error: any) => {
-          console.log(error);
-        }
-      );
+    return this.http.post(`${environment.API_URL}/feedbacks`, feedback, header);
   }
 }

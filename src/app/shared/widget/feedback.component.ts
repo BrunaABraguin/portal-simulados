@@ -14,10 +14,19 @@ export class FeedbackComponent implements OnInit {
   sendSuccess: boolean = false;
   title!: string;
   feedback!: string;
-
+  public showWidgetLogged!: boolean;
+  
   constructor(private feedbackService: FeedbackService) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.showWidget();
+  }
+
+  private showWidget() {
+    localStorage.getItem('token')
+      ? this.showWidgetLogged = true
+      : this.showWidgetLogged = false;
+  }
 
   public ideaForms() {
     this.title = '💡 Ideia';
@@ -34,6 +43,11 @@ export class FeedbackComponent implements OnInit {
     this.suggestionShow = !this.suggestionShow;
   }
 
+  public doubtForms() {
+    this.title = '🤔 Duvida';
+    this.suggestionShow = !this.suggestionShow;
+  }
+
   public closeForms() {
     this.ideaShow = false;
     this.issueShow = false;
@@ -46,18 +60,20 @@ export class FeedbackComponent implements OnInit {
       this.ideaShow = false;
       this.issueShow = false;
       this.suggestionShow = false;
-      this.sendSuccess = true;
 
       const feedback: Feedback = {
         tipo: this.title.split(' ')[1],
         mensagem: this.feedback,
       };
 
-      this.feedbackService.feedback(feedback);
-
-      setTimeout(() => {
-        this.closeForms();
-      }, 2000);
+      this.feedbackService.feedback(feedback).subscribe((response) => {
+        this.sendSuccess = true;
+        console.log(response);
+        setTimeout(() => {
+          this.feedback = '';
+          this.closeForms();
+        }, 1500);
+      });
     }
   }
 }
