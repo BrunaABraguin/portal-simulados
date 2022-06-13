@@ -5,6 +5,10 @@
     width: 50%;
 
     &--description {
+      @media (min-width: $md-min) {
+        max-width: 100%;
+      }
+
       max-width: 220px;
       overflow: hidden;
       white-space: nowrap;
@@ -30,6 +34,10 @@
     }
 
     &--details-title {
+      @media (min-width: $md-min) {
+        max-width: 100%;
+      }
+
       font-size: 14px;
       font-weight: bold;
       color: #828282;
@@ -43,4 +51,10 @@
 
 mat-card-content {
   margin: 0;
+}
+
+mat-card {
+  @media (min-width: $md-min) {
+    width: 100%;
+  }
 }

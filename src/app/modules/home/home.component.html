@@ -6,9 +6,9 @@
 </div>
 
 <section class="d-lg-none">
-  <mat-grid-list cols="4" [rowHeight]="'200px'">
+  <mat-grid-list cols="1" [rowHeight]="'200px'">
     <mat-grid-tile *ngFor="let exam of simulados">
-      <exam-card [exam]="exam"></exam-card>
+      <exam-card [exam]="exam" class="w-75"></exam-card>
     </mat-grid-tile>
   </mat-grid-list>
 </section>
