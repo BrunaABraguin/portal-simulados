@@ -114,7 +114,7 @@ export class RegisterDialog implements OnInit {
     this.authService
       .signIn(GoogleLoginProvider.PROVIDER_ID)
       .then((user: SocialUser) => {
-        this.userService.google(user.id).subscribe((response) => {
+        this.userService.google(user).subscribe((response) => {
           this._snackBar.open(
             'Entrada de usuário realizada com sucesso',
             'Fechar',
@@ -193,7 +193,7 @@ export class LoginDialog implements OnInit {
       .signIn(GoogleLoginProvider.PROVIDER_ID)
       .then((user: SocialUser) => {
 
-        this.userService.google(user.id).subscribe((response) => {
+        this.userService.google(user).subscribe((response) => {
           this._snackBar.open(
             'Entrada de usuário realizada com sucesso',
             'Fechar',
