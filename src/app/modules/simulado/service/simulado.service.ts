@@ -1,3 +1,4 @@
+import { Simulado } from './../../../shared/interfaces/simulado';
 import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
@@ -53,5 +54,20 @@ export class SimuladoService {
           observer.complete();
         });
     });
+  }
+
+  public saveTest(simulado: Simulado) {
+    console.log(simulado);
+
+    const token = localStorage.getItem('token');
+    const header = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    let data = simulado;
+
+    return this.http.post(`${environment.API_URL}/simuladoRespondido`, data, header);
   }
 }

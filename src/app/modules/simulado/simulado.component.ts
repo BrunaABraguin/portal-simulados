@@ -128,6 +128,7 @@ export class SimuladoComponent implements OnInit {
       alert('Você ainda não respondeu todas as questões!');
     } else {
       this.setTempoSimulado();
+      this.saveTest();
       this.router.navigate([`/resultados/${this.idSimulado}`]);
     }
   }
@@ -156,5 +157,26 @@ export class SimuladoComponent implements OnInit {
 
   public remainingQuestions(): number {
     return this.questions.length - this.progresso;
+  }
+
+  public saveTest(): void {
+    let test: Simulado = {
+      id: this.idSimulado,
+      nome: this.simulado.nome,
+      data: new Date(),
+      questoes: this.questions,
+      progresso: this.progresso,
+      duracao: Number(localStorage.getItem(`tempoSimulado-${this.idSimulado}`)),
+      professor: this.simulado.professor,
+      descricao: this.simulado.descricao,
+      data_criacao: this.simulado.data_criacao,
+      data_fim: this.simulado.data_fim,
+      qtd_questoes: this.simulado.qtd_questoes,
+      userId: String(localStorage.getItem('userId')),
+    };
+
+    this.simuladoService.saveTest(test).subscribe((test) => {
+      console.log(test);
+    });
   }
 }

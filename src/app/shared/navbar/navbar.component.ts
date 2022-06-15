@@ -38,6 +38,7 @@ export class NavbarComponent implements OnInit {
       this.userGoogle = user;
       if (user) {
         localStorage.setItem('userGoogle', JSON.stringify(user));
+        localStorage.setItem('userId', user.id);
         localStorage.removeItem('user');
       }
     });
@@ -234,6 +235,7 @@ export class LoginDialog implements OnInit {
             const decodedToken = this.helper.decodeToken(response.token);
             localStorage.setItem('token', response.token);
             localStorage.setItem('user', JSON.stringify(decodedToken));
+            localStorage.setItem('userId', decodedToken.id);
             this.dialogRef.close(this.data.user);
           },
           (error) => {
