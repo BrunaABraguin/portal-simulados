@@ -5,7 +5,7 @@
     width: 50%;
 
     &--description {
-      @media (min-width: $md-min) {
+      @media (min-width: $md-max) {
         max-width: 100%;
       }
 
@@ -22,14 +22,29 @@
 
       @media (max-width: $xs-max) {
         width: 215px;
+        flex-direction: column;
       }
 
       @media (min-width: $sm-min) and (max-width: $sm-max) {
-        width: 295px;
+        min-width: fit-content;
+        flex-direction: column;
       }
 
       @media (min-width: $md-min) and (max-width: $md-max) {
         width: 260px;
+      }
+
+      div {
+        min-width: fit-content;
+        margin-right: 20px;
+      }
+
+      mat-icon {
+        margin-right: 5px;
+      }
+
+      span {
+        min-width: fit-content;
       }
     }
 
