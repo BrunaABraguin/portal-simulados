@@ -161,6 +161,7 @@ export class SimuladoComponent implements OnInit {
 
   public saveTest(): void {
     const duracao = localStorage.getItem(`tempoSimulado-${this.idSimulado}`);
+    const userId = localStorage.getItem('userId');
 
     let test: Simulado = {
       idSimulado: this.idSimulado,
@@ -174,7 +175,7 @@ export class SimuladoComponent implements OnInit {
       data_criacao: this.simulado.data_criacao,
       data_fim: this.simulado.data_fim,
       qtd_questoes: this.simulado.qtd_questoes,
-      userId: String(localStorage.getItem('userId')),
+      userId: String(userId),
     };
 
     this.simuladoService.saveTest(test).subscribe((test) => {
