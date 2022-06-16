@@ -21,10 +21,10 @@ export class SimuladoService {
     });
   }
 
-  public getSimuladoById(id: string): Observable<any> {
+  public getSimuladoById(idSimulado: string): Observable<any> {
     return new Observable((observer) => {
       this.http
-        .get(`${environment.API_URL}/simulados/${id}`)
+        .get(`${environment.API_URL}/simulados/${idSimulado}`)
         .subscribe((response: any) => {
           observer.next(response.data[0].simulado);
           observer.complete();
