@@ -1,7 +1,7 @@
 import { Questao } from './questao';
 
 export interface Simulado {
-  id: string;
+  idSimulado: string;
   questoes: Questao[];
   professor: string;
   progresso?: number;

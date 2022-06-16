@@ -160,13 +160,15 @@ export class SimuladoComponent implements OnInit {
   }
 
   public saveTest(): void {
+    const duracao = localStorage.getItem(`tempoSimulado-${this.idSimulado}`);
+
     let test: Simulado = {
-      id: this.idSimulado,
+      idSimulado: this.idSimulado,
       nome: this.simulado.nome,
       data: new Date(),
       questoes: this.questions,
       progresso: this.progresso,
-      duracao: Number(localStorage.getItem(`tempoSimulado-${this.idSimulado}`)),
+      duracao: Number(duracao),
       professor: this.simulado.professor,
       descricao: this.simulado.descricao,
       data_criacao: this.simulado.data_criacao,
