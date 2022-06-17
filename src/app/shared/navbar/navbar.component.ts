@@ -38,7 +38,6 @@ export class NavbarComponent implements OnInit {
       this.userGoogle = user;
       if (user) {
         localStorage.setItem('userGoogle', JSON.stringify(user));
-        localStorage.setItem('userId', user.id);
         localStorage.removeItem('user');
       }
     });
@@ -99,6 +98,7 @@ export class RegisterDialog implements OnInit {
   public nome!: string;
   public email!: string;
   public senha!: string;
+  public helper: JwtHelperService = new JwtHelperService();
 
   constructor(
     private authService: SocialAuthService,
@@ -125,6 +125,8 @@ export class RegisterDialog implements OnInit {
           );
 
           localStorage.setItem('token', response.token);
+          const decodedToken = this.helper.decodeToken(response.token);
+          localStorage.setItem('userId', decodedToken.id);
 
           this.dialogRef.close(user);
         });
@@ -204,6 +206,8 @@ export class LoginDialog implements OnInit {
           );
 
           localStorage.setItem('token', response.token);
+          const decodedToken = this.helper.decodeToken(response.token);
+          localStorage.setItem('userId', decodedToken.id);
 
           this.dialogRef.close(user);
         });
