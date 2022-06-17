@@ -26,10 +26,12 @@ export class NavbarComponent implements OnInit {
   public user!: any;
   public userGoogle!: SocialUser;
   public userProfile!: any;
+  public helper: JwtHelperService = new JwtHelperService();
 
   constructor(
     private authService: SocialAuthService,
     public dialog: MatDialog,
+    private userService: UserService,
     private _snackBar: MatSnackBar
   ) {}
 
@@ -39,9 +41,14 @@ export class NavbarComponent implements OnInit {
       if (user) {
         localStorage.setItem('userGoogle', JSON.stringify(user));
         localStorage.removeItem('user');
+
+        this.userService.google(user).subscribe((response) => {
+          localStorage.setItem('token', response.token);
+          const decodedToken = this.helper.decodeToken(response.token);
+          localStorage.setItem('userId', decodedToken.id);
+        });
       }
     });
-
     this.userProfile = JSON.parse(localStorage.getItem('user') || '{}');
   }
 
@@ -195,7 +202,6 @@ export class LoginDialog implements OnInit {
     this.authService
       .signIn(GoogleLoginProvider.PROVIDER_ID)
       .then((user: SocialUser) => {
-
         this.userService.google(user).subscribe((response) => {
           this._snackBar.open(
             'Entrada de usuário realizada com sucesso',
