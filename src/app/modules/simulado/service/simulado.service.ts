@@ -57,8 +57,6 @@ export class SimuladoService {
   }
 
   public saveTest(simulado: Simulado) {
-    console.log(simulado);
-
     const token = localStorage.getItem('token');
     const header = {
       headers: {

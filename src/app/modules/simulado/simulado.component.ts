@@ -160,7 +160,13 @@ export class SimuladoComponent implements OnInit {
   }
 
   public saveTest(): void {
-    const duracao = localStorage.getItem(`tempoSimulado-${this.idSimulado}`);
+    let duracao = localStorage.getItem(`tempoSimulado-${this.idSimulado}`);
+    if (duracao !== null) {
+      duracao = duracao.replace(' minuto(s)', '');
+    } else {
+      duracao = '0';
+    }
+
     const userId = localStorage.getItem('userId');
 
     let test: Simulado = {
@@ -178,8 +184,8 @@ export class SimuladoComponent implements OnInit {
       userId: String(userId),
     };
 
-    this.simuladoService.saveTest(test).subscribe((test) => {
-      console.log(test);
+    this.simuladoService.saveTest(test).subscribe((response) => {
+      console.log(response);
     });
   }
 }
