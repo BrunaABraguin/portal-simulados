@@ -1,5 +1,9 @@
-import { GoogleLoginProvider, SocialLoginModule } from '@abacritt/angularx-social-login';
+import { GoogleLoginProvider } from '@abacritt/angularx-social-login';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 
 import { NavbarComponent } from './navbar.component';
 
@@ -9,7 +13,13 @@ describe('NavbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SocialLoginModule, GoogleLoginProvider],
+      imports: [
+        MatDialogModule,
+        HttpClientTestingModule,
+        MatSnackBarModule,
+        MatMenuModule,
+      ],
+      declarations: [NavbarComponent],
       providers: [
         {
           provide: 'SocialAuthServiceConfig',
@@ -29,7 +39,6 @@ describe('NavbarComponent', () => {
           },
         },
       ],
-      declarations: [NavbarComponent],
     }).compileComponents();
   });
 
