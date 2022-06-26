@@ -33,9 +33,11 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 <br>
 
-## Running end-to-end tests
+## Running automated tests
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+`npx cypress run` – Non-interactive test runner. Runs the tests in a “headless” browser. This means the browser window is not visible.
+
+`npx cypress open` – Interactive test runner. Opens a window where you can select which tests to run and which browser to use. The browser window is visible and it remains visible after completion.
 
 <br>
 
