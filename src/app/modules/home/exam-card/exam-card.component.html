@@ -41,6 +41,6 @@
       routerLink="/simulado/{{exam.idSimulado}}" color="accent">
       <span matTooltip="Iniciar"><i class="ph-play-bold"></i></span>
     </button>
-    <h4 *ngIf="prazoExpirado">O prazo para realizar este simulado expirou</h4>
+    <p *ngIf="prazoExpirado">O prazo para realizar este simulado expirou</p>
   </mat-card-actions>
 </mat-card>
