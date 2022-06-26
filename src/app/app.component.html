@@ -1,12 +1,12 @@
 <app-navbar></app-navbar>
 <mat-drawer-container>
-  <mat-drawer mode="side" opened class="d-lg-none">
+  <mat-drawer role="menu" mode="side" opened class="d-lg-none">
     <button role="menuitem" aria-label="Voltar ao início" mat-menu-item [routerLink]="'/'" [routerLinkActive]="'/'" matTooltip="Início"
       [matTooltipPosition]="'right'">
       <i class="ph-house ph-3x"></i>
     </button>
     <br>
-    <button aria-label="Cadastro de questões" mat-menu-item matTooltip="Cadastrar questões" *ngIf="user.profile == 'professor'"
+    <button role="menuitem" aria-label="Cadastro de questões" mat-menu-item matTooltip="Cadastrar questões" *ngIf="user.profile == 'professor'"
       [matTooltipPosition]="'right'" (click)="createQuestion()">
       <i class="ph-question ph-3x"></i>
     </button>
