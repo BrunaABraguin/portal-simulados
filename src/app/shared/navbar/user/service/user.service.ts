@@ -5,10 +5,15 @@ import { environment } from 'src/environments/environment';
 import { User } from '../../../interfaces/user';
 import { SocialUser } from '@abacritt/angularx-social-login';
 
+export interface DialogData {
+  user: any;
+}
+
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
+  dialog: any;
   constructor(protected http: HttpClient) {}
 
   public register(user: User): Observable<any> {
@@ -27,5 +32,15 @@ export class UserService {
     };
 
     return this.http.post(`${environment.API_URL}/auth/google`, body);
+  }
+
+  public isUserAuthenticated(): boolean {
+    let userId = localStorage.getItem('userId');
+
+    if (userId !== null) {
+      return true;
+    }
+
+    return false;
   }
 }

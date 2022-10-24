@@ -1,3 +1,4 @@
+import { UserService } from './shared/navbar/user/service/user.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { CommonModule } from '@angular/common';
@@ -31,9 +32,7 @@ import { HomeComponent } from './modules/home/home.component';
 import { GoogleLoginProvider, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { FeedbackComponent } from './shared/widget/feedback.component';
 import {
-  NavbarComponent,
-  RegisterDialog,
-  LoginDialog
+  NavbarComponent
 } from './shared/navbar/navbar.component';
 import { CountdownModule } from 'ngx-countdown';
 import { ResultadosComponent } from './modules/resultados/resultados.component';
@@ -43,6 +42,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { ExamCardComponent } from './modules/home/exam-card/exam-card.component';
 import { AvatarModule } from 'ngx-avatar';
 import { MatFormFieldModule } from '@angular/material/form-field';
+import { LoginDialog } from './shared/navbar/user/login-dialog/login-dialog.component';
+import { RegisterDialog } from './shared/navbar/user/register-dialog/register-dialog.component';
 
 @NgModule({
   declarations: [
@@ -55,8 +56,8 @@ import { MatFormFieldModule } from '@angular/material/form-field';
     HomeComponent,
     FeedbackComponent,
     NavbarComponent,
-    RegisterDialog,
     LoginDialog,
+    RegisterDialog,
     ResultadosComponent,
     QuestionCardComponent,
     ExamCardComponent,
@@ -111,6 +112,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
         },
       },
     },
+    UserService
   ],
   bootstrap: [AppComponent],
 })
