@@ -1,4 +1,7 @@
 @import '~@angular/material/theming';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @include mat-core();
 

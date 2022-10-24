@@ -37,9 +37,7 @@ export class UserService {
   public isUserAuthenticated(): boolean {
     let userId = localStorage.getItem('userId');
 
-    if (userId !== null) {
-      return true;
-    }
+    if (userId !== null) return true;
 
     return false;
   }

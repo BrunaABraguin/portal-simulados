@@ -7,10 +7,18 @@ import { PageNotFoundComponent } from './modules/page-not-found/page-not-found.c
 import { ResultadosComponent } from './modules/resultados/resultados.component';
 
 const routes: Routes = [
-  { path: '', component: HomeComponent, canActivate: [AuthGuard]},
-  { path: 'simulado/:id', component: SimuladoComponent },
-  { path: 'resultados/:id', component: ResultadosComponent },
-  { path: '**', component: PageNotFoundComponent },
+  { path: '', component: HomeComponent, canActivate: [AuthGuard] },
+  {
+    path: 'simulado/:id',
+    component: SimuladoComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'resultados/:id',
+    component: ResultadosComponent,
+    canActivate: [AuthGuard],
+  },
+  { path: '**', component: PageNotFoundComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({
