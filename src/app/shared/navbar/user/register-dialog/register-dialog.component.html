@@ -1,10 +1,9 @@
 <div mat-dialog-title class="flex justify-end">
-  <button aria-label="Fechar formulário de login" mat-icon-button (click)="closeDialog()">
+  <button aria-label="Fechar formulário de cadastro" mat-icon-button (click)="closeDialog()">
     <mat-icon><i class="ph-x"></i></mat-icon>
   </button>
 </div>
 <div mat-dialog-content>
-  <h3>Para realizar simulados, se identifique</h3>
   <button aria-label="Entrar como usuário do Google" mat-stroked-button color="primary" (click)="loginWithGoogle()"
     class="d-flex w-100">
     <mat-icon><i class="ph-google-logo-bold"></i></mat-icon>
@@ -24,16 +23,20 @@
   <br>
   <div class="d-flex flex-column">
     <mat-form-field appearance="outline" color="accent" class="w-100">
+      <mat-label>Nome</mat-label>
+      <input matInput [type]="'text'" placeholder="Nome" required [(ngModel)]="nome">
+    </mat-form-field>
+    <mat-form-field appearance="outline" color="accent" class="w-100">
       <mat-label>Email</mat-label>
       <input matInput [type]="'email'" placeholder="Email" required [(ngModel)]="email">
     </mat-form-field>
     <mat-form-field appearance="outline" color="accent" class="w-100">
       <mat-label>Senha</mat-label>
-      <input matInput [type]="'password'" placeholder="Senha" required [(ngModel)]="senha">
+      <input matInput [type]="'password'" placeholder="Senha" required [(ngModel)]="senha" minlength="6">
     </mat-form-field>
   </div>
 </div>
 <div mat-dialog-actions>
-  <button aria-label="Entrar em um perfil de usuário" mat-flat-button color="accent" class="w-100"
-    (click)="loginUser()">Entrar</button>
+  <button aria-label="Criar um perfil de usuário" mat-flat-button color="accent" class="w-100"
+    (click)="registerUser()">Criar conta</button>
 </div>

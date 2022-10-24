@@ -1,4 +1,5 @@
 import { GoogleLoginProvider, SocialAuthService, SocialUser } from "@abacritt/angularx-social-login";
+import { HttpErrorResponse } from "@angular/common/http";
 import { Component, Inject, OnInit } from "@angular/core";
 import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { MatSnackBar } from "@angular/material/snack-bar";
@@ -8,7 +9,7 @@ import { DialogData, UserService } from "../service/user.service";
 
 @Component({
   selector: 'login-dialog',
-  templateUrl: './login-dialog.html',
+  templateUrl: './login-dialog.component.html',
   styleUrls: ['../../navbar.component.scss'],
 })
 export class LoginDialog implements OnInit {
@@ -77,7 +78,7 @@ export class LoginDialog implements OnInit {
             localStorage.setItem('userId', decodedToken.id);
             this.dialogRef.close(this.data.user);
           },
-          (error) => {
+          (error: HttpErrorResponse) => {
             this._snackBar.open('Usuário não autorizado', 'Fechar', {
               duration: 2000,
             });

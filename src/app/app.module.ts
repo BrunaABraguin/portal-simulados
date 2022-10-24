@@ -32,7 +32,7 @@ import { HomeComponent } from './modules/home/home.component';
 import { GoogleLoginProvider, SocialLoginModule } from '@abacritt/angularx-social-login';
 import { FeedbackComponent } from './shared/widget/feedback.component';
 import {
-  NavbarComponent
+  NavbarComponent, UserDialog
 } from './shared/navbar/navbar.component';
 import { CountdownModule } from 'ngx-countdown';
 import { ResultadosComponent } from './modules/resultados/resultados.component';
@@ -58,6 +58,7 @@ import { RegisterDialog } from './shared/navbar/user/register-dialog/register-di
     NavbarComponent,
     LoginDialog,
     RegisterDialog,
+    UserDialog,
     ResultadosComponent,
     QuestionCardComponent,
     ExamCardComponent,

@@ -1,14 +1,19 @@
-import { GoogleLoginProvider, SocialAuthService, SocialUser } from "@abacritt/angularx-social-login";
-import { Component, Inject, OnInit } from "@angular/core";
-import { MatDialogRef, MAT_DIALOG_DATA } from "@angular/material/dialog";
-import { MatSnackBar } from "@angular/material/snack-bar";
-import { JwtHelperService } from "@auth0/angular-jwt";
-import { User } from "src/app/shared/interfaces/user";
-import { DialogData, UserService } from "../service/user.service";
+import {
+  GoogleLoginProvider,
+  SocialAuthService,
+  SocialUser,
+} from '@abacritt/angularx-social-login';
+import { HttpErrorResponse } from '@angular/common/http';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { JwtHelperService } from '@auth0/angular-jwt';
+import { User } from 'src/app/shared/interfaces/user';
+import { DialogData, UserService } from '../service/user.service';
 
 @Component({
   selector: 'register-dialog',
-  templateUrl: './register-dialog.html',
+  templateUrl: './register-dialog.component.html',
   styleUrls: ['../../navbar.component.scss'],
 })
 export class RegisterDialog implements OnInit {
@@ -72,10 +77,22 @@ export class RegisterDialog implements OnInit {
             localStorage.setItem('token', response.token);
             this.dialogRef.close(this.data.user);
           },
-          (error) => {
-            this._snackBar.open(error.error.message, 'Fechar', {
-              duration: 2000,
-            });
+          (error: HttpErrorResponse) => {
+            console.log(error.status === 400);
+
+            if (error.status === 400) {
+              this._snackBar.open(
+                'E-mail já utilizado, realize login',
+                'Fechar',
+                {
+                  duration: 2000,
+                }
+              );
+            } else {
+              this._snackBar.open(error.error.msg, 'Fechar', {
+                duration: 2000,
+              });
+            }
           }
         );
       }

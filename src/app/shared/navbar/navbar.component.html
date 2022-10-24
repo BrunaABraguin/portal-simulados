@@ -12,13 +12,5 @@
       <mat-icon><i class="ph-sign-out"></i></mat-icon>
       <span>Sair</span>
     </button>
-    <button aria-label="Cadastrar usuário" mat-menu-item *ngIf="!userGoogle && (userProfile | json) == '{}'" class="d-flex" (click)="registerUser()">
-      <mat-icon><i class="ph-user-plus-bold"></i></mat-icon>
-      <span>Cadastre-se</span>
-    </button>
-    <button aria-label="Entrar no perfil do usuário" mat-menu-item *ngIf="!userGoogle && (userProfile | json) == '{}'" class="d-flex" (click)="loginUser()">
-      <mat-icon><i class="ph-user-circle-bold"></i></mat-icon>
-      <span>Entrar</span>
-    </button>
   </mat-menu>
 </mat-toolbar>
